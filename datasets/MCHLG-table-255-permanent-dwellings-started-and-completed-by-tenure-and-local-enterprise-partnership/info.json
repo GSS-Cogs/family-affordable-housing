@@ -1,0 +1,37 @@
+{
+    "title": "Table 255: permanent dwellings started and completed, by tenure and local enterprise partnership",
+    "publisher": "MCHLG",
+    "description": "Live tables on house building: new build dwellings started and completed, by tenure and local enterprise partnership.",
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    "contacts":
+    [{
+      	"name": "Anthony Myers",
+      	"tel": "0303 444 2255",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    "published": "3 Oct 2019",
+    "families": [" Housing", "Construction"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+            "Year (Financial)",
+            {"Geopgraphy":
+            [
+              "Local Enterprise",
+              "Partnership (LEP)"
+            ]},
+            {"Dwelling":
+            [
+              "Tenure",
+              "Started",
+              "Completed"
+            ]}
+          ]
+    },
+    "notes": ""
+}
