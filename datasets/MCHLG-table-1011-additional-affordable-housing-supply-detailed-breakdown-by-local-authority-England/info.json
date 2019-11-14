@@ -1,0 +1,28 @@
+{
+    "title": "Table 1011: additional affordable housing supply, detailed breakdown by local authority England",
+    "publisher": "MCHLG",
+    "description": "Affordable housing supply statistics (AHS) 2017-18.",
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "contacts":
+    [{
+      	"name": "Miguel Marques dos Santos, MCHLG, SW1P 4DF",
+      	"tel": "030 3444 0000",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "published": "18 June 2019",
+    "families": ["Housing","Construction"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+              	    "Year",
+                    "Geography",
+                    {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
+          ]
+    },
+    "notes": "The table presented here provides a more detailed breakdown of the types of unit contributing to overall supply for each individual local authority. Only difference with Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England is that the subset dimension of Dwelling - Completion-Starts On Site is further broken into, New Build and Rehab-Acquisition."
+}

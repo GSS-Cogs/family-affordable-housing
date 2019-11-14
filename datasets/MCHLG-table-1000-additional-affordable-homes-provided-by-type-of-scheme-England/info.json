@@ -1,0 +1,27 @@
+{
+    "title": "Table 1000: additional affordable homes provided by type of scheme, England",
+    "publisher": "MCHLG",
+    "description": "Affordable housing supply statistics (AHS) 2017-18. Live tables - 1000, 1000S, 1000C, 1000C Chart - 1004",
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "contacts":
+    [{
+      	"name": "Miguel Marques dos Santos, MCHLG, SW1P 4DF",
+      	"tel": "030 3444 0000",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "published": "18 June 2019",
+    "families": ["Housing","Construction"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+              	    "Year",
+                    {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
+          ]
+    },
+    "notes": ""
+}
