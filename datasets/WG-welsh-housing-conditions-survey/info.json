@@ -2,7 +2,7 @@
     "title": "Welsh Housing Conditions Survey",
     "publisher": "Welsh Government",
     "description": "The results of the Welsh Housing Conditions Survey 2017 - 2018",
-    "dataURL": "hhttps://gov.wales/welsh-housing-conditions-survey-results-viewer",
+    "dataURL": "https://gov.wales/welsh-housing-conditions-survey-results-viewer",
     "contacts":
     [{
       	"name": "Abigail Woodham",

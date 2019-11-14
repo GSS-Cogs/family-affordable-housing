@@ -1,0 +1,34 @@
+{
+    "title": "Table 602 Local authority owned dwellings let by local authority1, England, 2000-01 to 2017-18",
+    "publisher": "MCHLG",
+    "description": "This is one of 6 tables from the live tables on rents, lettings and tenancies",
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies",
+    "contacts":
+    [{
+      	"name": "",
+      	"tel": "",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies",
+    "published": "24 January 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+            "Period",
+            {"Lets":
+              [
+                "New",
+                "Existing",
+                "Mutual exchange",
+                "Total", 
+                "Percentage"
+            ]}
+          ]
+    },
+    "notes": "This is one of 6 Tables  from the live tables which provide the latest, most useful or most popular data, presented by type and other variables, including by geographical area or on a temporal basis."
+}

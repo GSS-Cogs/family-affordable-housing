@@ -1,0 +1,36 @@
+{
+    "title": "Table 615: vacant dwellings by local authority district: England, from 2004",
+    "publisher": "GOV.UK",
+    "description": "This table brings together figures on vacant dwellings in England at local authority district level drawn from several separately published sources, as at 11 March 2018 and previous years.",
+    "dataURL": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/784593/LT_615.xls",
+    "contacts":
+    [{
+      	"name": "",
+      	"tel": "030 3444 0000",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants",
+    "published": "24 May 2019",
+    "families": ["Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+            {"Time": ["Year", "Date"]},
+            "Geography",
+            {"Dwellings":
+              [
+                  "Vacant",
+                  "Long-term vacant",
+                  "Local Authority vacant",
+                  "Private registered Provider Vacant general needs",
+                  "Private registered Provider long-term Vacant general needs",
+                  "Other Public Sector Vacant"
+            ]}
+          ]
+    },
+    "notes": ""
+}
