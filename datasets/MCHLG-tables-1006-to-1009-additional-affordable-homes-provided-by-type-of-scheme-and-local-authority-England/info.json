@@ -1,0 +1,28 @@
+{
+    "title": "tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",
+    "publisher": "MCHLG",
+    "description": "Affordable housing supply statistics (AHS) 2017-18. Live tables - 1006C,1006S, 1006aC,1006aS, 1006bS, 1006bC, 1007C,1007S, 1008C,1008S, 1009",
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "contacts":
+    [{
+      	"name": "MMiguel Marques dos Santos, MCHLG, SW1P 4DF",
+      	"tel": "030 3444 0000",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "published": "18 June 2019",
+    "families": ["Housing","Construction"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+              	    "Year",
+                    "Geography",
+                    {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
+          ]
+    },
+    "notes": "Very Similar to Table 1000: additional affordable homes provided by type of scheme, England (MHCLG) but broken down by Local Authority Area (only difference is addition of Geography dimension)."
+}
