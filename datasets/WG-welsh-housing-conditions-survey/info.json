@@ -1,0 +1,53 @@
+{
+    "title": "Welsh Housing Conditions Survey",
+    "publisher": "Welsh Government",
+    "description": "The results of the Welsh Housing Conditions Survey 2017 - 2018",
+    "dataURL": "hhttps://gov.wales/welsh-housing-conditions-survey-results-viewer",
+    "contacts":
+    [{
+      	"name": "Abigail Woodham",
+      	"tel": "0300 025 1053",
+      	"email": "stats.housingconditions@gov.wales"
+    }],
+    "metaURL": "https://gov.wales/welsh-housing-conditions-survey-results-viewer",
+    "published": "31 October 2019",
+    "families": "Affordable Housing",
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "XLSB x 2, ODS, Other formats may be available",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+              	    "Carbon monoxide detector",
+                    "Children in material deprivation",
+                    "Construction and Energy Saving measures",
+                    "Damp",
+                    "Dwelling age",
+                    "Dwelling type",
+                    "Economic status",
+                    "Electricity",
+                    "Energy efficiency",
+                    "Energy performance",
+                    "Fuel type",
+                    "Gas",
+                    "Gender and age",
+                    "Heating system and fuel",
+                    "Heating type",
+                    "Household members working",
+                    "Household type",
+                    "Lead",
+                    "Material deprivation (adults and pensioners combined)",
+                    "Region",
+                    "Smoke detector",
+                    "Structural defects",
+                    "Tenure",
+                    "Urban / rural",
+                    "Water meter",
+                    "WHQS",
+                    "WHQS - Primary elements",
+                    "WHQS - Secondary elements"
+          ]
+    },
+    "notes": ""
+}

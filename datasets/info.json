@@ -1,6 +1,6 @@
 {
   "family": "Affordable Housing",
   "pipelines": [
-    
+      "WG-welsh-housing-conditions-survey"
   ]
 }
