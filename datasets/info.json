@@ -1,6 +1,7 @@
 {
   "family": "Affordable Housing",
   "pipelines": [
-      "WG-welsh-housing-conditions-survey"
+      "WG-welsh-housing-conditions-survey",
+      "MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England"
   ]
 }
