@@ -25,10 +25,13 @@
                 "New",
                 "Existing",
                 "Mutual exchange",
-                "Total", 
+                "Total",
                 "Percentage"
             ]}
           ]
     },
-    "notes": "This is one of 6 Tables  from the live tables which provide the latest, most useful or most popular data, presented by type and other variables, including by geographical area or on a temporal basis."
+    "notes": "This is one of 6 Tables  from the live tables which provide the latest, most useful or most popular data, presented by type and other variables, including by geographical area or on a temporal basis.",
+    "transform": {
+      "main_issue": 1
+    }
 }

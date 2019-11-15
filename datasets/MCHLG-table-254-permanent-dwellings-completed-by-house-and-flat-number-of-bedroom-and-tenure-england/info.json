@@ -24,5 +24,8 @@
                 {"Dwelling (Completed)": ["Tenure", "Type", "Bedrooms"]}
           ]
     },
-    "notes": ""
+    "notes": "",
+    "transform": {
+      "main_issue": 6
+    }
 }

@@ -32,5 +32,8 @@
             ]}
           ]
     },
-    "notes": ""
+    "notes": "",
+    "transform": {
+      "main_issue": 8
+    }
 }

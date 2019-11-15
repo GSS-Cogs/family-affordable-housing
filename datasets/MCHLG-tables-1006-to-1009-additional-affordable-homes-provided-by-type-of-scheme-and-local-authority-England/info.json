@@ -24,5 +24,8 @@
                     {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
           ]
     },
-    "notes": "Very Similar to Table 1000: additional affordable homes provided by type of scheme, England (MHCLG) but broken down by Local Authority Area (only difference is addition of Geography dimension)."
+    "notes": "Very Similar to Table 1000: additional affordable homes provided by type of scheme, England (MHCLG) but broken down by Local Authority Area (only difference is addition of Geography dimension).",
+    "transform": {
+      "main_issue": 9
+    }
 }

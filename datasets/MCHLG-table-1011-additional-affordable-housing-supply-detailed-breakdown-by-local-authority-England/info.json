@@ -24,5 +24,8 @@
                     {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
           ]
     },
-    "notes": "The table presented here provides a more detailed breakdown of the types of unit contributing to overall supply for each individual local authority. Only difference with Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England is that the subset dimension of Dwelling - Completion-Starts On Site is further broken into, New Build and Rehab-Acquisition."
+    "notes": "The table presented here provides a more detailed breakdown of the types of unit contributing to overall supply for each individual local authority. Only difference with Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England is that the subset dimension of Dwelling - Completion-Starts On Site is further broken into, New Build and Rehab-Acquisition.",
+    "transform": {
+      "main_issue": 3
+    }
 }

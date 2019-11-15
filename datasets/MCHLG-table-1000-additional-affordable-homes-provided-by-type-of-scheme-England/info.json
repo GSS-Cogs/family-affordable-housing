@@ -23,5 +23,8 @@
                     {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
           ]
     },
-    "notes": ""
+    "notes": "",
+    "transform": {
+      "main_issue": 2
+    }
 }

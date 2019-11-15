@@ -62,5 +62,8 @@
             "Sub-groups"
       ]
     },
-    "notes": "Although Tenure, Household type are listed under household attributes and Number of Bedrooms, house or flat and Age of Dwelling are  listed under Dwelling Characteristics in most cases, there are instances where they are used as a separate dimension e.g. on the wall insulation tab & Flats on the Type tab. 3+ Bedrooms is a separate dimension on the bedrooms tab but also included in the Dwelling Characteristics on the same tab."
+    "notes": "Although Tenure, Household type are listed under household attributes and Number of Bedrooms, house or flat and Age of Dwelling are  listed under Dwelling Characteristics in most cases, there are instances where they are used as a separate dimension e.g. on the wall insulation tab & Flats on the Type tab. 3+ Bedrooms is a separate dimension on the bedrooms tab but also included in the Dwelling Characteristics on the same tab.",
+    "transform": {
+      "main_issue": 16
+    }
 }

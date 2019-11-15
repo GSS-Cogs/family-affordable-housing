@@ -30,5 +30,8 @@
               ]}
           ]
     },
-    "notes": "Sources - Local Authority and other public sector stock were reported by local authorities in the Local Authority Housing Statistics return as at 1 April 2018 and include non-permanent dwellings."
+    "notes": "Sources - Local Authority and other public sector stock were reported by local authorities in the Local Authority Housing Statistics return as at 1 April 2018 and include non-permanent dwellings.",
+    "transform": {
+      "main_issue": 12
+    }
 }

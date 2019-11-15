@@ -32,5 +32,8 @@
               ]}
           ]
     },
-    "notes": "Source: Family Resources Survey"
+    "notes": "Source: Family Resources Survey",
+    "transform": {
+      "main_issue": 19
+    }
 }
