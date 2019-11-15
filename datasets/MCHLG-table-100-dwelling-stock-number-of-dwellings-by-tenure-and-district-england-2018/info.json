@@ -1,0 +1,34 @@
+{
+    "title": "Table 100 Dwelling stock: Number of Dwellings by Tenure and district: England; 2018",
+    "publisher": "MCHLG",
+    "description": "Number of Dwellings by Tenure and district: England as at 31 March 2018 and previous years.",
+    "dataURL": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/814669/LT_100.xls",
+    "contacts":
+    [{
+      	"name": "Nicholas Mainwaring",
+      	"tel": "0303 444 2255",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants",
+    "published": "24 May 2019",
+    "families": ["Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All tabs",
+        	"breakdowns":
+          [
+                "Year",
+                "Geography",
+            {"Dwellings":
+              [
+                "Local Authority",
+                "Private Registered Provider",
+                "Other Public Sector",
+                "Private Sector"
+              ]}
+          ]
+    },
+    "notes": "Sources - Local Authority and other public sector stock were reported by local authorities in the Local Authority Housing Statistics return as at 1 April 2018 and include non-permanent dwellings."
+}
