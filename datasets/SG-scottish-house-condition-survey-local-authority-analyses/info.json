@@ -1,0 +1,66 @@
+{
+    "title": "Scottish House Condition Survey - Local Authority Analyses",
+    "publisher": "Scottish Governemnt",
+    "description": "The SHCS Local Authority tables either supplement our Key Findings report or are based on specific requests received from Local Authorities for their own use. Below is the full set of Local Authority tables relating to the latest period 2015-2017.",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/SHCS/keyanalyses",
+    "contacts":
+    [{
+      	"name": "",
+      	"tel": "+44 131 244 1685",
+      	"email": "shcs@gov.scot"
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/SHCS/keyanalyses",
+    "published": "25 february 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            "Local Authority",
+            "Households",
+            "Stock profile",
+            "Wall insulation ",
+            {"Dwelling Characteristics":
+              [
+              "Age of Dwelling",
+              "House or flat",
+              "Number of Bedrooms"
+              ]},
+            {"Household Attributes":
+              [
+              "Tenure",
+              "Household type"
+              ]},
+            "Long Term Sick or Disabled (LTSD)",
+            "Receiving care services",
+            "Dwellings with Adaptations",
+            "LTSD restricted by the dwelling",
+            "Dwellings requiring Adaptations",
+            "Full Central Heating",
+            "Loft Insulation",
+            "Energy Efficiency Rating (SAP2009)",
+            "Environmental Impact Rating (SAP 2012)",
+            "Mean household income",
+            "Fuel Poverty",
+            "Overcrowded",
+            "Under-occupied",
+            "Below the Tolerable Standard (BTS)",
+            "Scottish Housing Quality ",
+            {"Standard (SHQS)":
+              [
+              "Free from Serious Disrepair",
+              "Energy Efficient",
+              "Modern Facilities and Services",
+              "Health Safe and Secure"
+              ]},
+            "Disrepair",
+            "Damp",
+            "Condensation",
+            "Sub-groups"
+      ]
+    },
+    "notes": "Although Tenure, Household type are listed under household attributes and Number of Bedrooms, house or flat and Age of Dwelling are  listed under Dwelling Characteristics in most cases, there are instances where they are used as a separate dimension e.g. on the wall insulation tab & Flats on the Type tab. 3+ Bedrooms is a separate dimension on the bedrooms tab but also included in the Dwelling Characteristics on the same tab."
+}
