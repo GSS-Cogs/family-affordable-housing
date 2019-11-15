@@ -1,15 +1,16 @@
 {
   "family": "Affordable Housing",
+  "github": "https://github.com/GSS-Cogs/family-affordable-housing",
   "pipelines": [
-      "WG-welsh-housing-conditions-survey",
-      "GOV-table-615-vacant-dwellings-by-local-authority-district-england-from-2004",
-      "MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",
-      "MCHLG-table-1012-affordable-housing-starts-and-completions-funded-by-Homes-England-and-the-GLA",
-      "MCHLG-table-1011-additional-affordable-housing-supply-detailed-breakdown-by-local-authority-England",
-      "MCHLG-table-1000-additional-affordable-homes-provided-by-type-of-scheme-England",
-      "MCHLG-table-602-local-authority-owned-dwellings-let-by-local-authority1-england,-2000-01-to-2017-18",
-      "MCHLG-table-255-permanent-dwellings-started-and-completed-by-tenure-and-local-enterprise-partnership",
-      "MCHLG-table-254-permanent-dwellings-completed-by-house-and-flat-number-of-bedroom-and-tenure-england",
-      "MCHLG-table-222-permanent-dwellings-started-and-completed-by-tenure-england-quarterly-seasonally-adjusted"
+      ["WG-welsh-housing-conditions-survey",10],
+      ["GOV-table-615-vacant-dwellings-by-local-authority-district-england-from-2004",8],
+      ["MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",9],
+      ["MCHLG-table-1012-affordable-housing-starts-and-completions-funded-by-Homes-England-and-the-GLA",4],
+      ["MCHLG-table-1011-additional-affordable-housing-supply-detailed-breakdown-by-local-authority-England",3],
+      ["MCHLG-table-1000-additional-affordable-homes-provided-by-type-of-scheme-England",2],
+      ["MCHLG-table-602-local-authority-owned-dwellings-let-by-local-authority1-england,-2000-01-to-2017-18",1],
+      ["MCHLG-table-255-permanent-dwellings-started-and-completed-by-tenure-and-local-enterprise-partnership",7],
+      ["MCHLG-table-254-permanent-dwellings-completed-by-house-and-flat-number-of-bedroom-and-tenure-england",6],
+      ["MCHLG-table-222-permanent-dwellings-started-and-completed-by-tenure-england-quarterly-seasonally-adjusted",5]
   ]
 }
