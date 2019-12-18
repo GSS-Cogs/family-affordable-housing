@@ -1,0 +1,6 @@
+Label,Notation,Parent Notation,Sort Priority
+Local Authority,local-authority,,1
+Private Registered Provider,private-registered-provider	,,2
+Other public sector,other-public-sector,,3
+Private Sector,private-sector,,4
+Total,total,,5
