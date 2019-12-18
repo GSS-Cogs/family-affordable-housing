@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[33]:
+# In[43]:
 
 
 from gssutils import *
@@ -33,7 +33,7 @@ scraper = Scraper('https://www.gov.uk/government/collections/dwelling-stock-incl
 scraper
 
 
-# In[34]:
+# In[44]:
 
 
 dist = scraper.distributions[0]
@@ -95,7 +95,11 @@ for tab in tabs:
 
         area = cell.expand(DOWN).is_not_blank()
         
-        observations = cell.shift(4,1).expand(RIGHT).expand(DOWN).is_not_blank() & area.fill(RIGHT)
+        if '2018' not in tab.name:
+            observations = cell.shift(4,1).expand(RIGHT).expand(DOWN).is_not_blank() & area.fill(RIGHT)
+        else:
+            remove = tab.filter('Isles of Scilly').expand(RIGHT)
+            observations = cell.shift(4,1).expand(RIGHT).expand(DOWN).is_not_blank() & area.fill(RIGHT) - remove
 
         dwellings = cell.shift(4,0).expand(RIGHT).is_not_blank()
 
@@ -113,7 +117,7 @@ for tab in tabs:
         tidied_sheets.append(tidy_sheet.topandas())
 
 
-# In[35]:
+# In[45]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -123,7 +127,7 @@ df.rename(columns={'OBS':'Value',
 df
 
 
-# In[36]:
+# In[46]:
 
 
 from IPython.core.display import HTML
@@ -134,7 +138,7 @@ for col in df:
         display(df[col].cat.categories)
 
 
-# In[37]:
+# In[47]:
 
 
 tidy = df[['Period','Area','Dwellings','Value','Marker','Measure Type','Unit']]
@@ -156,7 +160,7 @@ tidy['Dwellings'] = tidy['Dwellings'].map(lambda x: pathify(x))
 tidy
 
 
-# In[38]:
+# In[48]:
 
 
 destinationFolder = Path('out')
@@ -174,10 +178,4 @@ with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata
 csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
 csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
 tidy
-
-
-# In[ ]:
-
-
-
 
