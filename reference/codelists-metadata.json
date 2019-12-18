@@ -4,5 +4,9 @@
     "url": "codelists/dwellings.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Dwellings"
+  }, {
+    "url": "codelists/marker.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Marker"
   }]
 }
