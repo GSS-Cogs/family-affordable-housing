@@ -69,7 +69,7 @@ for tab in tabs:
                 HDim(area, 'Area', DIRECTLY, LEFT, cellvalueoverride={"": "E92000001"}),
                 HDim(dwellings, 'Dwellings', DIRECTLY, ABOVE),
                 HDimConst('Measure Type','Count'),
-                HDimConst('Unit','Dwelling'),
+                HDimConst('Unit','Dwellings'),
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -108,7 +108,7 @@ for tab in tabs:
                 HDim(area, 'Area', DIRECTLY, LEFT),
                 HDim(dwellings, 'Dwellings', DIRECTLY, ABOVE),
                 HDimConst('Measure Type','Count'),
-                HDimConst('Unit','Dwelling'),
+                HDimConst('Unit','Dwellings'),
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
