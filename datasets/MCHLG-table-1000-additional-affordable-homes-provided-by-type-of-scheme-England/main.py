@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[64]:
+# In[78]:
 
 
 from gssutils import *
@@ -33,7 +33,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[65]:
+# In[79]:
 
 
 dist = scraper.distributions[0]
@@ -55,6 +55,17 @@ for tab in tabs:
         
         scheme = cell.shift(0,2).expand(DOWN).is_not_blank() - tenure
         
+        header = tab.filter(contains_string('type of scheme'))
+        
+        print(str(header))
+        
+        if 'Completions' in str(header):
+            scheme_type = 'Completions'
+        elif 'Starts' in str(header):
+            scheme_type = 'Starts'
+        else:
+            scheme_type = 'ERROR'
+        
         observations = cell.shift(1,2).expand(DOWN).expand(RIGHT).is_not_blank() - remove
         
         dimensions = [
@@ -62,8 +73,9 @@ for tab in tabs:
                 HDimConst('Area', 'E92000001'),
                 HDim(tenure, 'Tenure', CLOSEST, ABOVE),
                 HDim(scheme, 'Scheme', CLOSEST, ABOVE),
-                HDimConst('Measure Type','Count'),
-                HDimConst('Unit','Dwellings'),
+                HDimConst('Scheme Type', scheme_type),
+                HDimConst('Measure Type', 'Count'),
+                HDimConst('Unit', 'Dwellings')
         ]
         
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -73,7 +85,7 @@ for tab in tabs:
         
 
 
-# In[66]:
+# In[87]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -106,7 +118,7 @@ df = df.replace({'Tenure' : {
     '..' : 'not applicable'}})
 
 for column in df:
-    if column in ('Marker', 'Tenure', 'Scheme'):
+    if column in ('Marker', 'Tenure', 'Scheme', 'Scheme Type'):
         df[column] = df[column].map(lambda x: pathify(x))
 
 from IPython.core.display import HTML
@@ -117,16 +129,17 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[67]:
+# In[88]:
 
 
-tidy = df[['Period','Area','Tenure','Scheme','Value','Marker','Measure Type','Unit']]
+tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Marker','Measure Type','Unit']]
 tidy.rename(columns={'Tenure':'MCHLG Tenure',
-                     'Scheme':'MCHLG Scheme'}, inplace=True)
+                     'Scheme':'MCHLG Scheme',
+                     'Scheme Type' : 'MCHLG Scheme Type'}, inplace=True)
 tidy
 
 
-# In[68]:
+# In[89]:
 
 
 destinationFolder = Path('out')
