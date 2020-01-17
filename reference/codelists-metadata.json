@@ -8,5 +8,13 @@
     "url": "codelists/marker.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Marker"
+  },{
+    "url": "codelists/mchlg-tenure.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "MCHLG Tenure"
+  },{
+    "url": "codelists/mchlg-scheme.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "MCHLG Scheme"
   }]
 }
