@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[78]:
+# In[36]:
 
 
 from gssutils import *
@@ -33,7 +33,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[79]:
+# In[37]:
 
 
 dist = scraper.distributions[0]
@@ -66,7 +66,7 @@ for tab in tabs:
         else:
             scheme_type = 'ERROR'
         
-        observations = cell.shift(1,2).expand(DOWN).expand(RIGHT).is_not_blank() - remove
+        observations = cell.shift(1,2).expand(DOWN).expand(RIGHT).is_not_blank() - remove - cell.shift(0,2).expand(DOWN).is_not_blank().filter(contains_string("of which:")).expand(RIGHT)
         
         dimensions = [
                 HDim(period, 'Period', DIRECTLY, ABOVE),
@@ -85,7 +85,7 @@ for tab in tabs:
         
 
 
-# In[87]:
+# In[38]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -129,7 +129,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[88]:
+# In[39]:
 
 
 tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Marker','Measure Type','Unit']]
@@ -139,7 +139,7 @@ tidy.rename(columns={'Tenure':'MCHLG Tenure',
 tidy
 
 
-# In[89]:
+# In[40]:
 
 
 destinationFolder = Path('out')
