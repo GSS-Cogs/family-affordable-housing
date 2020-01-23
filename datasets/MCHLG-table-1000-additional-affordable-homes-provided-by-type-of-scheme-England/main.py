@@ -150,7 +150,7 @@ TAB_NAME = 'observations'
 tidy.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = False)
 
 scraper.dataset.family = 'affordable-housing'
-scraper.dataset.publisher = [GOV]'ministry-of-housing-communities-and-local-government'
+scraper.dataset.publisher = 'ministry-of-housing-communities-and-local-government'
 
 with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
     metadata.write(scraper.generate_trig())
