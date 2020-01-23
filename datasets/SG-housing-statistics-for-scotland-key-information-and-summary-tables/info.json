@@ -31,6 +31,6 @@
     },
     "notes": "Information from Housing Statistics Annual Returns, and Scottish Household Survey data. Note the change in methodology from 2001, fully explained in the notes in the downloadable excel file",
     "transform": {
-      "main_issue": 37
+      "main_issue": 35
     }
 }
