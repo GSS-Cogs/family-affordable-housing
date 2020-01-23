@@ -1,0 +1,44 @@
+{
+    "title": "Housing Statistics for Scotland - Sales to sitting tenants",
+    "publisher": "Scottish Governemnt",
+    "description": "National and local authority area time series of sales to sitting tenants, with market value, selling price and discount information",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/SalesSittingTenants",
+    "contacts":
+    [{
+      	"name": "Scottish Governemnt",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/SalesSittingTenants",
+    "published": "19 September 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            {"Geography":[
+              "Scotland",
+              "Local Authority"
+            ]},
+            {"Period":[
+              "Financial year",
+              "Calendar year",
+              "Quarterly"
+            ]},
+            "Local Authority / New Town and Scottish Homes",
+            "Post-Stock Transfer RSLs",
+            "All Public Sector",
+            "Sales",
+            "Market value",
+            "Selling price",
+            "Discount"
+      ]
+    },
+    "notes": "1 of 4 Spreadsheets in the SG, Applications for and sales of local authority owned housing",
+    "transform": {
+      "main_issue": 29
+    }
+}

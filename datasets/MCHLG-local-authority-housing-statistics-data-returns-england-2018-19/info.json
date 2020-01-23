@@ -1,0 +1,115 @@
+{
+    "title": " Local Authority Housing Statistics data returns, England 2018-19",
+    "publisher": "Ministry of Housing, Communities & Local Government",
+    "description": "This collection brings together all documents relating to local authority housing data."
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/local-authority-housing-statistics-data-returns-for-2017-to-2018",
+    "contacts":
+    [{
+      	"name": "",
+      	"tel": "",
+      	"email": "housing.statistics@communities.gov.uk"
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/local-authority-housing-statistics-data-returns-for-2017-to-2018",
+    "published": "20 November 2019",
+    "families": ["Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All Tabs",
+        	"breakdowns":
+          [
+            {"Geography":[
+              "England",
+              "Local Authority "
+            ]},
+            "Dwelling stock",
+            {"LA owned dwellings":[
+              "Bedsits",
+              "One bedroom",
+              "Two bedrooms",
+              "Three bedrooms",
+              "Four bedrooms",
+              "Five bedrooms",
+              "Six or more bedrooms",
+              "Equivalent of HMOs",
+              "Hostels"
+            ]},
+            "Changes to local authority owned stock",
+            "Private sector demolition",
+            {"Sales/transfers":[
+              "Right to buy",
+              "Social home buy" ,
+              "Other sales to sitting tenants",
+              "Other sales",
+              "Transfers to PRPs",
+              "Total dwelling sales/transfers",
+              "of which:  all flats",
+              "of which:  RTB flats",
+              "of which:  SHB flats"
+            ]},
+          "Selling price",
+          {"Allocations":[
+            "Waiting list criteria",
+            "Number of bedrooms",
+            "Preference group/s",
+            "Choice-based lettings scheme",
+            "Existing social tenants"
+          ]},
+          {"Lettings, Nominations and Mobility Schemes":[
+            "Existing social housing tenants",
+            "New tenants to social housing",
+            "Mutual exchanges",
+            "Total LA dwellings let",
+            "Nominations taken up"
+          ]},
+          "Vacant dwellings",
+          {"Duration":[
+            "1 April 2018",
+            "0 - 6 weeks",
+            "Between 6 weeks and 6 months",
+            "Over 6 months",
+            "Total dwellings vacant"
+          ]},
+          "Condition of Dwelling Stock",
+          "Capital works",
+          "Information on loans, grants & other assistance",
+          "Category 1 hazards",
+          "HMOs",
+          "Decent Homes Delivery",
+          "Capital expenditure",
+          {"Costs":[
+            "Received",
+            "Planned"
+          ]},
+          {"Stock Management":[
+            "Management of Local Authority",
+            "Evictions",
+            "Illegally sub-let"
+          ]},
+          {"Rents and Rent Arrears":[
+            "Number of chargeable rent weeks",
+            "Average weekly rent actual",
+            "Average weekly rent 52 week basis",
+            "Rent arrears",
+            "Rent reductions and refunds",
+            "Rent loss on void dwellings",
+            "Rent income to HRA"
+          ]},
+          "Affordable Housing Supply",
+          {"New Build Affordable Housing Owned by ":[
+            "LA",
+            "Private Registered Providers",
+            "Non-registered providers",
+            "Other than new build",
+            "Final planning permission granted",
+            "Other Developer Contributions",
+            "Funded with recycled Right to Buy receipts"
+          ]}
+        ]
+    },
+    "notes": "This dataset was updated 20 November 2020, the previous publication for 2017 - 18 published 18 June 2019 can be found on the landing page.",
+    "transform": {
+      "main_issue": 29
+    }
+}
