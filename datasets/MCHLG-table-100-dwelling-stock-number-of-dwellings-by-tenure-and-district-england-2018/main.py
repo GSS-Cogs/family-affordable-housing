@@ -21,6 +21,7 @@ year = int(right(str(datetime.datetime.now().year),2)) - 1
 
 def temp_scrape(scraper, tree):
     scraper.dataset.title = 'Dwelling stock estimates'
+    scraper.dataset.publisher = 'Ministry of Housing, Communities & Local Government'
     dist = Distribution(scraper)
     dist.title = 'A distribution'
     dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/814669/LT_100.xls'
