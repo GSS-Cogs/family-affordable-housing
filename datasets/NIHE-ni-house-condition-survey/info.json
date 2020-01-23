@@ -1,0 +1,74 @@
+{
+    "title": "NIHE, NI House Condition Survey",
+    "publisher": "Northern Ireland Housing Executive (NIHE)",
+    "description": "The 2016 HCS  report, which was published in May 2018, presents a comprehensive overview of Northern Ireland’s dwelling stock and its occupants in 2016, including information about fuel poverty, disrepair, Decent Homes, the Standard Assessment Procedure (SAP), the Housing Health and Safety Rating System (HHSRS), unfitness, and household profiles."
+    "dataURL": "https://www.nihe.gov.uk/Working-With-Us/Research/House-Condition-Survey",
+    "contacts":
+    [{
+      	"name": "Karly Greene (Lead Statistical Official), Jahnet Brown",
+      	"tel": "02895 982540, 02895 982548",
+      	"email": "nihcs@nihe.gov.uk"
+    }],
+    "metaURL": "https://www.nihe.gov.uk/Working-With-Us/Research/House-Condition-Survey",
+    "published": "Housing, Employment, Household, Energy",
+    "families": ["Housing", "Employment", "Household", "Energy"],
+    "stability": "Good",
+    "future": "Moderate",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All Tabs",
+        	"breakdowns":
+          [
+            {"Dwelling": [
+              "Type",
+              "Bungalow",
+              "Terraced House",
+              "Semi-Detached House",
+              "Detached House",
+              "Flat/Apartment"
+            ]},
+            {"Tenure":[
+              "Owner Occupied",
+              "Private Rented and Others",
+              "Social Housing",
+              "Vacant"
+            {"Dwelling Age":[
+              "Pre - 1919",
+              "1919 - 1944",
+              "1945 - 1964",
+              "1965 - 1980",
+              "Post 1980"
+            ]},
+            {"Unfitness":[
+              "Fit",
+              "Unfit",
+              "Defective",
+              "Acceptable",
+              "Satisfactory"
+            ]},
+            "Dwelling Faults",
+            "Repair Costs",
+            "Decency",
+            "Hazards (H&S)",
+            "Central Heating",
+            "Insulation",
+            "DoubleGlazing",
+            "Energy Efficiency Rating",
+            {"Household Type":[
+              "Adult Households",
+              "Households with Children",
+              "Older Households"
+            ]},
+            "Geography",
+            "Age",
+            "Employment",
+            "Household Income",
+            "Religion",
+            "Fuel Poverty"
+          ]
+    },
+    "notes": "The Northern Ireland House Condition Survey 2016 report was produced by the Housing Executive's Research Unit. Previous surveys undertaken in 2001, 2004 (interim survey), 2006, 2009 (interim survey) and 2011.",
+    "transform": {
+      "main_issue": 44
+    }
+}

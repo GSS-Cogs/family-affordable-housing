@@ -1,0 +1,38 @@
+{
+    "title": "Affordable Housing Supply (Scot Gov)",
+    "publisher": "Scottish Governemnt",
+    "description": "Statistics on approvals, starts and completions funded by the Affordable Housing Supply Programme are published each quarter, based on information from the Affordable Housing Supply Programme management information system.",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/NewBuild/AHSPtables",
+    "contacts":
+    [{
+      	"name": "Scottish Government, EH1 3DG",
+      	"tel": "0300 244 4000",
+      	"email": "ceu@gov.scot"
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/NewBuild/AHSPtables",
+    "published": "September 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            {"Dwelling":[
+              "Tenure",
+              "Supply Programme [Scheme]",
+              "Starts",
+              "Completion"
+            ]},
+            {"Period": [
+              "Year",
+              "Quarter"
+            ]}
+      ]
+    },
+    "notes": ""
+    transform": {
+      "main_issue": 40
+    }
+}
