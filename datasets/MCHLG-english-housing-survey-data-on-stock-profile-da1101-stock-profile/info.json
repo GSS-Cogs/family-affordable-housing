@@ -35,6 +35,6 @@
     },
     "notes": "This is a single XLS spreadsheet with 10 tabs for each year 2008 - 2017.  Size was used until 2011 and it then changed to total usable floor area from 2012 onwards.",
     "transform": {
-      "main_issue": 37
+      "main_issue": 31
     }
 }
