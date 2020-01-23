@@ -1,0 +1,43 @@
+{
+    "title": "HHousing Statistics for Scotland - Sales components",
+    "publisher": "Scottish Governemnt",
+    "description": "National and local authority area time series of the components of sales to sitting tenants (Right to Buy, Rent to Mortgage and voluntary sales)",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/SalesComponents",
+    "contacts":
+    [{
+      	"name": "Scottish Governemnt",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/SalesComponents",
+    "published": "19 September 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            {"Geography":[
+              "Scotland",
+              "Local Authority"
+            ]},
+            {"Period":[
+              "Calendar year",
+              "Financial year",
+              "Quarter"
+            ]},
+            {"Sales":[
+              "Right to buy (old terms)",
+              "Right to buy (Modernised terms)",
+              "Voluntary",
+              "Rent to mortgage"
+            ]}
+      ]
+    },
+    "notes": "1 of 4 Spreadsheets in the SG, Applications for and sales of local authority owned housing",
+    "transform": {
+      "main_issue": 29
+    }
+}

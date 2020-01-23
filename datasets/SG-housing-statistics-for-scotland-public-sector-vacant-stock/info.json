@@ -1,0 +1,49 @@
+{
+    "title": "Housing Statistics for Scotland - Public sector vacant stock",
+    "publisher": "Scottish Governemnt",
+    "description": "Tables showing the change in local authority housing lists throughout each financial year.",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/VacantStock",
+    "contacts":
+    [{
+      	"name": "Scottish Governemnt",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/VacantStock",
+    "published": "19 September 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            "Year",
+            {"Length of vacancy":[
+              "Under 2 weeks",
+              "2 - 6 weeks",
+              "6 - 26 weeks",
+              "26 -weeks to 2 years",
+              "Longer than 2 years",
+              "Unknown"
+            ]},
+            {"Geography":[
+              "Scotland",
+              "Local Authority"
+            ]},
+            {"Vacant stock":[
+              "Temporary accommodation for homeless",
+              "Awaiting demolition",
+              "Part of a modernisation scheme",
+              "Low demand area",
+              "Other types"
+            ]},
+            "Summary"
+      ]
+    },
+    "notes": "",
+    "transform": {
+      "main_issue": 32
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "title": "Housing Statistics for Scotland - Lettings",
+    "publisher": "Scottish Governemnt",
+    "description": "Time series and local authority detail tables of lettings and vacancies for local authority dwellings",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/Lettings",
+    "contacts":
+    [{
+      	"name": "Scottish Governemnt",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/Lettings",
+    "published": "12 September 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            {"Period":[
+              "Financial Year",
+              "Year ending",
+              "Year and quarter"
+            ]},
+            "Vacancies",
+            "Lettings",
+            {"Geography":[
+              "Scotland",
+              "Local Authority/Homeless"
+            ]},
+            "Type of dwelling",
+            "Source of tenant",
+            "Nominations",
+            "Tenancy type",
+            "Grounds (reason)",
+            "Landlord",
+            "Short Scottish Secure Tenancies"
+      ]
+    },
+    "notes": "",
+    "transform": {
+      "main_issue": 34
+    }
+}

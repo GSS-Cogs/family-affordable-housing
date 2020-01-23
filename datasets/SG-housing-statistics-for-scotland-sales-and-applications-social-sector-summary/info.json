@@ -1,0 +1,41 @@
+{
+    "title": "Housing Statistics for Scotland - Sales and applications - social sector summary",
+    "publisher": "Scottish Governemnt",
+    "description": "National time series of social housing sales and applications",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/SalesApplications",
+    "contacts":
+    [{
+      	"name": "Scottish Governemnt",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/SalesApplications",
+    "published": "19 September 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            {"Applications":[
+              "Sitting tenants",
+              "Tenants choice",
+              "Other public authority Other housing association"
+            ]},
+            {"Sales":[
+              "Sitting tenants",
+              "Tenants choice",
+              "Other public authority",
+              "Other housing association"
+            ]},
+            "Total",
+            "Period"
+      ]
+    },
+    "notes": "1 of 4 Spreadsheets in the SG, Applications for and sales of local authority owned housing",
+    "transform": {
+      "main_issue": 30
+    }
+}
