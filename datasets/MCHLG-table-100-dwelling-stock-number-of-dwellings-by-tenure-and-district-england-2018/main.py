@@ -26,6 +26,7 @@ def temp_scrape(scraper, tree):
     dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/814669/LT_100.xls'
     dist.mediaType = Excel
     scraper.distributions.append(dist)
+    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
     return
 
 scrapers.scraper_list = [('https://www.gov.uk/government/collections/', temp_scrape)]
@@ -171,7 +172,6 @@ TAB_NAME = 'observations'
 tidy.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = False)
 
 scraper.dataset.family = 'affordable-housing'
-scraper.dataset.publisher = 'ministry-of-housing-communities-and-local-government'
 
 with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
     metadata.write(scraper.generate_trig())
