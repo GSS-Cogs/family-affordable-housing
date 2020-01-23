@@ -32,6 +32,6 @@
     },
     "notes": "Source: NIHE, NI House Condition Survey.",
     "transform": {
-      "main_issue": 24
+      "main_issue": 26
     }
 }
