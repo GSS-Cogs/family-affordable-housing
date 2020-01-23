@@ -1,0 +1,36 @@
+{
+    "title": "Housing Statistics for Scotland - Key Information and Summary Tables",
+    "publisher": "Scottish Governemnt",
+    "description": "A range of key housing information and summary tables for Scotland and local authority area. Table 1-Estimated stock of dwellings by tenure - calendar year time series from 1993 to 2000 and financial year time series from 2001-02 to 2016-17, at Scotland level. Table 2-Estimated stock of dwellings by tenure and local authority, most recent year only.",
+    "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/KeyInfoTables",
+    "contacts":
+    [{
+      	"name": "Scottish Governemnt",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/KeyInfoTables",
+    "published": "Revised Sept 2019",
+    "families": ["Affordable Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "",
+        	"breakdowns":
+          [
+            {"Dwellings":[
+              "Vacant",
+              "Occupied",
+              "Privately Owned",
+              "Socially rented"
+            ]},
+            "Date (month/year)",
+            "Geography"
+      ]
+    },
+    "notes": "Information from Housing Statistics Annual Returns, and Scottish Household Survey data. Note the change in methodology from 2001, fully explained in the notes in the downloadable excel file",
+    "transform": {
+      "main_issue": 35
+    }
+}

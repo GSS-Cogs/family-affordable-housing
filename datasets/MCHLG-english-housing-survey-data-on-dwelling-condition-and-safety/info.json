@@ -1,0 +1,59 @@
+{
+    "title": "English Housing Survey data on dwelling condition and safety",
+    "publisher": "Ministry of Housing, Communities & Local Government",
+    "description": "Data on dwelling condition and safety."
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/dwelling-condition-and-safety",
+    "contacts":
+    [{
+      	"name": "Ministry of Housing, Communities & Local Government",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/dwelling-condition-and-safety",
+    "published": "17 July 2019",
+    "families": ["Housing","Disabilities"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All Tabs",
+        	"breakdowns":
+          [
+            "Year",
+            "Decent Homes Criteria",
+            "Health and safety hazard",
+            "Damp and mould",
+            "Trend,
+            {"Dwelling":[
+              "Tenure",
+              "Occupancy status",
+              "Dwelling Age",
+              "Dwelling Type",
+              "Total useable floor area/size"
+            ]},
+            {"Area":[]
+              "Area type",
+              "Deprived local area" ,
+              "Sub-national area",
+              "Deprived districts"
+            ]},
+            {"Household":[
+              "Composition",
+              "Age of oldest person",
+              "Age of youngest person",
+              "Income groups",
+              "living in poverty",
+              "workless households",
+              "long term illness or disability" ,
+              "ethnicity of HRP",
+              "length of residence"
+            ]},
+            "Standardised basic repair costs",
+            "Electrical safety feature"
+        ]
+    },
+    "notes": "There are 13 separate XLS spreadsheets 12 spreadsheets have separate tabs for each year from 2008 to 2017 whilst the final spreadsheet displays the trend on one page for each year from 2006 to 2017. The Total usable floor area was referred to as size until 2011 and became Total usable floor area in 2012.",
+    "transform": {
+      "main_issue": 38
+    }
+}

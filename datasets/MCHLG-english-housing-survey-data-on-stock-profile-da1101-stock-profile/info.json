@@ -1,0 +1,40 @@
+{
+    "title": "English Housing Survey data on stock profile ( DA1101: stock profile)",
+    "publisher": "Ministry of Housing, Communities & Local Government",
+    "description": "Data on stock profile."
+    "dataURL": "https://www.gov.uk/government/statistical-data-sets/stock-profile",
+    "contacts":
+    [{
+      	"name": "Ministry of Housing, Communities & Local Government",
+      	"tel": "",
+      	"email": ""
+    }],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/stock-profile",
+    "published": "17 July 2019",
+    "families": ["Housing"],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        	"source": "Excel Spreadsheet",
+        	"subset": "All Tabs",
+        	"breakdowns":
+          [
+            "Occupancy status",
+            "Dwelling age",
+            "Dwelling type",
+            "Total useable floor area/size",
+            "Area type",
+            "Deprived local areas",
+            "Sub-national area",
+            {"Dwellings":[
+              "Private",
+              "Social"
+            ]},
+            "Sample size"
+        ]
+    },
+    "notes": "This is a single XLS spreadsheet with 10 tabs for each year 2008 - 2017.  Size was used until 2011 and it then changed to total usable floor area from 2012 onwards.",
+    "transform": {
+      "main_issue": 37
+    }
+}
