@@ -27,6 +27,7 @@ def temp_scrape(scraper, tree):
     dist.mediaType = Excel
     scraper.distributions.append(dist)
     scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
+    scraper.dataset.description = 'Number of Dwellings by Tenure and district: England as at 31 March 2018 and previous years.'
     return
 
 scrapers.scraper_list = [('https://www.gov.uk/government/collections/', temp_scrape)]
