@@ -27,6 +27,7 @@ def temp_scrape(scraper, tree):
     dist.mediaType = Excel
     scraper.distributions.append(dist)
     scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
+    scraper.dataset.description = 'Affordable housing supply statistics (AHS) 2017-18. Live tables - 1000, 1000S, 1000C, 1000C Chart - 1004'
     return
 
 scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
