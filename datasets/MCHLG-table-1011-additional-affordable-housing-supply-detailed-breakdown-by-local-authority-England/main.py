@@ -36,7 +36,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[ ]:
+# In[14]:
 
 
 dist = scraper.distributions[0]
@@ -84,7 +84,7 @@ for tab in tabs:
         
 
 
-# In[ ]:
+# In[15]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -102,7 +102,10 @@ df = df.replace({'Scheme' : {
     'Affordable Homes Guarantees' : 'Affordable Housing Guarantees',
     'Local Authority HE/GLA funded' : 'Local  Authorities  He/Gla  Grant  Funded',
     'Local Authority other funding' : 'Local  Authorities  Other  Funding',
-    'Non-Registered Provider HE funded' : 'Non  Registered  Providers  He  Funded'}})
+    'Non-Registered Provider HE funded' : 'Non  Registered  Providers  He  Funded'},
+                'Tenure' : {
+    'Unknown' : 'Unknown Tenure'
+                }})
 
 for column in df:
     if column in ('Marker', 'Tenure', 'Scheme', 'Scheme Type'):
@@ -117,7 +120,7 @@ for col in df:
 df
 
 
-# In[ ]:
+# In[16]:
 
 
 tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Measure Type','Unit']]
@@ -127,7 +130,7 @@ tidy.rename(columns={'Tenure':'MCHLG Tenure',
 tidy
 
 
-# In[ ]:
+# In[17]:
 
 
 destinationFolder = Path('out')
