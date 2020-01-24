@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
+# In[28]:
 
 
 from gssutils import *
@@ -11,6 +11,7 @@ from gssutils.metadata import THEME
 from gssutils.metadata import *
 import datetime
 from gssutils.metadata import Distribution, GOV
+pd.options.mode.chained_assignment = None
 
 def left(s, amount):
     return s[:amount]
@@ -36,64 +37,34 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[14]:
+# In[29]:
 
 
 dist = scraper.distributions[0]
-tabs = (t for t in dist.as_databaker())
+#tabs = (t for t in dist.as_pandas(sheet_name = 'data'))
+df = dist.as_pandas(sheet_name = 'data')
 
-tidied_sheets = []
-
-for tab in tabs:
-    
-    if '1011' in tab.name:
-        
-        print(tab.name)
-        
-        cell = tab.filter("Row Labels")
-        
-        period = cell.fill(RIGHT).is_not_blank() - cell.fill(RIGHT).filter('Grand Total')
-        
-        tenure = cell.fill(DOWN).is_not_blank().filter(contains_string("Rent")) | tab.filter(contains_string('Shared Ownership')) | tab.filter(contains_string('Affordable Home Ownership')) | tab.filter(contains_string('Affordable Home Ownership')) | tab.filter('Unknown') | tab.filter(contains_string('Grand Total'))
-                
-        scheme = cell.fill(DOWN).is_not_blank() - tenure
-        
-        if 'C' in tab.name:
-            scheme_type = 'Completions'
-        elif 'S' in tab.name:
-            scheme_type = 'Starts'
-        else:
-            scheme_type = 'ERROR'
-        
-        observations = cell.shift(1,2).expand(DOWN).expand(RIGHT).is_not_blank() - cell.fill(RIGHT).filter('Grand Total').fill(DOWN) - tenure.expand(RIGHT)
-        
-        dimensions = [
-                HDim(period, 'Period', DIRECTLY, ABOVE),
-                HDimConst('Area', 'E92000001'),
-                HDim(tenure, 'Tenure', CLOSEST, ABOVE),
-                HDim(scheme, 'Scheme', CLOSEST, ABOVE),
-                HDimConst('Scheme Type', scheme_type),
-                HDimConst('Measure Type', 'Count'),
-                HDimConst('Unit', 'Dwellings')
-        ]
-        
-        tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        savepreviewhtml(tidy_sheet, fname="Preview.html")
-
-        tidied_sheets.append(tidy_sheet.topandas())
-        
+df.head()
 
 
-# In[15]:
+# In[38]:
 
 
-df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
-df['Period'] = df['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
-df['OBS'] = df['OBS'].map(lambda x: int(x))
+tidy = df[['LA code','Year','Tenure','Completions','LT1000','Units']]
 
-df.rename(columns={'OBS':'Value'}, inplace=True)
+tidy.rename(columns={'LA code' : 'Area',
+                     'Year' : 'Period',
+                     'Completions' : 'MCHLG Scheme Type',
+                     'Tenure' : 'MCHLG Tenure',
+                     'LT1000' : 'MCHLG Scheme',
+                     'Units' : 'Value'}, inplace=True)
 
-df = df.replace({'Scheme' : {
+tidy['Period'] = tidy['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
+tidy['MCHLG Scheme Type'] = tidy['MCHLG Scheme Type'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
+tidy['Measure Type'] = 'Count'
+tidy['Unit'] = 'Dwellings'
+
+tidy = tidy.replace({'MCHLG Scheme' : {
     'Right to Buy recycled receipts' : 'Right  To  Buy  Additions  With  Recycled  Receipts',
     's106 nil grant' : 'Section  106  Nil  Grant',
     's106 part grant' : 'Section  106  Partial  Grant',
@@ -103,34 +74,29 @@ df = df.replace({'Scheme' : {
     'Local Authority HE/GLA funded' : 'Local  Authorities  He/Gla  Grant  Funded',
     'Local Authority other funding' : 'Local  Authorities  Other  Funding',
     'Non-Registered Provider HE funded' : 'Non  Registered  Providers  He  Funded'},
-                'Tenure' : {
+                'MCHLG Tenure' : {
     'Unknown' : 'Unknown Tenure'
                 }})
 
-for column in df:
-    if column in ('Marker', 'Tenure', 'Scheme', 'Scheme Type'):
-        df[column] = df[column].map(lambda x: pathify(x))
+for column in tidy:
+    if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Scheme Type'):
+        tidy[column] = tidy[column].map(lambda x: pathify(x))
+
+tidy.head()
+
+
+# In[39]:
+
 
 from IPython.core.display import HTML
-for col in df:
+for col in tidy:
     if col not in ['Value']:
-        df[col] = df[col].astype('category')
+        tidy[col] = tidy[col].astype('category')
         display(HTML(f"<h2>{col}</h2>"))
-        display(df[col].cat.categories)    
-df
+        display(tidy[col].cat.categories)    
 
 
-# In[16]:
-
-
-tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Measure Type','Unit']]
-tidy.rename(columns={'Tenure':'MCHLG Tenure',
-                     'Scheme':'MCHLG Scheme',
-                     'Scheme Type' : 'MCHLG Scheme Type'}, inplace=True)
-tidy
-
-
-# In[17]:
+# In[40]:
 
 
 destinationFolder = Path('out')
