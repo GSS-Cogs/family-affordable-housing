@@ -1,9 +1,9 @@
 {
   "@context": ["http://www.w3.org/ns/csvw", {"@language": "en"}],
   "tables": [{
-    "url": "codelists/dwellings.csv",
+    "url": "codelists/mchlg-provider.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
-    "rdfs:label": "Dwellings"
+    "rdfs:label": "MCHLG Provider"
   }, {
     "url": "codelists/marker.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
