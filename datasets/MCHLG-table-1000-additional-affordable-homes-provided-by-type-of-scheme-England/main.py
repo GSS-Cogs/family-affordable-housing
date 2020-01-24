@@ -137,7 +137,7 @@ for col in df:
 tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Marker','Measure Type','Unit']]
 tidy.rename(columns={'Tenure':'MCHLG Tenure',
                      'Scheme':'MCHLG Scheme',
-                     'Scheme Type' : 'MCHLG Scheme Type'}, inplace=True)
+                     'Scheme Type' : 'MCHLG Completions'}, inplace=True)
 tidy
 
 
