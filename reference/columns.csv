@@ -5,7 +5,7 @@ Sex,sex,qb:dimension,http://purl.org/linked-data/sdmx/2009/dimension#sex,http://
 Age,age,qb:dimension,http://purl.org/linked-data/sdmx/2009/dimension#age,http://gss-data.org.uk/def/concept/ages/{age},string,slugize,,
 Unit,unit,qb:attribute,http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure,http://gss-data.org.uk/def/concept/measurement-units/{unit},string,unitize,,
 Value,value,,http://gss-data.org.uk/def/measure/{measure_type},,number,,,
-MCHLG Provider,mchlg-provider,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-provider,http://gss-data.org.uk/def/concept/mchlg-provider/{mchlg_provider},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-provider
+MCHLG Provider,mchlg_provider,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-provider,http://gss-data.org.uk/def/concept/mchlg-provider/{mchlg_provider},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-provider
 Period,period,qb:dimension,http://purl.org/linked-data/sdmx/2009/dimension#refPeriod,http://reference.data.gov.uk/id/{+period},string,,^(year/[0-9]{4}|gregorian-interval/.*|month/[0-9]{4}-[0-9]{2}|day/[0-9]{4}-[0-9]{2}-[0-9]{2}|quarter/[0-9]{4}-Q[1-4]|government-year/[0-9]{4}-[0-9]{4})$,http://reference.data.gov.uk/def/intervals/Interval
 Marker,marker,qb:attribute,http://purl.org/linked-data/sdmx/2009/attribute#obsStatus,http://gss-data.org.uk/def/concept/marker/{marker},string,,,http://gss-data.org.uk/def/classes/gp-practice/marker
 Count,count,qb:measure,http://gss-data.org.uk/def/measure/count,,number,,,
