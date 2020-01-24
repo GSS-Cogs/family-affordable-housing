@@ -47,20 +47,21 @@ df = dist.as_pandas(sheet_name = 'data')
 df.head()
 
 
-# In[38]:
+# In[47]:
 
 
-tidy = df[['LA code','Year','Tenure','Completions','LT1000','Units']]
+tidy = df[['LA code','Year','Tenure','Completions','Type','LT1000','Units']]
 
 tidy.rename(columns={'LA code' : 'Area',
                      'Year' : 'Period',
-                     'Completions' : 'MCHLG Scheme Type',
+                     'Completions' : 'MCHLG Completions',
+                     'Type' : 'MLCHG Scheme Type',
                      'Tenure' : 'MCHLG Tenure',
                      'LT1000' : 'MCHLG Scheme',
                      'Units' : 'Value'}, inplace=True)
 
 tidy['Period'] = tidy['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
-tidy['MCHLG Scheme Type'] = tidy['MCHLG Scheme Type'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
+tidy['MCHLG Completions'] = tidy['MCHLG Completions'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
 tidy['Measure Type'] = 'Count'
 tidy['Unit'] = 'Dwellings'
 
@@ -75,17 +76,20 @@ tidy = tidy.replace({'MCHLG Scheme' : {
     'Local Authority other funding' : 'Local  Authorities  Other  Funding',
     'Non-Registered Provider HE funded' : 'Non  Registered  Providers  He  Funded'},
                 'MCHLG Tenure' : {
-    'Unknown' : 'Unknown Tenure'
-                }})
+    'Unknown' : 'Unknown Tenure'},
+                'MLCHG Scheme Type' : {
+    'NB' : 'New build',
+    'AQ' : 'Acquisition or rehabilitation',
+    'U' : 'unknown'}})
 
 for column in tidy:
-    if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Scheme Type'):
+    if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Completions', 'MLCHG Scheme Type'):
         tidy[column] = tidy[column].map(lambda x: pathify(x))
 
 tidy.head()
 
 
-# In[39]:
+# In[48]:
 
 
 from IPython.core.display import HTML
