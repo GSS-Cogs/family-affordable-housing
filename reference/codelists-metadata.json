@@ -20,5 +20,9 @@
     "url": "codelists/mchlg-scheme-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "MCHLG Scheme Type"
+  },{
+    "url": "codelists/mchlg-completions.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "MCHLG Completions"
   }]
 }
