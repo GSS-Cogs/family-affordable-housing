@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[76]:
+# In[86]:
 
 
 from gssutils import *
@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[77]:
+# In[87]:
 
 
 dist = scraper.distributions[0]
@@ -47,7 +47,7 @@ df = dist.as_pandas(sheet_name = 'data')
 df.head()
 
 
-# In[81]:
+# In[88]:
 
 
 tidy = df[['LA code','Year','Tenure','Completions','Region code','Type','LT1000','Provider','Units']]
@@ -96,7 +96,9 @@ tidy = tidy.replace({'MCHLG Scheme' : {
     'RP' : 'Private Registered Provider',
     'LA' : 'Local Authority',
     'NR' : 'Non Registered Provider',
-    'U' : 'Unknown'}})
+    'U' : 'Unknown'},
+                'Area' : {
+    'E07AHS255' : 'E04006549'}})
 
 for column in tidy:
     if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Completions', 'MCHLG Scheme Type','MCHLG Provider'):
@@ -105,7 +107,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[79]:
+# In[89]:
 
 
 from IPython.core.display import HTML
@@ -116,7 +118,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[82]:
+# In[90]:
 
 
 destinationFolder = Path('out')
@@ -134,34 +136,6 @@ with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata
 csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
 csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
 tidy
-
-
-# In[83]:
-
-
-import pandas as pd
-df = pd.read_csv("out/observations.csv")
-df["all_dimensions_concatenated"] = ""
-for col in df.columns.values:
-    if col != "Value":
-        df["all_dimensions_concatenated"] = df["all_dimensions_concatenated"]+df[col].astype(str)
-found = []
-bad_combos = []
-for item in df["all_dimensions_concatenated"]:
-    if item not in found:
-        found.append(item)
-    else:
-        bad_combos.append(item)
-df = df[df["all_dimensions_concatenated"].map(lambda x: x in bad_combos)]
-drop_these_cols = []
-for col in df.columns.values:
-    if col != "all_dimensions_concatenated" and col != "Value":
-        drop_these_cols.append(col)
-for dtc in drop_these_cols:
-    df = df.drop(dtc, axis=1)
-df = df[["all_dimensions_concatenated", "Value"]]
-df = df.sort_values(by=['all_dimensions_concatenated'])
-df.to_csv("duplicates_with_values.csv", index=False)
 
 
 # In[ ]:
