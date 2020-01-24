@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[34]:
+# In[76]:
 
 
 from gssutils import *
@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[35]:
+# In[77]:
 
 
 dist = scraper.distributions[0]
@@ -47,10 +47,11 @@ df = dist.as_pandas(sheet_name = 'data')
 df.head()
 
 
-# In[36]:
+# In[81]:
 
 
-tidy = df[['LA code','Year','Tenure','Completions','Type','LT1000','Provider','Units']]
+tidy = df[['LA code','Year','Tenure','Completions','Region code','Type','LT1000','Provider','Units']]
+tidy.fillna('NaN', inplace=True)
 
 tidy.rename(columns={'LA code' : 'Area',
                      'Year' : 'Period',
@@ -63,6 +64,15 @@ tidy.rename(columns={'LA code' : 'Area',
 
 tidy['Period'] = tidy['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
 tidy['MCHLG Completions'] = tidy['MCHLG Completions'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
+tidy['Area'] = tidy.apply(lambda x: x['Region code'] + x['Area'] if x['Area'] == 'NaN' else x, axis = 1)
+tidy['Area'] = tidy['Area'].map(lambda x: left(x, 9) if x.endswith('NaN') else x)
+
+indexNames = tidy[ tidy['Area'] == 'NaNNaN' ].index
+tidy.drop(indexNames , inplace=True)
+#If any rows have NaNNan still in the Area column then they have neither a local Area Code nor a Region Code, 
+#and since this table is based around values per Area this values are no longer useful
+
+tidy = tidy.drop(['Region code'], axis=1)
 tidy['Measure Type'] = 'Count'
 tidy['Unit'] = 'Dwellings'
 
@@ -95,7 +105,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[37]:
+# In[79]:
 
 
 from IPython.core.display import HTML
@@ -106,7 +116,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[38]:
+# In[82]:
 
 
 destinationFolder = Path('out')
@@ -124,3 +134,38 @@ with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata
 csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
 csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
 tidy
+
+
+# In[83]:
+
+
+import pandas as pd
+df = pd.read_csv("out/observations.csv")
+df["all_dimensions_concatenated"] = ""
+for col in df.columns.values:
+    if col != "Value":
+        df["all_dimensions_concatenated"] = df["all_dimensions_concatenated"]+df[col].astype(str)
+found = []
+bad_combos = []
+for item in df["all_dimensions_concatenated"]:
+    if item not in found:
+        found.append(item)
+    else:
+        bad_combos.append(item)
+df = df[df["all_dimensions_concatenated"].map(lambda x: x in bad_combos)]
+drop_these_cols = []
+for col in df.columns.values:
+    if col != "all_dimensions_concatenated" and col != "Value":
+        drop_these_cols.append(col)
+for dtc in drop_these_cols:
+    df = df.drop(dtc, axis=1)
+df = df[["all_dimensions_concatenated", "Value"]]
+df = df.sort_values(by=['all_dimensions_concatenated'])
+df.to_csv("duplicates_with_values.csv", index=False)
+
+
+# In[ ]:
+
+
+
+
