@@ -10,6 +10,6 @@ Period,period,qb:dimension,http://purl.org/linked-data/sdmx/2009/dimension#refPe
 Marker,marker,qb:attribute,http://purl.org/linked-data/sdmx/2009/attribute#obsStatus,http://gss-data.org.uk/def/concept/marker/{marker},string,,,http://gss-data.org.uk/def/classes/gp-practice/marker
 Count,count,qb:measure,http://gss-data.org.uk/def/measure/count,,number,,,
 Dwelling,dwelling,qb:measure,http://gss-data.org.uk/def/measure/dwelling,,number,,,
-MCHLG Tenure,mchlg_tenure,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-tenure,http://gss-data.org.uk/def/concept/mchlg-tenure/{mchlg-tenure},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-tenure
-MCHLG Scheme,mchlg_scheme,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-scheme,http://gss-data.org.uk/def/concept/mchlg-scheme/{mchlg-scheme},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-scheme
-MCHLG Scheme Type,mchlg_scheme_type,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-scheme-type,http://gss-data.org.uk/def/concept/mchlg-scheme-type/{mchlg-scheme-type},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-scheme-type
+MCHLG Tenure,mchlg_tenure,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-tenure,http://gss-data.org.uk/def/concept/mchlg-tenure/{mchlg_tenure},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-tenure
+MCHLG Scheme,mchlg_scheme,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-scheme,http://gss-data.org.uk/def/concept/mchlg-scheme/{mchlg_scheme},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-scheme
+MCHLG Scheme Type,mchlg_scheme_type,qb:dimension,http://gss-data.org.uk/def/dimension/mchlg-scheme-type,http://gss-data.org.uk/def/concept/mchlg-scheme-type/{mchlg_scheme_type},string,slugize,,http://gss-data.org.uk/def/classes/affordable-housing/mchlg-scheme-type
