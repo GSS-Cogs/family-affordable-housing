@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[28]:
+# In[34]:
 
 
 from gssutils import *
@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[29]:
+# In[35]:
 
 
 dist = scraper.distributions[0]
@@ -47,18 +47,19 @@ df = dist.as_pandas(sheet_name = 'data')
 df.head()
 
 
-# In[47]:
+# In[36]:
 
 
-tidy = df[['LA code','Year','Tenure','Completions','Type','LT1000','Units']]
+tidy = df[['LA code','Year','Tenure','Completions','Type','LT1000','Provider','Units']]
 
 tidy.rename(columns={'LA code' : 'Area',
                      'Year' : 'Period',
                      'Completions' : 'MCHLG Completions',
-                     'Type' : 'MLCHG Scheme Type',
+                     'Type' : 'MCHLG Scheme Type',
                      'Tenure' : 'MCHLG Tenure',
                      'LT1000' : 'MCHLG Scheme',
-                     'Units' : 'Value'}, inplace=True)
+                     'Units' : 'Value',
+                     'Provider' : 'MCHLG Provider'}, inplace=True)
 
 tidy['Period'] = tidy['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
 tidy['MCHLG Completions'] = tidy['MCHLG Completions'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
@@ -77,19 +78,24 @@ tidy = tidy.replace({'MCHLG Scheme' : {
     'Non-Registered Provider HE funded' : 'Non  Registered  Providers  He  Funded'},
                 'MCHLG Tenure' : {
     'Unknown' : 'Unknown Tenure'},
-                'MLCHG Scheme Type' : {
+                'MCHLG Scheme Type' : {
     'NB' : 'New build',
     'AQ' : 'Acquisition or rehabilitation',
-    'U' : 'unknown'}})
+    'U' : 'unknown'},
+                'MCHLG Provider' : {
+    'RP' : 'Private Registered Provider',
+    'LA' : 'Local Authority',
+    'NR' : 'Non Registered Provider',
+    'U' : 'Unknown'}})
 
 for column in tidy:
-    if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Completions', 'MLCHG Scheme Type'):
+    if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Completions', 'MCHLG Scheme Type','MCHLG Provider'):
         tidy[column] = tidy[column].map(lambda x: pathify(x))
 
 tidy.head()
 
 
-# In[48]:
+# In[37]:
 
 
 from IPython.core.display import HTML
@@ -100,7 +106,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[40]:
+# In[38]:
 
 
 destinationFolder = Path('out')
@@ -120,8 +126,30 @@ csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NA
 tidy
 
 
-# In[ ]:
+# In[39]:
 
 
-
+import pandas as pd
+df = pd.read_csv("out/observations.csv")
+df["all_dimensions_concatenated"] = ""
+for col in df.columns.values:
+    if col != "Value":
+        df["all_dimensions_concatenated"] = df["all_dimensions_concatenated"]+df[col].astype(str)
+found = []
+bad_combos = []
+for item in df["all_dimensions_concatenated"]:
+    if item not in found:
+        found.append(item)
+    else:
+        bad_combos.append(item)
+df = df[df["all_dimensions_concatenated"].map(lambda x: x in bad_combos)]
+drop_these_cols = []
+for col in df.columns.values:
+    if col != "all_dimensions_concatenated" and col != "Value":
+        drop_these_cols.append(col)
+for dtc in drop_these_cols:
+    df = df.drop(dtc, axis=1)
+df = df[["all_dimensions_concatenated", "Value"]]
+df = df.sort_values(by=['all_dimensions_concatenated'])
+df.to_csv("duplicates_with_values.csv", index=False)
 
