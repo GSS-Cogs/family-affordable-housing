@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[13]:
 
 
 from gssutils import *
@@ -36,7 +36,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[2]:
+# In[ ]:
 
 
 dist = scraper.distributions[0]
@@ -84,7 +84,7 @@ for tab in tabs:
         
 
 
-# In[6]:
+# In[ ]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -96,7 +96,13 @@ df.rename(columns={'OBS':'Value'}, inplace=True)
 df = df.replace({'Scheme' : {
     'Right to Buy recycled receipts' : 'Right  To  Buy  Additions  With  Recycled  Receipts',
     's106 nil grant' : 'Section  106  Nil  Grant',
-    's106 part grant' : 'Section  106  Partial  Grant'}})
+    's106 part grant' : 'Section  106  Partial  Grant',
+    'Private Registered Provider HE/GLA funded' : 'Private Registered Providers HE/GLA funded',
+    'Private Registered Provider other funding' : 'Private Registered Providers other funding',
+    'Affordable Homes Guarantees' : 'Affordable Housing Guarantees',
+    'Local Authority HE/GLA funded' : 'Local  Authorities  He/Gla  Grant  Funded',
+    'Local Authority other funding' : 'Local  Authorities  Other  Funding',
+    'Non-Registered Provider HE funded' : 'Non  Registered  Providers  He  Funded'}})
 
 for column in df:
     if column in ('Marker', 'Tenure', 'Scheme', 'Scheme Type'):
@@ -111,7 +117,7 @@ for col in df:
 df
 
 
-# In[9]:
+# In[ ]:
 
 
 tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Measure Type','Unit']]
@@ -121,7 +127,7 @@ tidy.rename(columns={'Tenure':'MCHLG Tenure',
 tidy
 
 
-# In[10]:
+# In[ ]:
 
 
 destinationFolder = Path('out')
