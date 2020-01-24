@@ -159,6 +159,7 @@ tidy = tidy.replace({'Dwellings' : {
     '.' : 'not-available'}})
 
 tidy['Dwellings'] = tidy['Dwellings'].map(lambda x: pathify(x))
+tidy.rename(columns={'Dwellings' : 'MCHLG Provider'}, inplace=True)
 tidy
 
 
