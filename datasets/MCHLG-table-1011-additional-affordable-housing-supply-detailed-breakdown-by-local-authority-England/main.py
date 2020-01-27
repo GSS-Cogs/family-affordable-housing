@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[86]:
+# In[1]:
 
 
 from gssutils import *
@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[87]:
+# In[2]:
 
 
 dist = scraper.distributions[0]
@@ -47,10 +47,10 @@ df = dist.as_pandas(sheet_name = 'data')
 df.head()
 
 
-# In[88]:
+# In[3]:
 
 
-tidy = df[['LA code','Year','Tenure','Completions','Region code','Type','LT1000','Provider','Units']]
+tidy = df[['LA code','Year','Tenure','Completions','LA code 201819','Type','LT1000','Provider','Units']]
 tidy.fillna('NaN', inplace=True)
 
 tidy.rename(columns={'LA code' : 'Area',
@@ -64,7 +64,7 @@ tidy.rename(columns={'LA code' : 'Area',
 
 tidy['Period'] = tidy['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
 tidy['MCHLG Completions'] = tidy['MCHLG Completions'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
-tidy['Area'] = tidy.apply(lambda x: x['Region code'] + x['Area'] if x['Area'] == 'NaN' else x, axis = 1)
+tidy['Area'] = tidy.apply(lambda x: x['LA code 201819'] + x['Area'] if x['Area'] == 'NaN' else x, axis = 1)
 tidy['Area'] = tidy['Area'].map(lambda x: left(x, 9) if x.endswith('NaN') else x)
 
 indexNames = tidy[ tidy['Area'] == 'NaNNaN' ].index
@@ -72,7 +72,7 @@ tidy.drop(indexNames , inplace=True)
 #If any rows have NaNNan still in the Area column then they have neither a local Area Code nor a Region Code, 
 #and since this table is based around values per Area this values are no longer useful
 
-tidy = tidy.drop(['Region code'], axis=1)
+tidy = tidy.drop(['LA code 201819'], axis=1)
 tidy['Measure Type'] = 'Count'
 tidy['Unit'] = 'Dwellings'
 
@@ -96,9 +96,7 @@ tidy = tidy.replace({'MCHLG Scheme' : {
     'RP' : 'Private Registered Provider',
     'LA' : 'Local Authority',
     'NR' : 'Non Registered Provider',
-    'U' : 'Unknown'},
-                'Area' : {
-    'E07AHS255' : 'E04006549'}})
+    'U' : 'Unknown'}})
 
 for column in tidy:
     if column in ('Marker', 'MCHLG Tenure', 'MCHLG Scheme', 'MCHLG Completions', 'MCHLG Scheme Type','MCHLG Provider'):
@@ -107,7 +105,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[89]:
+# In[4]:
 
 
 from IPython.core.display import HTML
@@ -118,7 +116,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[90]:
+# In[5]:
 
 
 destinationFolder = Path('out')
