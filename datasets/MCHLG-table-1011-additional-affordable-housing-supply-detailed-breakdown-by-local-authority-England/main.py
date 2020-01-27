@@ -50,10 +50,10 @@ df.head()
 # In[3]:
 
 
-tidy = df[['LA code','Year','Tenure','Completions','LA code 201819','Type','LT1000','Provider','Units']]
+tidy = df[['LA code 201819','Year','Tenure','Completions','Region Code','Type','LT1000','Provider','Units']]
 tidy.fillna('NaN', inplace=True)
 
-tidy.rename(columns={'LA code' : 'Area',
+tidy.rename(columns={'LA code 201819' : 'Area',
                      'Year' : 'Period',
                      'Completions' : 'MCHLG Completions',
                      'Type' : 'MCHLG Scheme Type',
@@ -64,7 +64,7 @@ tidy.rename(columns={'LA code' : 'Area',
 
 tidy['Period'] = tidy['Period'].map(lambda x: 'gregorian-interval/' + left(x,4) + '-04-01T00:00:00/P1Y')
 tidy['MCHLG Completions'] = tidy['MCHLG Completions'].map(lambda x: 'Completions' if 'Y' in x else 'Starts')
-tidy['Area'] = tidy.apply(lambda x: x['LA code 201819'] + x['Area'] if x['Area'] == 'NaN' else x, axis = 1)
+tidy['Area'] = tidy.apply(lambda x: x['Region Code'] + x['Area'] if x['Area'] == 'NaN' else x, axis = 1)
 tidy['Area'] = tidy['Area'].map(lambda x: left(x, 9) if x.endswith('NaN') else x)
 
 indexNames = tidy[ tidy['Area'] == 'NaNNaN' ].index
@@ -72,7 +72,7 @@ tidy.drop(indexNames , inplace=True)
 #If any rows have NaNNan still in the Area column then they have neither a local Area Code nor a Region Code, 
 #and since this table is based around values per Area this values are no longer useful
 
-tidy = tidy.drop(['LA code 201819'], axis=1)
+tidy = tidy.drop(['Region Code'], axis=1)
 tidy['Measure Type'] = 'Count'
 tidy['Unit'] = 'Dwellings'
 
