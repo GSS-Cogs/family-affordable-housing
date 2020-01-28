@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[13]:
 
 
 from gssutils import *
@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[10]:
+# In[14]:
 
 
 dist = scraper.distributions[0]
@@ -47,7 +47,7 @@ df = dist.as_pandas(sheet_name = 'data')
 df.head()
 
 
-# In[11]:
+# In[15]:
 
 
 tidy = df[['LA code','Year','Tenure','Completions','Region code','Type','LT1000','Provider','Units']]
@@ -68,9 +68,12 @@ tidy['Area'] = tidy.apply(lambda x: x['Region code'] + x['Area'] if x['Area'] ==
 tidy['Area'] = tidy['Area'].map(lambda x: left(x, 9) if x.endswith('NaN') else x)
 
 indexNames = tidy[ tidy['Area'] == 'NaNNaN' ].index
-tidy.drop(indexNames , inplace=True)
+tidy.drop(indexNames, inplace = True)
 #If any rows have NaNNan still in the Area column then they have neither a local Area Code nor a Region Code, 
 #and since this table is based around values per Area this values are no longer useful
+
+indexNames = tidy[ tidy['Area'].str.contains('E07AHS')].index
+tidy.drop(indexNames, inplace = True)
 
 tidy = tidy.drop(['Region code'], axis=1)
 tidy['Measure Type'] = 'Count'
@@ -105,7 +108,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[12]:
+# In[16]:
 
 
 from IPython.core.display import HTML
@@ -116,7 +119,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[13]:
+# In[17]:
 
 
 destinationFolder = Path('out')
@@ -134,38 +137,4 @@ with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata
 csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
 csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
 tidy
-
-
-# In[14]:
-
-
-df = pd.read_csv("out/observations.csv")
-df["all_dimensions_concatenated"] = ""
-for col in df.columns.values:
-    if col != "Value":
-        df["all_dimensions_concatenated"] = df["all_dimensions_concatenated"]+df[col].astype(str)
-found = []
-bad_combos = []
-for item in df["all_dimensions_concatenated"]:
-    if item not in found:
-        found.append(item)
-    else:
-        bad_combos.append(item)
-df = df[df["all_dimensions_concatenated"].map(lambda x: x in bad_combos)]
-drop_these_cols = []
-for col in df.columns.values:
-    if col != "all_dimensions_concatenated" and col != "Value":
-        drop_these_cols.append(col)
-for dtc in drop_these_cols:
-    df = df.drop(dtc, axis=1)
-df = df[["all_dimensions_concatenated", "Value"]]
-df = df.sort_values(by=['all_dimensions_concatenated'])
-df.to_csv("duplicates_with_values.csv", index=False)
-# Find duplicates
-
-
-# In[ ]:
-
-
-
 
