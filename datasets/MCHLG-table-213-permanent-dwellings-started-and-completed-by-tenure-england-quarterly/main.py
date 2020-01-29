@@ -153,7 +153,7 @@ for col in df:
 # In[53]:
 
 
-tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Measure Type','Unit']]
+tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Marker','Measure Type','Unit']]
 
 for column in tidy:
     if column in ('Marker', 'MCHLG Tenure', 'MCHLG Completions'):
