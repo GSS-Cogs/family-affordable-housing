@@ -120,7 +120,7 @@ df = df.replace({'Completions' : {
                 'Tenure' : {
     'All\nDwellings' : 'All Dwellings'},
                 'DATAMARKER' : {
-    '-' : 'Less than 5'}})
+    '-' : 'Less than five'}})
 
 df['Completions'] = df.apply(lambda x: 'Completions' if 'Private Enterprise' in x['Tenure'] and 'Starts' in x['Completions'] else x['Completions'], axis = 1)
 df['Completions'] = df['Completions'].map(lambda x: 'Starts' if x == '' else x)
@@ -153,7 +153,7 @@ for col in df:
 # In[53]:
 
 
-tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Marker','Measure Type','Unit']]
+tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Measure Type','Unit']]
 
 for column in tidy:
     if column in ('Marker', 'MCHLG Tenure', 'MCHLG Completions'):
@@ -173,7 +173,9 @@ TAB_NAME = 'observations'
 tidy.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = False)
 
 scraper.dataset.family = 'affordable-housing'
-scraper.dataset.comment = 'Figures from October 2005 to March 2007 in England are missing a small number of starts and completions that were inspected by independent approved inspectors. These data are included from June 2007 Figures in this tables are not seasonally adjusted; for seasonally adjusted house building figures, please see live table 222 (https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building). These figures are for new build dwellings only. The Department also publishes an annual release entitled "Housing Supply: net additional dwellings"'
+scraper.dataset.comment = {'Missing Data' : 'Figures from October 2005 to March 2007 in England are missing a small number of starts and completions that were inspected by independent approved inspectors. These data are included from June 2007',
+                           'Seasonal Adjustment' : 'Figures in this tables are not seasonally adjusted; for seasonally adjusted house building figures, please [live table 222](https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building)',
+                           'New Build' : 'These figures are for new build dwellings only. The Department also publishes an annual release entitled "Housing Supply: net additional dwellings"'}
 
 
 with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
