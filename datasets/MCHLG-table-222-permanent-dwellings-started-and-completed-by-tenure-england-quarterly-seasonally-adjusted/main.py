@@ -89,10 +89,7 @@ df = df.replace({'Completions' : {
                 'Tenure' : {
     'All\nDwellings' : 'All Dwellings'},
                 'DATAMARKER' : {
-    '-' : 'Less than 5'}})
-
-#df['Completions'] = df.apply(lambda x: 'Completions' if 'Private Enterprise' in x['Tenure'] and 'Starts' in x['Completions'] else x['Completions'], axis = 1)
-#df['Completions'] = df['Completions'].map(lambda x: 'Starts' if x == '' else x)
+    '-' : 'Less than five'}})
 
 df['Period'] = df.apply(lambda x: 'quarter/' + left(x['Year'],4) + '-' + x['Period'] if 'Q' in x['Period'] else 'year/' + left(x['Year'],4), axis = 1)
 
