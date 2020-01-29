@@ -24,5 +24,13 @@
     "url": "codelists/mchlg-completions.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "MCHLG Completions"
+  },{
+    "url": "codelists/housing-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Housing Type"
+  },{
+    "url": "codelists/bedrooms.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Bedrooms"
   }]
 }
