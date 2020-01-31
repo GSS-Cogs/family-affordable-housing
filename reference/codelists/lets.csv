@@ -1,0 +1,5 @@
+Label,Notation,Parent Notation,Sort Priority
+Existing lets,existing-lets,,1
+Mutual exchanges,mutual-exchanges,,2
+New lets,new-lets,,3
+Total lets,total-lets,,4
