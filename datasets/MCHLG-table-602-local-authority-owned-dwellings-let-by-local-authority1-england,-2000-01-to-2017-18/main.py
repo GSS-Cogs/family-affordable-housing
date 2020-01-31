@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[55]:
+# In[23]:
 
 
 from gssutils import *
@@ -22,22 +22,22 @@ def right(s, amount):
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
 def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Permanent dwellings completed, by house and flat, number of bedroom and tenure, England'
+    scraper.dataset.title = 'Local authority owned dwellings let by local authority, England'
     dist = Distribution(scraper)
     dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/861415/LiveTable254.xlsx'
+    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/861106/Live_Table_602.xlsx'
     dist.mediaType = Excel
     scraper.distributions.append(dist)
     scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Live tables on house building: new build dwellings completed, by house and flat, number of bedroom and tenure, England'
+    scraper.dataset.description = 'This is one of 6 tables from the live tables on rents, lettings and tenancies'
     return
 
 scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
-scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building')
+scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies')
 scraper
 
 
-# In[56]:
+# In[24]:
 
 
 dist = scraper.distributions[0]
@@ -47,28 +47,23 @@ tidied_sheets = []
 
 for tab in tabs:
     
-    cell = tab.filter(contains_string('Table 254'))
+    cell = tab.filter(contains_string('Table 602'))
 
-    remove = tab.filter(contains_string('E-Mail'))
+    remove = tab.filter(contains_string('Source:')).expand(DOWN).expand(RIGHT)
 
-    period = cell.shift(0,3).expand(RIGHT).is_not_blank() - remove
+    period = cell.shift(0,4).expand(DOWN).is_not_blank() - remove
 
-    tenure = cell.shift(0,5).expand(DOWN).is_not_blank() - tab.filter(contains_string('Houses')) - tab.filter(contains_string('Flats'))  - remove
+    lets = cell.shift(1,4).expand(RIGHT).is_not_blank() - tab.filter(contains_string('%')).fill(DOWN)
     
-    Type = cell.shift(0,5).expand(DOWN).is_not_blank() - tenure - remove
-    
-    bedrooms = cell.shift(2,7).expand(DOWN).is_not_blank() - remove
-
-    observations = bedrooms.fill(RIGHT).is_not_blank() - remove
+    observations = period.fill(RIGHT).is_not_blank() - tab.filter(contains_string('%')).fill(DOWN)
 
     dimensions = [
-            HDim(period, 'Period', DIRECTLY, ABOVE),
-            HDim(bedrooms, 'Bedrooms', DIRECTLY, LEFT),
-            HDim(tenure, 'Tenure', CLOSEST, ABOVE),
-            HDim(Type, 'Type', CLOSEST, ABOVE),
-            HDimConst('Measure Type', 'Percentage'),
-            HDimConst('Unit', 'Percent'),
-            HDimConst('Area', tab.name)
+            HDim(period, 'Period', DIRECTLY, LEFT),
+            HDim(lets, 'Lets', DIRECTLY, ABOVE),
+            HDimConst('Measure Type', 'Count'),
+            HDimConst('Unit', 'Dwellings'),
+            HDimConst('Area', 'E92000001'),
+            HDimConst('MCHLG Provider', 'Local Authority')
     ]
 
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -78,7 +73,7 @@ for tab in tabs:
         
 
 
-# In[57]:
+# In[25]:
 
 
 pd.set_option('display.float_format', lambda x: '%.0f' % x)
@@ -87,33 +82,18 @@ df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
 df['Period'] = df['Period'].map(lambda x: 'year/' + left(x,4))
 
 
-df = df.replace({'Bedrooms' : {
-    '1 bedroom' : 'One Bedroom', 
-    '2 bedrooms' : 'Two Bedrooms', 
-    '3 bedrooms' : 'Three Bedrooms', 
-    '4 or more bedrooms' : 'Four or More Bedrooms'},
-                 'Area' : {
-    'East Midlands' : 'E12000004',
-    'East of England' : 'E12000006', 
-    'England' : 'E92000001', 
-    'London' : 'E12000007', 
-    'North East' : 'E12000001',
-    'North West' : 'E12000002', 
-    'South East' : 'E12000008', 
-    'South West' : 'E12000009', 
-    'West Midlands' : 'E12000005',
-    'Yorkshire and the Humber' : 'E12000003'
-                 }})
+df = df.replace({'Lets' : {
+    'Existing lets3' : 'Existing lets', 
+    'Mutual exchanges4' : 'Mutual exchanges', 
+    'New lets2' : 'New lets', 
+    'Total lets5' : 'Total lets'}})
+
+df.rename(columns={'OBS' : 'Value'}, inplace=True)
+
+df.head()
 
 
-df.rename(columns={'Tenure' : 'MCHLG Tenure',
-                   'Type' : 'Housing Type',
-                   'OBS' : 'Value'}, inplace=True)
-
-df.head(50)
-
-
-# In[58]:
+# In[26]:
 
 
 from IPython.core.display import HTML
@@ -124,19 +104,19 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[59]:
+# In[27]:
 
 
-tidy = df[['Area','Period','MCHLG Tenure','Housing Type','Bedrooms','Value','Measure Type','Unit']]
+tidy = df[['Area','Period', 'MCHLG Provider','Lets','Value','Measure Type','Unit']]
 
 for column in tidy:
-    if column in ('Marker', 'MCHLG Tenure', 'Housing Type','Bedrooms'):
+    if column in ('Marker', 'MCHLG Provider', 'Lets'):
         tidy[column] = tidy[column].map(lambda x: pathify(x))
 
 tidy.head()
 
 
-# In[61]:
+# In[28]:
 
 
 destinationFolder = Path('out')
@@ -148,7 +128,12 @@ tidy.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = Fal
 
 scraper.dataset.family = 'affordable-housing'
 scraper.dataset.comment = """
-        Figures for 2001/02 onwards are based on just NHBC figures, so there is some degree of variability owing to partial coverage.
+        Source: \n Local Authority Housing Statistics, or it predecessors, Housing Strategy Statistical Appendix (HSSA) and the Housing Investment Programme (HIP) returns. \n\n
+        The decreasing number of lettings is associated with local authorities transferring their stock to private registered providers (PRPs) through large scale voluntary transfers (LSVT), Right to Buy (RTB) and other sales, and demolitions. Information was collected from 2009-10 using questions which had been restructured from questions asked in previous years. As a result the quality of data is less certain for 2009-10. \n\n
+        A new social tenant is one that was not living in a social housing dwelling (whether owned or managed by your local authority or another social landlord) immediately prior to the letting of the dwelling owned by a local authority.  \n\n
+        An existing social tenant is one which immediately before the current let had a secure, assured, flexible, fixed term, introductory, starter, demoted or family intervention tenancy (this list includes terms which are used inter-changeable for the same tenancy type). \n\n
+        A mutual exchange tenant is one who swaps dwellings with another social tenant. \n\n
+        Totals may not equal the sum of components because of rounding (to the nearest 100). \n\n
         """
 
 with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
