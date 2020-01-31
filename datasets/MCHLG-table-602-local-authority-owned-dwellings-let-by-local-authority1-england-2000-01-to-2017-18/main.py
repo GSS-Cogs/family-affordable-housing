@@ -87,7 +87,7 @@ df = df.replace({'Lets' : {
     'Mutual exchanges4' : 'Mutual exchanges', 
     'New lets2' : 'New lets', 
     'Total lets5' : 'Total lets',
-    'Total lets as % of LA stock (at year end)' : 'Total of LA stock (at year end)'}})
+    'Total lets as % of LA stock (at year end)' : 'Total of stock (at year end)'}})
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 
