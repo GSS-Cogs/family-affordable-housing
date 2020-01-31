@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[93]:
+# In[99]:
 
 
 dist = scraper.distributions[0]
@@ -53,9 +53,11 @@ for tab in tabs:
 
     period = cell.shift(0,4).expand(DOWN).is_not_blank() - remove
 
-    lets = cell.shift(1,4).expand(RIGHT).is_not_blank()
+    lets = cell.shift(1,4).expand(RIGHT).is_not_blank() - tab.filter(contains_string('%'))
     
-    observations = period.fill(RIGHT).is_not_blank()
+    observations = period.fill(RIGHT).is_not_blank() - tab.filter(contains_string('%')).expand(DOWN)
+    
+    #Percentage values aren't included as adding percentage and count values to the same table ends badly.
 
     dimensions = [
             HDim(period, 'Period', DIRECTLY, LEFT),
@@ -73,10 +75,10 @@ for tab in tabs:
         
 
 
-# In[94]:
+# In[101]:
 
 
-pd.set_option('display.float_format', lambda x: '%.1f' % x)
+pd.set_option('display.float_format', lambda x: '%.0f' % x)
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
 
 df['Period'] = df['Period'].map(lambda x: 'year/' + left(x,4))
@@ -86,21 +88,14 @@ df = df.replace({'Lets' : {
     'Existing lets3' : 'Existing lets', 
     'Mutual exchanges4' : 'Mutual exchanges', 
     'New lets2' : 'New lets', 
-    'Total lets5' : 'Total lets',
-    'Total lets as % of LA stock (at year end)' : 'Total of stock (at year end)'}})
+    'Total lets5' : 'Total lets'}})
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
-
-df['Value'] = df.apply(lambda x: x * 100 if x['Lets'] == 'Total of stock (at year end)' else x, axis = 1)
-df['Value'] = df.apply(lambda x: left(str(x['Value']), len(str(x['Value'])) - 2) if x['Lets'] != 'Total of stock (at year end)' else x['Value'], axis = 1)
-
-df['Measure Type'] = df.apply(lambda x: 'Percentage' if 'Total of stock (at year end)' in x['Lets'] else x['Measure Type'], axis = 1)
-df['Unit'] = df.apply(lambda x: 'Percent' if 'Total of stock (at year end)' in x['Lets'] else x['Unit'], axis = 1)
 
 df.head()
 
 
-# In[95]:
+# In[102]:
 
 
 from IPython.core.display import HTML
@@ -111,7 +106,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[96]:
+# In[103]:
 
 
 tidy = df[['Area','Period', 'MCHLG Provider','Lets','Value','Measure Type','Unit']]
@@ -123,7 +118,7 @@ for column in tidy:
 tidy.head(200)
 
 
-# In[97]:
+# In[104]:
 
 
 destinationFolder = Path('out')
