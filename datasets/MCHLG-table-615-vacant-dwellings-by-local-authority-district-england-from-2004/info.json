@@ -1,17 +1,17 @@
 {
-    "title": "Table 602 Local authority owned dwellings let by local authority1, England, 2000-01 to 2017-18",
+    "title": "Table 615: vacant dwellings by local authority district: England, from 2004",
     "publisher": "MCHLG",
-    "description": "This is one of 6 tables from the live tables on rents, lettings and tenancies",
-    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies",
+    "description": "This table brings together figures on vacant dwellings in England at local authority district level drawn from several separately published sources, as at 11 March 2018 and previous years.",
+    "dataURL": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/784593/LT_615.xls",
     "contacts":
     [{
       	"name": "",
-      	"tel": "",
+      	"tel": "030 3444 0000",
       	"email": "housing.statistics@communities.gov.uk"
     }],
-    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies",
-    "published": "24 January 2019",
-    "families": ["Affordable Housing"],
+    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants",
+    "published": "24 May 2019",
+    "families": ["Housing"],
     "stability": "Good",
     "future": "Good",
     "extract": {
@@ -19,19 +19,21 @@
         	"subset": "All tabs",
         	"breakdowns":
           [
-            "Period",
-            {"Lets":
+            {"Time": ["Year", "Date"]},
+            "Geography",
+            {"Dwellings":
               [
-                "New",
-                "Existing",
-                "Mutual exchange",
-                "Total",
-                "Percentage"
+                  "Vacant",
+                  "Long-term vacant",
+                  "Local Authority vacant",
+                  "Private registered Provider Vacant general needs",
+                  "Private registered Provider long-term Vacant general needs",
+                  "Other Public Sector Vacant"
             ]}
           ]
     },
-    "notes": "This is one of 6 Tables  from the live tables which provide the latest, most useful or most popular data, presented by type and other variables, including by geographical area or on a temporal basis.",
+    "notes": "",
     "transform": {
-      "main_issue": 1
+      "main_issue": 8
     }
 }
