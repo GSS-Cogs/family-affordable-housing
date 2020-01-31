@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[50]:
+# In[117]:
 
 
 from gssutils import *
@@ -38,7 +38,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[34]:
+# In[118]:
 
 
 dist = scraper.distributions[0]
@@ -88,13 +88,10 @@ for tab in tabs:
         
 
 
-# In[79]:
+# In[119]:
 
 
-#pd.set_option('display.float_format', lambda x: '%.1f' % x)
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
-
-#df['Period'] = df['Period'].map(lambda x: 'year/' + left(x,4))
 
 df['Period'] = df.apply(lambda x: 'gregorian-interval/' + x['Period Start'] + 'T00:00:00/P1Y' if mid(x['Period Start'], 4, 1) == '-' else x['Period Start'], axis = 1)
 df['Period'] = df.apply(lambda x: 'gregorian-interval/' + left(x['Period Year'], 4) + '-04-01T00:00:00/P1Y' if 'April' in x['Period Start'] else ('gregorian-interval/' + left(x['Period Year'], 4) + '-03-31T00:00:00/P1Y' if 'March' in x['Period Start'] else x['Period']), axis = 1)
@@ -113,16 +110,13 @@ df.rename(columns={'OBS' : 'Value',
                    'DATAMARKER' : 'Marker',
                    'Dwellings' : 'MCHLG Tenure'}, inplace=True)
 
-#df['Value'] = df.apply(lambda x: x * 100 if x['Lets'] == 'Total of stock (at year end)' else x, axis = 1)
-#df['Value'] = df.apply(lambda x: left(str(x['Value']), len(str(x['Value'])) - 2) if x['Lets'] != 'Total of stock (at year end)' else x['Value'], axis = 1)
-
-#df['Measure Type'] = df.apply(lambda x: 'Percentage' if 'Total of stock (at year end)' in x['Lets'] else x['Measure Type'], axis = 1)
-#df['Unit'] = df.apply(lambda x: 'Percent' if 'Total of stock (at year end)' in x['Lets'] else x['Unit'], axis = 1)
+indexNames = df[ (df['Area'] == 'E06000053') & (df['Value'] == '') ].index
+df.drop(indexNames, inplace = True)
 
 df.head(50)
 
 
-# In[80]:
+# In[120]:
 
 
 from IPython.core.display import HTML
@@ -133,7 +127,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[82]:
+# In[121]:
 
 
 tidy = df[['Area','Period', 'MCHLG Tenure','Value','Marker','Measure Type','Unit']]
@@ -145,7 +139,7 @@ for column in tidy:
 tidy.head(200)
 
 
-# In[83]:
+# In[122]:
 
 
 destinationFolder = Path('out')
