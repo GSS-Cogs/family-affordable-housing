@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[79]:
+# In[92]:
 
 
 from gssutils import *
@@ -37,7 +37,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[80]:
+# In[93]:
 
 
 dist = scraper.distributions[0]
@@ -73,7 +73,7 @@ for tab in tabs:
         
 
 
-# In[81]:
+# In[94]:
 
 
 pd.set_option('display.float_format', lambda x: '%.1f' % x)
@@ -91,16 +91,16 @@ df = df.replace({'Lets' : {
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 
-df['Value'] = df.apply(lambda x: x * 100 if x['Lets'] == 'Total of LA stock (at year end)' else x, axis = 1)
+df['Value'] = df.apply(lambda x: x * 100 if x['Lets'] == 'Total of stock (at year end)' else x, axis = 1)
 df['Value'] = df.apply(lambda x: left(str(x['Value']), len(str(x['Value'])) - 2) if x['Lets'] != 'Total of stock (at year end)' else x['Value'], axis = 1)
 
-df['Measure Type'] = df.apply(lambda x: 'Percentage' if 'Total of LA stock (at year end)' in x['Lets'] else x['Measure Type'], axis = 1)
-df['Unit'] = df.apply(lambda x: 'Percent' if 'Total of LA stock (at year end)' in x['Lets'] else x['Unit'], axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'Percentage' if 'Total of stock (at year end)' in x['Lets'] else x['Measure Type'], axis = 1)
+df['Unit'] = df.apply(lambda x: 'Percent' if 'Total of stock (at year end)' in x['Lets'] else x['Unit'], axis = 1)
 
 df.head()
 
 
-# In[82]:
+# In[95]:
 
 
 from IPython.core.display import HTML
@@ -111,7 +111,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[83]:
+# In[96]:
 
 
 tidy = df[['Area','Period', 'MCHLG Provider','Lets','Value','Measure Type','Unit']]
@@ -123,7 +123,7 @@ for column in tidy:
 tidy.head(200)
 
 
-# In[84]:
+# In[97]:
 
 
 destinationFolder = Path('out')
