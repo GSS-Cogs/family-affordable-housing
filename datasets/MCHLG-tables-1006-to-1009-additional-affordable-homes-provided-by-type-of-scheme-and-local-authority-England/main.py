@@ -165,6 +165,10 @@ for i in tidied_tables:
                            'Completions' : 'MCHLG Completions'}, inplace=True)
         
         tidy1 = df1[['Area','Period', 'MCHLG Tenure','MCHLG Completions','MCHLG Provider','Value','Marker','Measure Type','Unit']]
+        
+        indexNames = tidy1[ tidy1['Area'].str.contains('E07AHS')].index
+        tidy1.drop(indexNames, inplace = True)
+        #Region codes of this format were mock codes used in the 90s which have no method of translation to current geography reference website
 
         for column in tidy1:
             if column in ('Marker', 'MCHLG Tenure','MCHLG Completions','MCHLG Provider'):
