@@ -187,7 +187,7 @@ for i in tidied_tables:
                 https://www.gov.uk/government/collections/affordable-housing-supply
                 """
         scraper.dataset.title = i
-        scraper.set_dataset_id(f'gss_data/disability/{GROUP_ID}/{TAB_NAME}')        
+        scraper.set_dataset_id(f'gss_data/affordable-housing/{GROUP_ID}/{TAB_NAME}')        
         
         with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
             metadata.write(scraper.generate_trig())
@@ -246,7 +246,7 @@ for i in tidied_tables:
                 Figures shown represent our best estimate and may be subject to revisions. 
                 """
         scraper.dataset.title = i
-        scraper.set_dataset_id(f'gss_data/disability/{GROUP_ID}/{TAB_NAME}')        
+        scraper.set_dataset_id(f'gss_data/affordable-housing/{GROUP_ID}/{TAB_NAME}')        
         
         with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
             metadata.write(scraper.generate_trig())
