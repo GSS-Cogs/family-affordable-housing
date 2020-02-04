@@ -130,6 +130,8 @@ tidied_tables[table_name] = table_1
 
 GROUP_ID = 'MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England'
 scraper.set_base_uri('http://gss-data.org.uk')
+from gssutils.metadata import THEME
+scraper.dataset.theme = THEME['affordable-housing']
 
 for i in tidied_tables:
     
