@@ -76,5 +76,9 @@
     "url": "codelists/dwp-annual-amount-state-support.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "DWP Annual Amount State Support"
+  },{
+    "url": "codelists/dwp-benefit-unit-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP  Benefit Unit Type"
   }]
 }
