@@ -1,27 +1,27 @@
 Label,Notation,Parent Notation,Priority
-all-households,all-households,,1
-all-in-receipt-of-state-support,all-in-receipt-of-state-support,,2
-all-in-receipt-of-benefit,all-in-receipt-of-benefit,,3
-all-in-receipt-of-tax-credits,all-in-receipt-of-tax-credits,,4
-on-any-income-related-benefit,on-any-income-related-benefit,,5
-on-any-non-income-related-benefit,on-any-non-income-related-benefit,,6
-working-tax-credit,working-tax-credit,,7
-child-tax-credit,child-tax-credit,,8
-child-benefit,child-benefit,,9
-income-support,income-support,,10
-pension-credit,pension-credit,,11
-housing-benefit,housing-benefit,,12
-council-tax-reduction,council-tax-reduction,,13
-state-pension,state-pension,,14
-jobseeker-s-allowance,jobseeker-s-allowance,,15
-employment-and-support-allowance,employment-and-support-allowance,,16
-attendance-allowance,attendance-allowance,,17
-carer-s-allowance,carer-s-allowance,,18
-disability-living-allowance-care-component,disability-living-allowance-care-component,,19
-disability-living-allowance-mobility-component,disability-living-allowance-mobility-component,,20
-personal-independence-payment-daily-living-component,personal-independence-payment-daily-living-component,,21
-personal-independence-payment-mobility-component,personal-independence-payment-mobility-component,,22
-widow-s-benefits,widow-s-benefits,,23
-industrial-injuries-disablement-benefit,industrial-injuries-disablement-benefit,,24
-armed-forces-compensation-scheme,armed-forces-compensation-scheme,,25
-all-benefit-units,all-benefit-units,,26
+All households,all-households,,1
+All in receipt of state support,all-in-receipt-of-state-support,,2
+All in receipt of benefit,all-in-receipt-of-benefit,,3
+All in receipt of tax credits,all-in-receipt-of-tax-credits,,4
+On any income related benefit,on-any-income-related-benefit,,5
+On any non income related benefit,on-any-non-income-related-benefit,,6
+Working Tax Credit,working-tax-credit,,7
+Child Tax Credit,child-tax-credit,,8
+Child Benefit,child-benefit,,9
+Income Support,income-support,,10
+Pension Credit,pension-credit,,11
+Housing Benefit,housing-benefit,,12
+Council Tax Reduction,council-tax-reduction,,13
+State Pension,state-pension,,14
+Jobseeker's Allowance,jobseeker-s-allowance,,15
+Employment and Support Allowance,employment-and-support-allowance,,16
+Attendance Allowance,attendance-allowance,,17
+Carer's Allowance,carer-s-allowance,,18
+Disability Living Allowance (are component),disability-living-allowance-care-component,,19
+Disability-Living-Allowance (mobility component),disability-living-allowance-mobility-component,,20
+Personal Independence Payment (daily living component),personal-independence-payment-daily-living-component,,21
+Personal Independence Payment (mobility component),personal-independence-payment-mobility-component,,22
+Widow's Benefits,widow-s-benefits,,23
+Industrial Injuries Disablement Benefit,industrial-injuries-disablement-benefit,,24
+Armed Forces Compensation Scheme,armed-forces-compensation-scheme,,25
+All benefit units,all-benefit-units,,26
