@@ -1,0 +1,19 @@
+Label,Notation,Parent Notation,Priority
+united-kingdom,united-kingdom,,1
+england,england,,2
+wales,wales,,3
+scotland,scotland,,4
+northern-ireland,northern-ireland,,5
+great-britain,great-britain,,6
+north-east,north-east,,7
+north-west,north-west,,8
+yorkshire-and-the-humber,yorkshire-and-the-humber,,9
+east-midlands,east-midlands,,10
+west-midlands,west-midlands,,11
+east,east,,12
+london,london,,13
+inner-london,inner-london,,14
+outer-london,outer-london,,15
+south-east,south-east,,16
+south-west,south-west,,17
+all-households,all-households,,18

@@ -36,5 +36,45 @@
     "url": "codelists/lets.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Lets"
+  },{
+    "url": "codelists/dwp-age-of-head.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Age of Head"
+  },{
+    "url": "codelists/dwp-ethnic-group.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Ethnic Group"
+  },{
+    "url": "codelists/dwp-region-country.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Region Country"
+  },{
+    "url": "codelists/dwp-source-of-income.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Source of Income"
+  },{
+    "url": "codelists/dwp-household-composition.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Household Composition"
+  },{
+    "url": "codelists/dwp-gross-weekly-household-income.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Gross Weekly Household Income"
+  },{
+    "url": "codelists/dwp-state-support-received.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP State Support Received"
+  },{
+    "url": "codelists/dwp-tenure.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Tenure"
+  },{
+    "url": "codelists/dwp-economic-status.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Economic Status"
+  },{
+    "url": "codelists/dwp-annual-amount-state-support.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Annual Amount State Support"
   }]
 }

@@ -7,3 +7,13 @@ MCHLG Completions,,Dimension,http://gss-data.org.uk/def/concept-scheme/mchlg-com
 Housing Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/housing-type
 Bedrooms,,Dimension,http://gss-data.org.uk/def/concept-scheme/bedrooms
 Lets,,Dimension,http://gss-data.org.uk/def/concept-scheme/lets
+DWP Age of Head,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-age-of-head
+DWP Region Country,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-region-country
+DWP Ethnic Group,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-ethnic-group
+DWP Source of Income,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-source-of-income
+DWP Household Composition,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-household-composition
+DWP Gross Weekly Household Income,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-gross-weekly-household-income
+DWP State Support Received,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-state-support-received
+DWP Tenure,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-tenure
+DWP Economic Status,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-economic-status
+DWP Annual Amount State Support,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-annual-amount-state-support

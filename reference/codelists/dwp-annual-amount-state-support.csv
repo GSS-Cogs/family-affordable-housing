@@ -1,0 +1,8 @@
+Label,Notation,Parent Notation,Priority
+all-benefit-units,all-benefit-units,,1
+not-in-receipt-of-any-state-support,not-in-receipt-of-any-state-support,,2
+less-than-ps10-000,less-than-ps10-000,,3
+between-ps10-000-and-ps15-000,between-ps10-000-and-ps15-000,,4
+between-ps15-000-and-ps20-000,between-ps15-000-and-ps20-000,,5
+between-ps20-000-and-ps25-000,between-ps20-000-and-ps25-000,,6
+over-ps25-000,over-ps25-000,,7

@@ -1,0 +1,12 @@
+Label,Notation,Parent Notation,Priority
+all-households,all-households,,1
+white,white,,2
+mixed/multiple-ethnic-groups,mixed-multiple-ethnic-groups,,3
+asian/asian-british,asian-asian-british,,4
+indian,indian,,5
+pakistani,pakistani,,6
+bangladeshi,bangladeshi,,7
+chinese,chinese,,8
+any-other-asian-background,any-other-asian-background,,9
+black/african/caribbean/black-british,black-african-caribbean-black-british,,10
+other-ethnic-group2,other-ethnic-group2,,11
