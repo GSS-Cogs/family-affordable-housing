@@ -79,6 +79,6 @@
   },{
     "url": "codelists/dwp-benefit-unit-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
-    "rdfs:label": "DWP  Benefit Unit Type"
+    "rdfs:label": "DWP Benefit Unit Type"
   }]
 }
