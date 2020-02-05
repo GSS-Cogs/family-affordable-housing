@@ -1,4 +1,4 @@
-Label,Notation,Parent Notation,Priority
+Label,Notation,Parent Notation,Sort Priority
 All households,all-households,,1
 All in receipt of state support,all-in-receipt-of-state-support,,2
 All in receipt of benefit,all-in-receipt-of-benefit,,3
