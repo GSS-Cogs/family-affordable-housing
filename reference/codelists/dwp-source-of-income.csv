@@ -1,13 +1,12 @@
 Label,Notation,Parent Notation,Priority
 employment,employment,,1
-state-support,state-support,,2
-non-state-pensions,non-state-pensions,,3
-other-sources,other-sources,,4
-wages-and-salaries,wages-and-salaries,,5
-self-employed-income,self-employed-income,,6
-investments,investments,,7
-tax-credits,tax-credits,,8
-state-pension-plus-any-pc1,state-pension-plus-any-pc1,,9
-disability-benefits,disability-benefits,,10
-other-benefits,other-benefits,,11
-state-pension-plus-any-pc5,state-pension-plus-any-pc5,,12
+State support,state-support,,2
+Non state pensions,non-state-pensions,,3
+Other sources,other-sources,,4
+Wages and salaries,wages-and-salaries,,5
+Self employed income,self-employed-income,,6
+Investments,investments,,7
+Tax Credits,tax-credits,,8
+State Pension plus any PC,state-pension-plus-any-pc,,9
+Disability benefits,disability-benefits,,10
+Other benefits,other-benefits,,11
