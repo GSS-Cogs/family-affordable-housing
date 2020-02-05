@@ -1,4 +1,4 @@
-Label,Notation,Parent Notation,Priority
+Label,Notation,Parent Notation,Sort Priority
 Less than ps100 a week,less-than-ps100-a-week,,1
 ps100 but less than ps200,ps100-but-less-than-ps200,,2
 ps200 but less than ps300,ps200-but-less-than-ps300,,3
