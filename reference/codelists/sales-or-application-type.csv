@@ -1,0 +1,9 @@
+Label,Notation,Parent Notation,Sort Priority
+Sales to sitting tenants,sales-to-sitting-tenants,,1
+Tenants choice sales,tenants-choice-sales,,2
+Other public authority sales,other-public-authority-sales,,3
+Other housing association sales,other-housing-association-sales,,4
+Total sales,total-sales,,5
+Applications by sitting tenants,applications-by-sitting-tenants,,6
+Tenants choice applications,tenants-choice-applications,,7
+Total applications,total-applications,,8

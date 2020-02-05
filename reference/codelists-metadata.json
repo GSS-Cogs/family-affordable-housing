@@ -80,5 +80,17 @@
     "url": "codelists/dwp-benefit-unit-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "DWP Benefit Unit Type"
+  },{
+    "url": "local-authority-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Local Authority Type"
+  },{
+    "url": "public-authority-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Public Authority Type"
+  },{
+    "url": "sales-or-application-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Sales or Application Type"
   }]
 }
