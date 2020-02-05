@@ -1,12 +1,12 @@
 Label,Notation,Parent Notation,Sort Priority
-Less than ps100 a week,less-than-ps100-a-week,,1
-ps100 but less than ps200,ps100-but-less-than-ps200,,2
-ps200 but less than ps300,ps200-but-less-than-ps300,,3
-ps300 but less than ps400,ps300-but-less-than-ps400,,4
-ps400 but less than ps500,ps400-but-less-than-ps500,,5
-ps500 but less than ps600,ps500-but-less-than-ps600,,6
-ps600 but less than ps700,ps600-but-less-than-ps700,,7
-ps700 but less than ps800,ps700-but-less-than-ps800,,8
-ps800 but less than ps900,ps800-but-less-than-ps900,,9
-ps900 but less than ps1-000,ps900-but-less-than-ps1-000,,10
-ps1,000 or more,ps1-000-or-more,,11
+Less than 100 a week,less-than-ps100-a-week,,
+100 but less than 200,100-but-less-than-200,,
+200 but less than 300,200-but-less-than-300,,
+300 but less than 400,300-but-less-than-400,,
+400 but less than 500,400-but-less-than-500,,
+500 but less than 600,500-but-less-than-600,,
+600 but less than 700,600-but-less-than-700,,
+700 but less than 800,700-but-less-than-800,,
+800 but less than 900,800-but-less-than-900,,
+900 but less than 1000,900-but-less-than-1000,,
+1000 or more,1000-or-more,,
