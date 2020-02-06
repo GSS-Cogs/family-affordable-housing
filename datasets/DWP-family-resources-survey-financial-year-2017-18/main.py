@@ -401,6 +401,7 @@ benefitsTbl = pd.concat([allTbls[8], allTbls[9], allTbls[10], allTbls[11], allTb
 
 #### Pathify columns
 benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
+benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.replace('/ ', ' ', regex=True)
 benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.strip().apply(pathify)
 benefitsTbl[ageTitle] = benefitsTbl[ageTitle].str.strip().apply(pathify)
 benefitsTbl[regionTitle] = benefitsTbl[regionTitle].str.strip().apply(pathify)
