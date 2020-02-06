@@ -68,7 +68,7 @@ for tab in tabs:
             HDim(tenure, 'Tenure', DIRECTLY, ABOVE),
             HDim(area, 'Area', DIRECTLY, LEFT),
             HDimConst('Measure Type', 'Count'),
-            HDimConst('Unit', 'Dwelling')
+            HDimConst('Unit', 'Dwellings')
     ]
 
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
