@@ -426,9 +426,9 @@ out.mkdir(exist_ok=True, parents=True)
 
 import numpy as np
 
-fn1 = 'observations-sources'
-fn2 = 'observations-households'
-fn3 = 'observations-benefits'
+fn1 = 'sources-of-income-by-region-ethnicity-age'
+fn2 = 'households-by-composition-region-ethnicity'
+fn3 = 'benefits-units-state-support-received-by-region-benefit-ethnicity-age-tenure-economic-status-amount'
 fleNmes = [fn1, fn2, fn3]
 tblData = [sourcesTbl, householdsTbl, benefitsTbl]
 
