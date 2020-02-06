@@ -90,8 +90,7 @@ f2=((df['Local Authority Type'] =='right to buy (modernised terms)') |
     (df['Local Authority Type'] == 'voluntary sales'))
 df.loc[f2,'Public Authority Type'] = 'Local authority'
 
-#  Sitting tenants sales include right to buy (old terms), right to buy (modernised terms from 2003 q4 onwards) 
-#  and rent to mortgage (discontinued from January 2003)
+#  Sitting tenants sales include right to buy (old terms), right to buy (modernised terms from 2003 q4 onwards) and rent to mortgage (discontinued from January 2003)
 f3=((df['Local Authority Type'] =='rent to mortgage') & (df['Unit']=='Sales') 
     & ((df['Period']=='year/2004')|(df['Period']=='year/2005')|(df['Period']=='year/2006')| 
        (df['Period']=='year/2007')|(df['Period']=='year/2008')|(df['Period']=='year/2009')| 
@@ -108,7 +107,6 @@ f4=((df['Local Authority Type'] =='right to buy (modernised terms)')|
     (df['Public Authority Type'] == 'Housing association')| 
     (df['Public Authority Type'] == 'Total')) & (df['Unit']=='Applications')
 df.loc[f4,'Sales or Application Type'] = 'Applications by sitting tenants'
-
 
 #  Symbols Used '..' : not available, - : nil, na : not applicable
 df = df.replace({'Marker' : {'..' : 'Not Available', '-' : 'Nil', 'na' : 'Not Applicable'}})
