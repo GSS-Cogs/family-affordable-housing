@@ -135,6 +135,7 @@ markerTitle = 'Marker'
 valueTitle = 'Value'
 dataMarkerTitle = 'DATAMARKER'
 incomeTitle = 'DWP Source of Income'
+incBreakTitle = 'DWP Income Breakdown'
 ageTitle = 'DWP Age of Head'
 ethnicTitle = 'DWP Ethnic Group'
 regionTitle = 'DWP Region Country'
@@ -213,7 +214,7 @@ except Exception as e:
     print(str(e))
 
 # +
-
+ 
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
 #tbl5[houseCompTitle].unique()
 # -
@@ -267,23 +268,31 @@ abTitle = 'All benefit units'
 allTbls[0][regionTitle] = ukTitle
 allTbls[0][ethnicTitle] = hhTitle
 allTbls[0][ageTitle] = abTitle
+allTbls[0][incBreakTitle] = 'Higher breakdown'
+
 allTbls[1][ethnicTitle] = hhTitle
 allTbls[1][ageTitle] = abTitle
+allTbls[1][incBreakTitle] = 'Lower breakdown'
+
 allTbls[2][ethnicTitle] = hhTitle
 allTbls[2][ageTitle] = abTitle
+allTbls[2][incBreakTitle] = 'Higher breakdown'
+
 allTbls[3][regionTitle] = ukTitle
 allTbls[3][ageTitle] = abTitle
+allTbls[3][incBreakTitle] = 'Lower breakdown'
+
 allTbls[4][ethnicTitle] = hhTitle
 allTbls[4][regionTitle] = hhTitle
+allTbls[4][incBreakTitle] = 'Lower breakdown'
 #### Set the column order
-columnOrder = [periodTitle, ageTitle, regionTitle, ethnicTitle, incomeTitle, sampSzeTitle, markerTitle, valueTitle, unitTitle]
+columnOrder = [periodTitle, ageTitle, regionTitle, ethnicTitle, incBreakTitle, incomeTitle, sampSzeTitle, markerTitle, valueTitle, unitTitle]
 allTbls[0] = allTbls[0][columnOrder]
 allTbls[1] = allTbls[1][columnOrder]
 allTbls[2] = allTbls[2][columnOrder]
 allTbls[3] = allTbls[3][columnOrder]
 allTbls[4] = allTbls[4][columnOrder]
 #### Concatenate the tables 
-#### Not including tbl2_2 (allTbls[2]) as it creates duplicates with tbl2_1. tbl2_2 shold be able to be derived from tbl2_1
 sourcesTbl = pd.concat([allTbls[0], allTbls[1], allTbls[3], allTbls[4]])
 
 #### Pathify columns
@@ -291,7 +300,7 @@ sourcesTbl[ageTitle] = sourcesTbl[ageTitle].str.strip().apply(pathify)
 sourcesTbl[regionTitle] = sourcesTbl[regionTitle].str.strip().apply(pathify)
 sourcesTbl[ethnicTitle] = sourcesTbl[ethnicTitle].str.strip().apply(pathify)
 sourcesTbl[incomeTitle] = sourcesTbl[incomeTitle].str.strip().apply(pathify)
-#sourcesTbl[unitTitle] = sourcesTbl[unitTitle].str.strip().apply(pathify)
+sourcesTbl[incBreakTitle] = sourcesTbl[incBreakTitle].str.strip().apply(pathify)
 #sourcesTbl.head(20)
 
 # +
@@ -502,6 +511,12 @@ for fn in fleNmes:
         k = k + 2
     else:
         k = k + 1
+
+
+
+
+
+
 
 
 
