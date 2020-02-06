@@ -72,5 +72,17 @@
     "url": "codelists/dwp-annual-amount-state-support.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "DWP Annual Amount State Support"
+  },{
+    "url": "codelists/local-authority-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Local Authority Type"
+  },{
+    "url": "codelists/public-authority-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Public Authority Type"
+  },{
+    "url": "codelists/sales-or-application-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Sales or Application Type"
   }]
 }

@@ -116,7 +116,7 @@ df = df.replace({'Local Authority Type' : {'' : 'Not Applicable'}})
 
 
 # %%
-tidy = df[['Period','Sales or Application Type','Local Authority Type','Public Authority Type','Value', 'Marker', 'Measure Type']] #'Unit']]
+tidy = df[['Period','Sales or Application Type','Local Authority Type','Public Authority Type','Value', 'Marker', 'Measure Type', 'Unit']]
 
 for column in tidy:
     if column in ('Marker', 'Public Authority Type', 'Local Authority Type','Sales or Application Type'):
