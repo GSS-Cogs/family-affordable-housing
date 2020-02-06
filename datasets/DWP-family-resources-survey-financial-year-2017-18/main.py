@@ -186,8 +186,7 @@ def fixTable2_5(myTbl):
 
 
 # +
-# # +
-# # #%%capture
+# %%capture
 #### Transform all the sheets
 try:
     tbl1 = extract_sheet_single_table('2', [t for t in sheets if t.name == '2_1'][0], 'B8', 'C9:H22', 'C8', 'Sample Size', periodTitle, incomeTitle, '', True, unitVal1, '1')
@@ -213,11 +212,11 @@ try:
 except Exception as e:
     print(str(e))
 
-#tbl5
-# -
+# +
 
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
 #tbl5[houseCompTitle].unique()
+# -
 
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
 for t in allTbls:
@@ -261,8 +260,8 @@ tableHeadings = [
 ukTitle = 'United Kingdom'
 hhTitle = 'All households'
 abTitle = 'All benefit units'
+# -
 
-# + {"endofcell": "--"}
 ### SOURCES TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[0][regionTitle] = ukTitle
@@ -294,6 +293,7 @@ sourcesTbl[incomeTitle] = sourcesTbl[incomeTitle].str.strip().apply(pathify)
 #sourcesTbl[unitTitle] = sourcesTbl[unitTitle].str.strip().apply(pathify)
 #sourcesTbl.head(20)
 
+# +
 #### HOUSEHOLDS TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[5][regionTitle] = ukTitle
@@ -312,8 +312,8 @@ allTbls[7] = allTbls[7][columnOrder]
 
 #### Concatenate the tables 
 householdsTbl = pd.concat([allTbls[5], allTbls[6], allTbls[7]])
-# -
 
+# +
 #### Pathify columns
 householdsTbl[houseCompTitle] = householdsTbl[houseCompTitle].str.strip().apply(pathify)
 householdsTbl[regionTitle] = householdsTbl[regionTitle].str.strip().apply(pathify)
@@ -324,7 +324,7 @@ householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.replace('ps'
 
 householdsTbl.head(12)
 
-# # +
+# +
 #### BENEFITS TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[8][benUntTitle] = abTitle
@@ -397,6 +397,7 @@ allTbls[15] = allTbls[15][columnOrder]
 
 #### Concatenate the tables 
 benefitsTbl = pd.concat([allTbls[8], allTbls[9], allTbls[10], allTbls[11], allTbls[12], allTbls[13], allTbls[14], allTbls[15]])
+# -
 
 #### Pathify columns
 benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
@@ -410,16 +411,14 @@ benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
 benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
 #benefitsTbl[benUntTitle].unique()
 
-# --
-
-# + {"endofcell": "--"}
+# +
 #### Set up the folder path for the output files
 from pathlib import Path
 
 out = Path('out')
 out.mkdir(exist_ok=True, parents=True)
 
-# # +
+# +
 # Output Observation.csv files
 # Create and output Schema.json files
 # Create and output metadata.trig files
@@ -448,9 +447,7 @@ for fn in fleNmes:
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
     csvw.create(out / (fn + '.csv'), out / ((fn + '.csv') + '-schema.json'))
     i = i + 1
-    
 # -
-
 
 headMain = 'Family Resources Survey: financial year 2017/18'
 
@@ -503,7 +500,6 @@ for fn in fleNmes:
         k = k + 2
     else:
         k = k + 1
-# --
 
 
 
