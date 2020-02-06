@@ -110,7 +110,7 @@ df.loc[f4,'Sales or Application Type'] = 'Applications by sitting tenants'
 
 #  Symbols Used '..' : not available, - : nil, na : not applicable
 df = df.replace({'Marker' : {'..' : 'Not Available', '-' : 'Nil', 'na' : 'Not Applicable'}})
-df['Marker'] = df['Marker'].fillna('Not Applicable')
+df['Marker'] = df['Marker'].fillna('')
 df = df.replace({'Public Authority Type' : {'' : 'Not Applicable'}})
 df = df.replace({'Local Authority Type' : {'' : 'Not Applicable'}})
 

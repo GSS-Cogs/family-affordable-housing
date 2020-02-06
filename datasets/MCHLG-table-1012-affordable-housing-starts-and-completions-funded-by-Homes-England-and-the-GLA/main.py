@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
+# %%
 
-# In[1]:
+# %%
 
 
 from gssutils import *
@@ -37,7 +38,7 @@ scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tabl
 scraper
 
 
-# In[19]:
+# %%
 
 
 dist = scraper.distributions[0]
@@ -79,7 +80,7 @@ for tab in tabs:
     
 
 
-# In[33]:
+# %%
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -115,7 +116,7 @@ df.rename(columns={'Completions' : 'MCHLG Completions',
 df.head()
 
 
-# In[27]:
+# %%
 
 
 from IPython.core.display import HTML
@@ -126,7 +127,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[35]:
+# %%
 
 
 tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Measure Type','Value','Marker','Unit']]
@@ -138,7 +139,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[36]:
+# %%
 
 
 destinationFolder = Path('out')
@@ -158,7 +159,7 @@ csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NA
 tidy
 
 
-# In[ ]:
+# %%
 
 
 
