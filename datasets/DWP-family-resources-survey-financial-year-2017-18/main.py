@@ -283,7 +283,8 @@ allTbls[2] = allTbls[2][columnOrder]
 allTbls[3] = allTbls[3][columnOrder]
 allTbls[4] = allTbls[4][columnOrder]
 #### Concatenate the tables 
-sourcesTbl = pd.concat([allTbls[0], allTbls[1], allTbls[2], allTbls[3], allTbls[4]])
+#### Not including tbl2_2 (allTbls[2]) as it creates duplicates with tbl2_1. tbl2_2 shold be able to be derived from tbl2_1
+sourcesTbl = pd.concat([allTbls[0], allTbls[1], allTbls[3], allTbls[4]])
 
 #### Pathify columns
 sourcesTbl[ageTitle] = sourcesTbl[ageTitle].str.strip().apply(pathify)
