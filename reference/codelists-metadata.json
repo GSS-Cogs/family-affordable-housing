@@ -64,6 +64,10 @@
     "url": "codelists/dwp-tenure.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "DWP Tenure"
+   },{
+    "url": "codelists/dwp-income-breakdown.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "DWP Income Breakdown"
   },{
     "url": "codelists/dwp-economic-status.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
