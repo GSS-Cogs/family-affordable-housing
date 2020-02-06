@@ -178,10 +178,10 @@ try:
 except Exception as e:
     print(str(e))
 
-#tbl1
 # -
 
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
+#tbl9[benUntTitle].unique()
 
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
 for t in allTbls:
@@ -270,61 +270,72 @@ householdsTbl = pd.concat([allTbls[5], allTbls[6], allTbls[7]])
 householdsTbl[houseCompTitle] = householdsTbl[houseCompTitle].str.strip().apply(pathify)
 householdsTbl[regionTitle] = householdsTbl[regionTitle].str.strip().apply(pathify)
 householdsTbl[ethnicTitle] = householdsTbl[ethnicTitle].str.strip().apply(pathify)
+householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.replace(',', '', regex=True)
 householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.strip().apply(pathify)
-#householdsTbl[unitTitle] = householdsTbl[unitTitle].str.strip().apply(pathify)
 #householdsTbl.head(20)
 
 # +
 #### BENEFITS TABLE - Join some tables together adding columns where needed
 #### Add various columns
-allTbls[8][steSupTitle] = hhTitle
+allTbls[8][benUntTitle] = abTitle
 allTbls[8][ethnicTitle] = abTitle
 allTbls[8][ageTitle] = abTitle
 allTbls[8][econStatTitle] = abTitle
 allTbls[8][tenureTitle] = abTitle
 allTbls[8][annAmtTitle] = abTitle
+
 allTbls[9][regionTitle] = ukTitle
 allTbls[9][ethnicTitle] = abTitle
 allTbls[9][ageTitle] = abTitle
 allTbls[9][tenureTitle] = abTitle
 allTbls[9][econStatTitle] = abTitle
 allTbls[9][annAmtTitle] = abTitle
+
+allTbls[10][benUntTitle] = abTitle
 allTbls[10][regionTitle] = ukTitle
-allTbls[10][steSupTitle] = hhTitle
 allTbls[10][ageTitle] = abTitle
 allTbls[10][tenureTitle] = abTitle
 allTbls[10][econStatTitle] = abTitle
 allTbls[10][annAmtTitle] = abTitle
-allTbls[11][steSupTitle] = hhTitle
+
 allTbls[11][regionTitle] = ukTitle
 allTbls[11][ethnicTitle] = abTitle
 allTbls[11][tenureTitle] = abTitle
 allTbls[11][econStatTitle] = abTitle
 allTbls[11][annAmtTitle] = abTitle
+allTbls[11][benUntTitle] = abTitle
+
 allTbls[12][ethnicTitle] = abTitle
 allTbls[12][ageTitle] = abTitle
 allTbls[12][regionTitle] = ukTitle
 allTbls[12][econStatTitle] = abTitle
 allTbls[12][annAmtTitle] = abTitle
+allTbls[12][benUntTitle] = abTitle
+
 allTbls[13][ethnicTitle] = abTitle
 allTbls[13][ageTitle] = abTitle
 allTbls[13][regionTitle] = ukTitle
 allTbls[13][tenureTitle] = abTitle
 allTbls[13][annAmtTitle] = abTitle
+allTbls[13][benUntTitle] = abTitle
+
 allTbls[14][steSupTitle] = abTitle
 allTbls[14][ethnicTitle] = abTitle
 allTbls[14][ageTitle] = abTitle
 allTbls[14][regionTitle] = ukTitle
 allTbls[14][tenureTitle] = abTitle
 allTbls[14][econStatTitle] = abTitle
+allTbls[14][benUntTitle] = abTitle
+
 allTbls[15][steSupTitle] = abTitle
 allTbls[15][ethnicTitle] = abTitle
 allTbls[15][ageTitle] = abTitle
 allTbls[15][regionTitle] = ukTitle
 allTbls[15][tenureTitle] = abTitle
 allTbls[15][econStatTitle] = abTitle
+allTbls[15][benUntTitle] = abTitle
 #### Set the column order
-columnOrder = [periodTitle, steSupTitle, ethnicTitle, ageTitle, regionTitle, tenureTitle, econStatTitle, annAmtTitle, sampSzeTitle, markerTitle, valueTitle, unitTitle]
+columnOrder = [periodTitle, steSupTitle, ethnicTitle, ageTitle, regionTitle, tenureTitle, econStatTitle, annAmtTitle, benUntTitle, sampSzeTitle, markerTitle, valueTitle, unitTitle]
 allTbls[8] = allTbls[8][columnOrder]
 allTbls[9] = allTbls[9][columnOrder]
 allTbls[10] = allTbls[10][columnOrder]
@@ -345,9 +356,10 @@ benefitsTbl[ageTitle] = benefitsTbl[ageTitle].str.strip().apply(pathify)
 benefitsTbl[regionTitle] = benefitsTbl[regionTitle].str.strip().apply(pathify)
 benefitsTbl[tenureTitle] = benefitsTbl[tenureTitle].str.strip().apply(pathify)
 benefitsTbl[econStatTitle] = benefitsTbl[econStatTitle].str.strip().apply(pathify)
+benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.replace(',', '', regex=True)
 benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
-#benefitsTbl[unitTitle] = benefitsTbl[unitTitle].str.strip().apply(pathify)
-#benefitsTbl.head(20)
+benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
+#benefitsTbl[benUntTitle].unique()
 
 # +
 #### Set up the folder path for the output files
@@ -373,6 +385,12 @@ scraper.dataset.family = 'affordable-housing'
 
 i = 0
 for fn in fleNmes:
+    if ethnicTitle in tblData[i].columns:
+        tblData[i][ethnicTitle] = tblData[i][ethnicTitle].str.replace('/', '', regex=True)
+    if annAmtTitle in tblData[i].columns:
+        tblData[i][annAmtTitle] = tblData[i][annAmtTitle].str.replace('ps', '', regex=True) # ££££££££
+
+    
     tblData[i].drop_duplicates().to_csv(out / (fn + '.csv'), index = False)
     scraper.set_dataset_id(f'gss_data/affordable-housing/dwp-family-resources-survey-income-and-state-support/{fn}/')
     with open(out / ('pre' + fn + '.csv-metadata.trig'), 'wb') as metadata:metadata.write(scraper.generate_trig())
@@ -437,6 +455,7 @@ for fn in fleNmes:
         k = k + 1
 
 g = 2
-tblData[g].head(2)
+#allTbls[9][benUntTitle].unique()
+#allTbls[10].head(10)
 
 
