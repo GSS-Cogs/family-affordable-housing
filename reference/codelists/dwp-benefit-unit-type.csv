@@ -1,17 +1,8 @@
 Label,Notation,Parent Notation,Sort Priority
 All benefit units,all-benefit-units,,1
-Pensioner couple,pensioner-couple,,2
-Pensioner couple married or civil partnered,pensioner-couple-married-or-civil-partnered,,3
-Pensioner couple cohabiting,pensioner-couple-cohabiting,,4
-Single female pensioner,single-female-pensioner,,5
-Single male pensioner,single-male-pensioner,,6
-Couple with children,couple-with-children,,7
-Couple with children married or civil partnered,couple-with-children-married-or-civil-partnered,,8
-Couple with children cohabiting,couple-with-children-cohabiting,,9
-Couple without children,couple-without-children,,10
-Couple without children married or civil partnered,couple-without-children-married-or-civil-partnered,,11
-Couple without children cobabiting,couple-without-children-cobabiting,,12
-Couple without children cohabiting,couple-without-children-cohabiting,,13
-Single with children,single-with-children,,14
-Single male without children,single-male-without-children,,15
-Single female without children,single-female-without-children,,16
+Not in receipt of any state support,not-in-receipt-of-any-state-support,,2
+Less than 10000,less-than-10000,,3
+Between 10000 and 15000,between-10000-and-15000,,4
+Between 15000 and 20000,between-15000-and-20000,,5
+Between 20000 and 25000,between-20000-and-25000,,6
+Over 25000,over-25000,,7
