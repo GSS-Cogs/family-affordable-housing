@@ -3,8 +3,7 @@
     "publisher": "DWP",
     "description": "Results from the Family Resources Survey for financial year 2017 to 2018, providing information on income and circumstances of UK households."
     "dataURL": "https://www.gov.uk/government/statistics/family-resources-survey-financial-year-201718",
-    "contacts":
-    [{
+    "contacts":[{
       	"name": "M A Vaughan",
       	"tel": "",
       	"email": "team.frs@dwp.gov.uk, Family Resources Survey, DWP Surveys Branch, 2nd Floor, Caxton House, SW1H 9NA"
@@ -17,8 +16,7 @@
     "extract": {
         	"source": "Excel Spreadsheet",
         	"subset": "",
-        	"breakdowns":
-          [
+        	"breakdowns":[
             {"Dwelling":[
               "Tenure",
               "Rent/Mortgage Cost"
@@ -29,10 +27,13 @@
             "Age",
             "Time",
             "Benefit"
-      ]
+          ]
     },
-    "notes": "Some tabs are captured in Disabilities"
+    "notes": [
+      "Some tabs are captured in Disabilities"
+    ],
     "transform": {
       "main_issue": 29
     }
 }
+
