@@ -1,17 +1,17 @@
 Label,Notation,Parent Notation,Sort Priority
-All benefit units,all-benefit-units,,
-Pensioner couple,pensioner-couple,,
-Pensioner couple married or civil partnered,pensioner-couple-married-or-civil-partnered,,
-Pensioner couple cohabiting,pensioner-couple-cohabiting,,
-Single female pensioner,single-female-pensioner,,
-Single male pensioner,single-male-pensioner,,
-Couple with children,couple-with-children,,
-Couple with children married or civil partnered,couple-with-children-married-or-civil-partnered,,
-Couple with children cohabiting,couple-with-children-cohabiting,,
-Couple without children,couple-without-children,,
-Couple without children married or civil partnered,couple-without-children-married-or-civil-partnered,,
-Couple without children cobabiting,couple-without-children-cobabiting,,
-Couple without children cohabiting,couple-without-children-cohabiting,,
-Single with children,single-with-children,,
-Single male without children,single-male-without-children,,
-Single female without children,single-female-without-children,,
+All benefit units,all-benefit-units,,1
+Pensioner couple,pensioner-couple,,2
+Pensioner couple married or civil partnered,pensioner-couple-married-or-civil-partnered,,3
+Pensioner couple cohabiting,pensioner-couple-cohabiting,,4
+Single female pensioner,single-female-pensioner,,5
+Single male pensioner,single-male-pensioner,,6
+Couple with children,couple-with-children,,7
+Couple with children married or civil partnered,couple-with-children-married-or-civil-partnered,,8
+Couple with children cohabiting,couple-with-children-cohabiting,,9
+Couple without children,couple-without-children,,10
+Couple without children married or civil partnered,couple-without-children-married-or-civil-partnered,,11
+Couple without children cobabiting,couple-without-children-cobabiting,,12
+Couple without children cohabiting,couple-without-children-cohabiting,,13
+Single with children,single-with-children,,14
+Single male without children,single-male-without-children,,15
+Single female without children,single-female-without-children,,16
