@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[43]:
-
-
+# %%
 from gssutils import *
 from databaker.framework import *
 import pandas as pd
@@ -19,26 +16,22 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Dwelling stock estimates'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/814669/LT_100.xls'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Number of Dwellings by Tenure and district: England as at 31 March 2018 and previous years.'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/collections/', temp_scrape)]
-scraper = Scraper('https://www.gov.uk/government/collections/dwelling-stock-including-vacants')
+scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants')
 scraper
 
 
-# In[44]:
+# %%
+dist = scraper.distribution(title=lambda x: x.startswith('Table 100'))
+dist
 
 
-dist = scraper.distributions[0]
+# %% [markdown]
+# In these cases, the distribution is really the dataset, so copy across the title.
+
+# %%
+scraper.dataset.title = dist.title
+
+# %%
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -119,7 +112,7 @@ for tab in tabs:
         tidied_sheets.append(tidy_sheet.topandas())
 
 
-# In[45]:
+# %%
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -129,7 +122,7 @@ df.rename(columns={'OBS':'Value',
 df
 
 
-# In[46]:
+# %%
 
 
 from IPython.core.display import HTML
@@ -140,7 +133,7 @@ for col in df:
         display(df[col].cat.categories)
 
 
-# In[47]:
+# %%
 
 
 tidy = df[['Period','Area','Dwellings','Value','Marker','Measure Type','Unit']]
@@ -163,7 +156,7 @@ tidy.rename(columns={'Dwellings' : 'MCHLG Provider'}, inplace=True)
 tidy
 
 
-# In[48]:
+# %%
 
 
 destinationFolder = Path('out')
@@ -182,3 +175,5 @@ csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/refere
 csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
 tidy
 
+
+# %%
