@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[92]:
+# In[1]:
 
 
 from gssutils import *
@@ -21,26 +21,16 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Local authority owned dwellings let by local authority, England'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/861106/Live_Table_602.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'This is one of 6 tables from the live tables on rents, lettings and tenancies'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 602'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'This is one of 6 tables from the live tables on rents, lettings and tenancies'    
+dist
 
 
-# In[99]:
+# In[2]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -75,7 +65,7 @@ for tab in tabs:
         
 
 
-# In[101]:
+# In[3]:
 
 
 pd.set_option('display.float_format', lambda x: '%.0f' % x)
@@ -95,7 +85,7 @@ df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df.head()
 
 
-# In[102]:
+# In[4]:
 
 
 from IPython.core.display import HTML
@@ -106,7 +96,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[103]:
+# In[5]:
 
 
 tidy = df[['Area','Period', 'MCHLG Provider','Lets','Value','Measure Type','Unit']]
@@ -118,7 +108,7 @@ for column in tidy:
 tidy.head(200)
 
 
-# In[104]:
+# In[6]:
 
 
 destinationFolder = Path('out')
