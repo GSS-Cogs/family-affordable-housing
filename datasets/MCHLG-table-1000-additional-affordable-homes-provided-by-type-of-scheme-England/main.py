@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[36]:
+# In[3]:
 
 
 from gssutils import *
@@ -19,26 +19,15 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Additional Affordable Homes Provided by Type of Scheme'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/847217/Live_Table_1000.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Affordable housing supply statistics (AHS) 2017-18. Live tables - 1000, 1000S, 1000C, 1000C Chart - 1004'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 1000'))
+scraper.dataset.title = dist.title
+dist
 
 
-# In[37]:
+# In[4]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -87,7 +76,7 @@ for tab in tabs:
         
 
 
-# In[38]:
+# In[5]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -131,7 +120,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[39]:
+# In[6]:
 
 
 tidy = df[['Period','Area','Tenure','Scheme','Scheme Type','Value','Marker','Measure Type','Unit']]
@@ -141,7 +130,7 @@ tidy.rename(columns={'Tenure':'MCHLG Tenure',
 tidy
 
 
-# In[40]:
+# In[7]:
 
 
 destinationFolder = Path('out')
