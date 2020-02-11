@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
-# %%
 
-# %%
+# In[5]:
 
 
 from gssutils import *
@@ -22,26 +21,16 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Affordable housing starts and completions funded by Homes England and the GLA'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/849620/Live_Table_1012.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Affordable housing supply statistics (AHS) 2017-18. Table 1012: Affordable Housing Starts and Completions funded by Homes England and the Greater London Authority 1,2,4'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 1012'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'Affordable housing supply statistics (AHS) 2017-18. Table 1012: Affordable Housing Starts and Completions funded by Homes England and the Greater London Authority 1,2,4'    
+dist
 
 
-# %%
+# In[6]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -80,7 +69,7 @@ for tab in tabs:
     
 
 
-# %%
+# In[7]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -116,7 +105,7 @@ df.rename(columns={'Completions' : 'MCHLG Completions',
 df.head()
 
 
-# %%
+# In[8]:
 
 
 from IPython.core.display import HTML
@@ -127,10 +116,10 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# %%
+# In[9]:
 
 
-tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Measure Type','Value','Marker','Unit']]
+tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Marker','Measure Type','Unit']]
 
 for column in tidy:
     if column in ('Marker', 'MCHLG Tenure', 'MCHLG Completions'):
@@ -139,7 +128,7 @@ for column in tidy:
 tidy.head()
 
 
-# %%
+# In[10]:
 
 
 destinationFolder = Path('out')
@@ -159,7 +148,7 @@ csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NA
 tidy
 
 
-# %%
+# In[ ]:
 
 
 
