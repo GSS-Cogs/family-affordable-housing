@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[55]:
+# In[3]:
 
 
 from gssutils import *
@@ -21,26 +21,16 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Permanent dwellings completed, by house and flat, number of bedroom and tenure, England'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/861415/LiveTable254.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Live tables on house building: new build dwellings completed, by house and flat, number of bedroom and tenure, England'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 254'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'Live tables on house building: new build dwellings completed, by house and flat, number of bedroom and tenure, England'    
+dist
 
 
-# In[56]:
+# In[4]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -78,7 +68,7 @@ for tab in tabs:
         
 
 
-# In[57]:
+# In[5]:
 
 
 pd.set_option('display.float_format', lambda x: '%.0f' % x)
@@ -113,7 +103,7 @@ df.rename(columns={'Tenure' : 'MCHLG Tenure',
 df.head(50)
 
 
-# In[58]:
+# In[6]:
 
 
 from IPython.core.display import HTML
@@ -124,7 +114,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[59]:
+# In[7]:
 
 
 tidy = df[['Area','Period','MCHLG Tenure','Housing Type','Bedrooms','Value','Measure Type','Unit']]
@@ -136,7 +126,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[61]:
+# In[8]:
 
 
 destinationFolder = Path('out')
