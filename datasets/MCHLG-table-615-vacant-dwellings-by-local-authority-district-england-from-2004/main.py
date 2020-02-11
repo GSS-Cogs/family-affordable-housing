@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[117]:
+# In[2]:
 
 
 from gssutils import *
@@ -22,26 +22,16 @@ def right(s, amount):
 def mid(s, offset, amount):
     return s[offset:offset+amount]
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Vacant dwellings by local authority district, England'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/784593/LT_615.xls'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'This table brings together figures on vacant dwellings in England at local authority district level drawn from several separately published sources, as at 11 March 2018 and previous years.'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 615'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'This table brings together figures on vacant dwellings in England at local authority district level drawn from several separately published sources, as at 11 March 2018 and previous years.'    
+dist
 
 
-# In[118]:
+# In[3]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -88,7 +78,7 @@ for tab in tabs:
         
 
 
-# In[119]:
+# In[4]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -116,7 +106,7 @@ df.drop(indexNames, inplace = True)
 df.head(50)
 
 
-# In[120]:
+# In[5]:
 
 
 from IPython.core.display import HTML
@@ -127,7 +117,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[121]:
+# In[6]:
 
 
 tidy = df[['Area','Period', 'MCHLG Tenure','Value','Marker','Measure Type','Unit']]
@@ -139,7 +129,7 @@ for column in tidy:
 tidy.head(200)
 
 
-# In[122]:
+# In[7]:
 
 
 destinationFolder = Path('out')
