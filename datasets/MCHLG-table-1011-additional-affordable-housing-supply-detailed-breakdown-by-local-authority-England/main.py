@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
+# In[7]:
 
 
 from gssutils import *
@@ -21,33 +21,27 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Additional affordable housing supply, detailed breakdown by local authority'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/847659/Live_Table_1011.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Affordable housing supply statistics (AHS) 2017-18'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply')
 scraper
 
 
-# In[14]:
+# In[8]:
 
 
-dist = scraper.distributions[0]
-#tabs = (t for t in dist.as_pandas(sheet_name = 'data'))
+dist = scraper.distribution(title=lambda x: x.startswith('Table 1011'))
+dist.mediaType = Excel 
+dist
+
+
+# In[9]:
+
+
 df = dist.as_pandas(sheet_name = 'data')
 
 df.head()
 
 
-# In[15]:
+# In[10]:
 
 
 tidy = df[['LA code','Year','Tenure','Completions','Region code','Type','LT1000','Provider','Units']]
@@ -74,6 +68,7 @@ tidy.drop(indexNames, inplace = True)
 
 indexNames = tidy[ tidy['Area'].str.contains('E07AHS')].index
 tidy.drop(indexNames, inplace = True)
+#Region codes of this format were mock codes used in the 90s which have no method of translation to current geography reference website
 
 tidy = tidy.drop(['Region code'], axis=1)
 tidy['Measure Type'] = 'Count'
@@ -108,7 +103,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[16]:
+# In[11]:
 
 
 from IPython.core.display import HTML
@@ -119,7 +114,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[17]:
+# In[12]:
 
 
 destinationFolder = Path('out')
