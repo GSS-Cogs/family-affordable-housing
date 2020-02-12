@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[110]:
+# In[46]:
 
 
 from gssutils import *
@@ -12,6 +12,7 @@ from gssutils.metadata import *
 import datetime
 from gssutils.metadata import Distribution, GOV
 pd.options.mode.chained_assignment = None
+import inspect
 
 def left(s, amount):
     return s[:amount]
@@ -22,26 +23,21 @@ def right(s, amount):
 def mid(s, offset, amount):
     return s[offset:offset+amount]
 
-def temp_scrape(scraper, tree):
-    #scraper.dataset.title = 'Additional Affordable Homes Provided by Type of Scheme and Local Authority'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/847220/Live_Tables_1006-1009.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Affordable housing supply statistics (AHS) 2017-18. Live tables - 1006C,1006S, 1006aC,1006aS, 1006bS, 1006bC, 1007C,1007S, 1008C,1008S, 1009'
-    return
 
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply')
 scraper
 
 
-# In[111]:
+# In[47]:
 
 
-dist = scraper.distributions[0]
+dist = scraper.distribution(title=lambda x: x.startswith('Tables 1006'))
+dist
+
+
+# In[48]:
+
+
 tabs = (t for t in dist.as_databaker())
 
 tidied_tables = {}
@@ -85,7 +81,7 @@ for tab in tabs:
         
     elif '1009' in tab.name:
         
-        table_name = 'Additional New Build and Acquired Affordable Homes Provided'
+        table_name = 'Table 1009'
     
         cell = tab.filter(contains_string('Table 100'))
 
@@ -118,14 +114,14 @@ for tab in tabs:
         
         tidied_tables[table_name] = table_2
 
-table_name = 'Additional Affordable Homes Provided by Type of Scheme and Local Authority'
+table_name = 'Tables 1006 to 1008'
         
 table_1 = pd.concat(tidied_sheets, ignore_index = True, sort = True).fillna('')
         
 tidied_tables[table_name] = table_1        
 
 
-# In[112]:
+# In[49]:
 
 
 GROUP_ID = 'MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England'
@@ -135,7 +131,7 @@ scraper.dataset.theme = THEME['affordable-housing']
 
 for i in tidied_tables:
     
-    if i == 'Additional Affordable Homes Provided by Type of Scheme and Local Authority':
+    if i == 'Tables 1006 to 1008':
         
         df1 = tidied_tables.get(i)
 
@@ -180,7 +176,7 @@ for i in tidied_tables:
         destinationFolder.mkdir(exist_ok=True, parents=True)
 
         TAB_NAME = pathify(i)
-
+        
         tidy1.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = False)
 
         scraper.dataset.family = 'affordable-housing'
@@ -188,7 +184,7 @@ for i in tidied_tables:
                 This contains tables relating to the MHCLG Affordable Housing Statistics. The latest Statistical Publication is available here.
                 https://www.gov.uk/government/collections/affordable-housing-supply
                 """
-        scraper.dataset.title = i
+        scraper.dataset.title = 'Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England'
         scraper.set_dataset_id(f'gss_data/affordable-housing/{GROUP_ID}/{TAB_NAME}')        
         
         with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
@@ -219,12 +215,14 @@ for i in tidied_tables:
             'Social Rent, of which:' : 'Social Rent', 
             'Unknown Tenure, of which:' : 'Unknown Tenure'
                          }})
+        
+        
 
         df2.rename(columns={'OBS' : 'Value',
                            'DATAMARKER' : 'Marker',
                            'Tenure' : 'MCHLG Tenure',
                            'Scheme Type' : 'MCHLG Scheme Type'}, inplace=True)
-
+        
         tidy2 = df2[['Area','Period', 'MCHLG Tenure','MCHLG Scheme Type','Value','Marker','Measure Type','Unit']]
         
         indexNames = tidy2[ tidy2['Area'].str.contains('E07AHS')].index
@@ -247,8 +245,8 @@ for i in tidied_tables:
                 Figures for some  units, e.g. some affordable traveller pitches and some delivery under the Affordable Housing Guarantees programme, cannot be broken down to show new build and acquisitions.
                 Figures shown represent our best estimate and may be subject to revisions. 
                 """
-        scraper.dataset.title = i
-        scraper.set_dataset_id(f'gss_data/affordable-housing/{GROUP_ID}/{TAB_NAME}')        
+        scraper.dataset.title = 'Table 1009: Additional New Build and Acquired Affordable Homes Provided'
+        scraper.set_dataset_id(f'gss_data/affordable-housing/{GROUP_ID}/{TAB_NAME}')       
         
         with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
             metadata.write(scraper.generate_trig())
@@ -258,7 +256,7 @@ for i in tidied_tables:
 tidy1.head(50)
 
 
-# In[113]:
+# In[50]:
 
 
 tidy2.head(50)
