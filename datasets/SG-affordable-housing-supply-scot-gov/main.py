@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py
+#     formats: ipynb,py:light
 #     text_representation:
 #       extension: .py
 #       format_name: light
@@ -125,7 +125,7 @@ for tab in tabs:
 # +
 df1  = pd.concat(tidied_sheets, ignore_index = True, sort = False) #Quarter years 
 df1['Period'] = df1['Period'].map(lambda x: 'quarter/' + left(x,4))
-df1["Period"] = df1["Period"] + df1["Quarter"].map(lambda x: '-0' + right(x,1))
+df1["Period"] = df1["Period"] + df1["Quarter"].map(lambda x: '-Q' + right(x,1))
 
 df2 = pd.concat(tidied_fin_sheets,ignore_index = True, sort = False) #financial years 
 df2['Period'] = df2['Period'].map(lambda x: 'year/' + left(x,4))
