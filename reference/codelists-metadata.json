@@ -96,5 +96,25 @@
     "url": "codelists/sales-or-application-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Sales or Application Type"
+  },{
+    "url": "codelists/tenure.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Tenure"
+  },{
+    "url": "codelists/ahsp-scheme.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "AHSP Scheme"
+  },{
+    "url": "codelists/ahsp-scheme-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "AHSP Scheme Type"
+  },{
+    "url": "codelists/property-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Property Type"
+  },{
+    "url": "codelists/new-affordable-housing-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "New Affordable Housing Type"
   }]
 }

@@ -24,3 +24,8 @@ Number of benefit units in millions,Number of benefit units in millions,Measure,
 Public Authority Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/public-authority-type
 Local Authority Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/local-authority-type
 Sales or Application Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/sales-or-application-type
+Tenure,,Dimension,http://gss-data.org.uk/def/concept-scheme/tenure
+AHSP Scheme,,Dimension,http://gss-data.org.uk/def/concept-scheme/ahsp-scheme
+AHSP Scheme Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/ahsp-scheme-type
+Property Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/property-type
+New Affordable Housing Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/new-affordable-housing-type
