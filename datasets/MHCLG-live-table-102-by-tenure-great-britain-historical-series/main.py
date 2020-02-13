@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[27]:
+# In[2]:
 
 
 from gssutils import *
@@ -29,7 +29,7 @@ landingPage = info['Landing Page']
 landingPage 
 
 
-# In[28]:
+# In[3]:
 
 
 scraper = Scraper(landingPage) 
@@ -39,7 +39,7 @@ scraper.dataset.title = dist.title
 dist
 
 
-# In[29]:
+# In[4]:
 
 
 tabs = (t for t in dist.as_databaker())
@@ -84,7 +84,7 @@ for tab in tabs:
         
 
 
-# In[30]:
+# In[5]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -118,7 +118,7 @@ df.rename(columns={'OBS' : 'Value',
 df.head(50)
 
 
-# In[22]:
+# In[6]:
 
 
 from IPython.core.display import HTML
@@ -129,7 +129,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[32]:
+# In[7]:
 
 
 tidy = df[['Area','Period', 'MCHLG Tenure', 'Value', 'Marker', 'Measure Type', 'Unit']]
@@ -139,6 +139,29 @@ for column in tidy:
         tidy[column] = tidy[column].map(lambda x: pathify(x))
 
 tidy.head(50) 
+
+
+# In[8]:
+
+
+destinationFolder = Path('out')
+destinationFolder.mkdir(exist_ok=True, parents=True)
+
+TAB_NAME = 'observations'
+
+tidy.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = False)
+
+scraper.dataset.family = 'affordable-housing'
+scraper.dataset.comment = """
+        Data for earlier years are less reliable and definitions may not be consistent throughout the series
+        """
+
+with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
+    metadata.write(scraper.generate_trig())
+
+csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
+csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
+tidy
 
 
 # In[ ]:
