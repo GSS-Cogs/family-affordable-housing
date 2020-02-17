@@ -19,7 +19,6 @@ DWP Economic Status,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-eco
 DWP Annual Amount State Support,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-annual-amount-state-support
 DWP Benefit Unit Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-benefit-unit-type
 DWP Income Breakdown,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwp-income-breakdown
-Percentage,Percentage,Measure,
 Number of benefit units in millions,Number of benefit units in millions,Measure,
 Public Authority Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/public-authority-type
 Local Authority Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/local-authority-type
