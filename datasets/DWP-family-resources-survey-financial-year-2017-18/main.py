@@ -480,7 +480,7 @@ for fn in fleNmes:
                 #### Change the lines to the value in the variabl headMain
                 if headMain in line.strip("\n"):
                     newLine = line
-                    newLine = line.replace(headMain, headMain + ' - ' + fn)
+                    newLine = line.replace(headMain, 'DWP - ' + headMain + ' - ' + fn)
                     output.write(newLine)
                 else: 
                     lineWanted = True
@@ -511,6 +511,8 @@ for fn in fleNmes:
         k = k + 2
     else:
         k = k + 1
+
+
 
 
 
