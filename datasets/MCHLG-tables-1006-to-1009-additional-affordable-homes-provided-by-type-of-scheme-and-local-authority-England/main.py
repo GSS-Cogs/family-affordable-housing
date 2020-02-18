@@ -184,7 +184,7 @@ for i in tidied_tables:
                 This contains tables relating to the MHCLG Affordable Housing Statistics. The latest Statistical Publication is available here.
                 https://www.gov.uk/government/collections/affordable-housing-supply
                 """
-        scraper.dataset.title = 'Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England'
+        scraper.dataset.title = 'Tables 1006 to 1008: additional affordable homes provided by type of scheme and local authority, England'
         scraper.set_dataset_id(f'gss_data/affordable-housing/{GROUP_ID}/{TAB_NAME}')        
         
         with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
