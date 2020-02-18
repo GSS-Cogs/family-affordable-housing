@@ -1,0 +1,7 @@
+Label,Notation,Parent Notation,Sort Priority
+City Centre,city-centre,,1
+Other Urban Centre,other-urban-centre,,2
+Rural,rural,,3
+Rural Residential,rural-residential,,4
+Suburban Residential,suburban-residential,,5
+Village Centre,village-centre,,6
