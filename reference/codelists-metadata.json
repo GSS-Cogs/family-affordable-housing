@@ -144,5 +144,17 @@
     "url": "codelists/deprived-districts.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Deprived Districts"
+  },{
+    "url": "codelists/social-landlord-housing-sales-provider.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Landlord Housing Sales Provider"
+  },{
+    "url": "codelists/social-landlord-housing-sales-activity.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Landlord Housing Sales Activity"
+  },{
+    "url": "codelists/wg-geography.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "WG Geography"
   }]
 }
