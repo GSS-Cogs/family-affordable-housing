@@ -31,3 +31,10 @@ New Affordable Housing Type,,Dimension,http://gss-data.org.uk/def/concept-scheme
 Social Landlord Housing Sales Activity,,Dimension,http://gss-data.org.uk/def/concept-scheme/social-landlord-housing-sales-activity
 WG Geography,,Dimension,http://gss-data.org.uk/def/concept-scheme/wg-geography
 Social Landlord Housing Sales Provider,,Dimension,http://gss-data.org.uk/def/concept-scheme/social-landlord-housing-sales-provider
+Occupancy Status,,Dimension,http://gss-data.org.uk/def/concept-scheme/occupancy-status
+Dwelling Age,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwelling-age
+Dwelling Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwelling-type
+Dwelling Size,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwelling-size
+Area Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/area-type
+Deprived Local Areas,,Dimension,http://gss-data.org.uk/def/concept-scheme/deprived-local-areas
+Deprived Districts,,Dimension,http://gss-data.org.uk/def/concept-scheme/deprived-districts
