@@ -116,5 +116,33 @@
     "url": "codelists/new-affordable-housing-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "New Affordable Housing Type"
+  },{
+    "url": "codelists/occupancy-status.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Occupancy Status"
+  },{
+    "url": "codelists/dwelling-age.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Dwelling Age"
+  },{
+    "url": "codelists/dwelling-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Dwelling Type"
+  },{
+    "url": "codelists/dwelling-size.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Dwelling Size"
+  },{
+    "url": "codelists/area-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Area Type"
+  },{
+    "url": "codelists/deprived-local-areas.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Deprived Local Areas"
+  },{
+    "url": "codelists/deprived-districts.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Deprived Districts"
   }]
 }
