@@ -118,6 +118,8 @@ def user_perc(x):
 table['Period'] = table.apply(lambda row: user_perc(row['Year']), axis = 1)
 # -
 
+table['WG Geography'] = table['WG Geography'].apply(pathify)
+
 table['Measure Type'] = 'Count'
 table['Unit'] = 'housing-sales'
 
