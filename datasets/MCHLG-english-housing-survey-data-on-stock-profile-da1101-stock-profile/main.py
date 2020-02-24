@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[78]:
+# In[1]:
 
 
 from gssutils import *
@@ -13,6 +13,7 @@ import datetime
 from gssutils.metadata import Distribution, GOV
 pd.options.mode.chained_assignment = None
 import json
+import inspect
 
 def left(s, amount):
     return s[:amount]
@@ -30,7 +31,7 @@ scraper
 
 # Note: 'sub-national area' has been omitted since one third of the data for this dimension is labelled as 'rest of England' which has no way to be translated into an Area Code.
 
-# In[79]:
+# In[2]:
 
 
 scraper.select_dataset(latest=True) 
@@ -39,7 +40,7 @@ scraper.dataset.title = dist.title
 dist
 
 
-# In[72]:
+# In[3]:
 
 
 tabs = (t for t in dist.as_databaker())
@@ -78,7 +79,7 @@ for tab in tabs:
         
 
 
-# In[73]:
+# In[4]:
 
 
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
@@ -134,7 +135,10 @@ df = df.replace({'Tenure' : {
     'most deprived 10% of areas' : 'most deprived 10%'},
                 'DATAMARKER' : {
     '*' : 'too small for reliable estimate',
-    'u' : 'too small for reliable estimate'}})
+    'u' : 'too small for reliable estimate'},
+                'Dweeling Type' : {
+    'medium/large-terraced-house' : 'medium-large-terraced-house'}
+                }})
 
 df.rename(columns={'OBS' : 'Value',
                    'Tenure' : 'MCHLG Tenure',
@@ -147,7 +151,7 @@ for column in df:
 df
 
 
-# In[74]:
+# In[5]:
 
 
 from IPython.core.display import HTML
@@ -158,7 +162,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[75]:
+# In[6]:
 
 
 tables = {}
@@ -198,7 +202,7 @@ deprived_districts.drop(indexNames, inplace = True)
 tables['Deprived Districts'] = deprived_districts
 
 
-# In[76]:
+# In[7]:
 
 
 GROUP_ID = 'MCHLG-english-housing-survey-data-on-stock-profile-da1101-stock-profile'.lower()
