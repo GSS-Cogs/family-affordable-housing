@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[86]:
+# In[70]:
 
 
 from gssutils import *
@@ -31,7 +31,7 @@ landingPage
 
 # Note: 'sub-national area' has been omitted since one third of the data for this dimension is labelled as 'rest of England' which has no way to be translated into an Area Code.
 
-# In[87]:
+# In[71]:
 
 
 scraper = Scraper(landingPage) 
@@ -41,7 +41,7 @@ scraper.dataset.title = dist.title
 dist
 
 
-# In[88]:
+# In[72]:
 
 
 tabs = (t for t in dist.as_databaker())
@@ -80,14 +80,16 @@ for tab in tabs:
         
 
 
-# In[89]:
+# In[73]:
 
 
-pd.set_option('display.float_format', lambda x: '%.0f' % x)
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
 
 df['OBS'] = df['OBS'] * 1000
+
+df['OBS'] = df['OBS'].map(lambda x: round(x) if x != '' else x)
 
 df['Period'] = 'year/' + df['Period']
 
@@ -147,7 +149,7 @@ for column in df:
 df
 
 
-# In[90]:
+# In[74]:
 
 
 from IPython.core.display import HTML
@@ -158,27 +160,47 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[91]:
+# In[75]:
 
 
 tables = {}
 occ_status = df[['Period','MCHLG Tenure','Occupancy Status','Value','Marker','Measure Type','Unit']]
+indexNames = occ_status[ occ_status['Occupancy Status'] == 'all' ].index
+occ_status.drop(indexNames, inplace = True)
 tables['Occupancy Status'] = occ_status
+
 dwelling_age = df[['Period','MCHLG Tenure','Dwelling Age','Value','Marker','Measure Type','Unit']]
+indexNames = dwelling_age[ dwelling_age['Dwelling Age'] == 'all' ].index
+dwelling_age.drop(indexNames, inplace = True)
 tables['Dwelling Age'] = dwelling_age
+
 dwelling_type = df[['Period','MCHLG Tenure','Dwelling Type','Value','Marker','Measure Type','Unit']]
+indexNames = dwelling_type[ dwelling_type['Dwelling Type'] == 'all' ].index
+dwelling_type.drop(indexNames, inplace = True)
 tables['Dwelling Type'] = dwelling_type
+
 dwelling_size = df[['Period','MCHLG Tenure','Dwelling Size','Value','Marker','Measure Type','Unit']]
+indexNames = dwelling_size[ dwelling_size['Dwelling Size'] == 'all' ].index
+dwelling_size.drop(indexNames, inplace = True)
 tables['Dwelling Size'] = dwelling_size
+
 area_type = df[['Period','MCHLG Tenure','Area Type','Value','Marker','Measure Type','Unit']]
+indexNames = area_type[ area_type['Area Type'] == 'all' ].index
+area_type.drop(indexNames, inplace = True)
 tables['Area Type'] = area_type
+
 deprived_local_areas = df[['Period','MCHLG Tenure','Deprived Local Areas','Value','Marker','Measure Type','Unit']]
+indexNames = deprived_local_areas[ deprived_local_areas['Deprived Local Areas'] == 'all' ].index
+deprived_local_areas.drop(indexNames, inplace = True)
 tables['Deprived Local Area'] = deprived_local_areas
+
 deprived_districts = df[['Period','MCHLG Tenure','Deprived Districts','Value','Marker','Measure Type','Unit']]
+indexNames = deprived_districts[ deprived_districts['Deprived Districts'] == 'all' ].index
+deprived_districts.drop(indexNames, inplace = True)
 tables['Deprived Districts'] = deprived_districts
 
 
-# In[92]:
+# In[76]:
 
 
 GROUP_ID = 'MCHLG-english-housing-survey-data-on-stock-profile-da1101-stock-profile'.lower()
@@ -220,10 +242,4 @@ for i in tables:
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
     csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NAME}.csv-schema.json')
     tidy
-
-
-# In[ ]:
-
-
-
 
