@@ -79,7 +79,7 @@ for tab in tabs:
         
 
 
-# In[4]:
+# In[10]:
 
 
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
@@ -139,6 +139,8 @@ df = df.replace({'Tenure' : {
                 'Dwelling Type' : {
     'medium/large-terraced-house' : 'medium-large-terraced-house'}})
 
+df['Dwelling Type'] = df['Dwelling Type'].map(lambda x: x.replace('/', '-'))
+
 df.rename(columns={'OBS' : 'Value',
                    'Tenure' : 'MCHLG Tenure',
                    'DATAMARKER' : 'Marker'}, inplace=True)
@@ -150,7 +152,7 @@ for column in df:
 df
 
 
-# In[5]:
+# In[11]:
 
 
 from IPython.core.display import HTML
