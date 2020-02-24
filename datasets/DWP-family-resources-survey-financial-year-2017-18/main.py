@@ -478,10 +478,23 @@ for fn in fleNmes:
             #### Loop around the input file
             for line in input:
                 #### Change the lines to the value in the variabl headMain
-                if headMain in line.strip("\n"):
+                if 'dct:title' in line.strip("\n"):
+                    newLine = line
+                    newLine = line.replace(headMain, 'DWP - ' + headMain + ' - ' + fn)
+                    newLine = newLine.replace(';', '.')
+                    output.write(newLine)
+                elif headMain in line.strip("\n"):
                     newLine = line
                     newLine = line.replace(headMain, 'DWP - ' + headMain + ' - ' + fn)
                     output.write(newLine)
+                elif 'dcat:distribution' in line.strip("\n"):
+                    output.write('')
+                elif ('<N' in line.strip("\n")) and ('>,' in line.strip("\n")):
+                    output.write('')
+                elif ('<N' in line.strip("\n")) and ('> .' in line.strip("\n")):
+                    output.write('')
+                elif 'void:sparqlEndpoint </sparql> ;' in line.strip("\n"):
+                    output.write('')
                 else: 
                     lineWanted = True
                     #### Ignore lines with ns2 but loop for other ns# lines, deleteing any extra ones that do not match the value of k
@@ -511,6 +524,12 @@ for fn in fleNmes:
         k = k + 2
     else:
         k = k + 1
+
+
+
+
+
+
 
 
 
