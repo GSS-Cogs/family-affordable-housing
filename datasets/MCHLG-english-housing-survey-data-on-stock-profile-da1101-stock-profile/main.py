@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[70]:
+# In[78]:
 
 
 from gssutils import *
@@ -24,17 +24,15 @@ def mid(s, offset, amount):
     return s[offset:offset+amount]
 
 
-info = json.load(open('info.json')) 
-landingPage = info['dataURL'] 
-landingPage 
+scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/stock-profile')
+scraper
 
 
 # Note: 'sub-national area' has been omitted since one third of the data for this dimension is labelled as 'rest of England' which has no way to be translated into an Area Code.
 
-# In[71]:
+# In[79]:
 
 
-scraper = Scraper(landingPage) 
 scraper.select_dataset(latest=True) 
 dist = scraper.distribution(title=lambda x: x.startswith('DA1101'))
 scraper.dataset.title = dist.title   
