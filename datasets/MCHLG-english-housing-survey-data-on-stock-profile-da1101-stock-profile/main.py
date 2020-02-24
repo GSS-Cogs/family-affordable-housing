@@ -137,8 +137,7 @@ df = df.replace({'Tenure' : {
     '*' : 'too small for reliable estimate',
     'u' : 'too small for reliable estimate'},
                 'Dweeling Type' : {
-    'medium/large-terraced-house' : 'medium-large-terraced-house'}
-                }})
+    'medium/large-terraced-house' : 'medium-large-terraced-house'}})
 
 df.rename(columns={'OBS' : 'Value',
                    'Tenure' : 'MCHLG Tenure',
