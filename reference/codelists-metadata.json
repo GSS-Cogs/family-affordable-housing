@@ -168,5 +168,9 @@
     "url": "codelists/ni-household-description.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "NI Household Description"
+  },{
+    "url": "codelists/development-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Development Type"
   }]
 }
