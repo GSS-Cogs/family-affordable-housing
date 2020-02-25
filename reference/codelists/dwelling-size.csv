@@ -1,0 +1,6 @@
+Label,Notation,Parent Notation,Sort Priority
+110 or more,110-or-more,,1
+50-69,50-69,,2
+70-89,70-89,,3
+90-109,90-109,,4
+less than 50,less-than-50,,5

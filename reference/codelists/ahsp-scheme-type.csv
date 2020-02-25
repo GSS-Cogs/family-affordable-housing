@@ -1,0 +1,12 @@
+Label,Notation,Parent Notation,Sort Priority
+RSL Rent,rsl-rent,,1
+Council House Rent,council-house-rent,,2
+Home Owner Support Fund (Rent),home-owner-support-fund-rent,,3
+Other Affordable Rent*,other-affordable-rent,,4
+RSL New Supply Shared Equity (NSSE)/Shared Ownership (LCHO),rsl-new-supply-shared-equity-nsse-/shared-ownership-lcho,,5
+Council House New Supply Shared Equity (NSSE),council-house-new-supply-shared-equity-nsse,,6
+Other Affordable Home Ownership**,other-affordable-home-ownership,,7
+Open Market Shared Equity (OMSE),open-market-shared-equity-omse,,8
+New Supply Shared Equitiy (Developers),new-supply-shared-equitiy-developers,,9
+Home Owner Support Fund (Shared Equity),home-owner-support-fund-shared-equity,,10
+Not applicable,not-applicable,,11

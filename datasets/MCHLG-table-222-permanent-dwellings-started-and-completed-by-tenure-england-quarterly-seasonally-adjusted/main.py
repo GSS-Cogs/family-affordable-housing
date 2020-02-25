@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[17]:
+# In[9]:
 
 
 from gssutils import *
@@ -21,26 +21,16 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Permanent dwellings started and completed, by tenure, England (quarterly seasonally adjusted)'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/861410/LiveTable222.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly seasonally adjusted).'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 222'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly seasonally adjusted).'    
+dist
 
 
-# In[18]:
+# In[10]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -77,7 +67,7 @@ for tab in tabs:
         
 
 
-# In[19]:
+# In[11]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -105,7 +95,7 @@ df.rename(columns={'Completions' : 'MCHLG Completions',
 df#.head()
 
 
-# In[20]:
+# In[12]:
 
 
 from IPython.core.display import HTML
@@ -116,7 +106,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[21]:
+# In[13]:
 
 
 tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Marker','Measure Type','Unit']]
@@ -125,10 +115,10 @@ for column in tidy:
     if column in ('Marker', 'MCHLG Tenure', 'MCHLG Completions'):
         tidy[column] = tidy[column].map(lambda x: pathify(x))
 
-tidy.head()
+tidy['Marker'].unique().tolist()
 
 
-# In[22]:
+# In[14]:
 
 
 destinationFolder = Path('out')

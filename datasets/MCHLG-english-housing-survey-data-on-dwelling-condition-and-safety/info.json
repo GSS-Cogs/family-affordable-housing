@@ -1,7 +1,7 @@
 {
     "title": "English Housing Survey data on dwelling condition and safety",
     "publisher": "Ministry of Housing, Communities & Local Government",
-    "description": "Data on dwelling condition and safety."
+    "description": "Data on dwelling condition and safety.",
     "dataURL": "https://www.gov.uk/government/statistical-data-sets/dwelling-condition-and-safety",
     "contacts":
     [{
@@ -23,7 +23,7 @@
             "Decent Homes Criteria",
             "Health and safety hazard",
             "Damp and mould",
-            "Trend,
+            "Trend",
             {"Dwelling":[
               "Tenure",
               "Occupancy status",

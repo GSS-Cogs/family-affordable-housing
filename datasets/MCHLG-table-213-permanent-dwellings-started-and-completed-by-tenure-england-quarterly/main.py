@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[3]:
 
 
 from gssutils import *
@@ -21,26 +21,16 @@ def right(s, amount):
 
 year = int(right(str(datetime.datetime.now().year),2)) - 1
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Permanent dwellings started and completed, by tenure, England'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/861409/LiveTable213.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'Live tables on house building: new build dwellings started and completed, by tenure, England'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 213'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'Live tables on house building: new build dwellings started and completed, by tenure, England'   
+dist
 
 
-# In[42]:
+# In[4]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -108,7 +98,7 @@ for tab in tabs:
     
 
 
-# In[51]:
+# In[5]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -139,7 +129,7 @@ df.rename(columns={'Completions' : 'MCHLG Completions',
 df#.head()
 
 
-# In[52]:
+# In[6]:
 
 
 from IPython.core.display import HTML
@@ -150,7 +140,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[53]:
+# In[7]:
 
 
 tidy = df[['Area','Period','MCHLG Tenure','MCHLG Completions','Value','Marker','Measure Type','Unit']]
@@ -162,7 +152,7 @@ for column in tidy:
 tidy.head()
 
 
-# In[54]:
+# In[8]:
 
 
 destinationFolder = Path('out')
@@ -173,11 +163,10 @@ TAB_NAME = 'observations'
 tidy.drop_duplicates().to_csv(destinationFolder / f'{TAB_NAME}.csv', index = False)
 
 scraper.dataset.family = 'affordable-housing'
-scraper.dataset.comment = """
-                        Figures from October 2005 to March 2007 in England are missing a small number of starts and completions that were inspected by independent approved inspectors. These data are included from June 2007\n
-                        Figures in this tables are not seasonally adjusted; for seasonally adjusted house building figures, please see live table 222 (https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building)\n
-                        These figures are for new build dwellings only. The Department also publishes an annual release entitled "Housing Supply: net additional dwellings"
-                        """
+scraper.dataset.comment = {'Missing Data' : 'Figures from October 2005 to March 2007 in England are missing a small number of starts and completions that were inspected by independent approved inspectors. These data are included from June 2007',
+                           'Seasonal Adjustment' : 'Figures in this tables are not seasonally adjusted; for seasonally adjusted house building figures, please [live table 222](https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building)',
+                           'New Build' : 'These figures are for new build dwellings only. The Department also publishes an annual release entitled "Housing Supply: net additional dwellings"'}
+
 
 with open(destinationFolder / f'{TAB_NAME}.csv-metadata.trig', 'wb') as metadata:
     metadata.write(scraper.generate_trig())

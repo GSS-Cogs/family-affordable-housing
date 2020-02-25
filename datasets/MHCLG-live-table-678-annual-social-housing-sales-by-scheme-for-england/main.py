@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[1]:
 
 
 from gssutils import *
@@ -22,26 +22,16 @@ def right(s, amount):
 def mid(s, offset, amount):
     return s[offset:offset+amount]
 
-def temp_scrape(scraper, tree):
-    scraper.dataset.title = 'Annual Social Housing Sales by Scheme for England'
-    dist = Distribution(scraper)
-    dist.title = 'A distribution'
-    dist.downloadURL = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/850295/LT_678.xlsx'
-    dist.mediaType = Excel
-    scraper.distributions.append(dist)
-    scraper.dataset.publisher = 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government'
-    scraper.dataset.description = 'The table provides statistics on the sales of social housing stock – whether owned by local authorities or private registered providers.'
-    return
-
-scrapers.scraper_list = [('https://www.gov.uk/government/statistical-data-sets/', temp_scrape)]
 scraper = Scraper('https://www.gov.uk/government/statistical-data-sets/live-tables-on-social-housing-sales')
-scraper
+dist = scraper.distribution(title=lambda x: x.startswith('Table 678'))
+scraper.dataset.title = dist.title
+#scraper.dataset.description = 'The table provides statistics on the sales of social housing stock – whether owned by local authorities or private registered providers.'    
+dist
 
 
-# In[12]:
+# In[2]:
 
 
-dist = scraper.distributions[0]
 tabs = (t for t in dist.as_databaker())
 
 tidied_sheets = []
@@ -78,7 +68,7 @@ for tab in tabs:
         
 
 
-# In[13]:
+# In[3]:
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
@@ -106,7 +96,7 @@ df.rename(columns={'OBS' : 'Value',
 df.head(50)
 
 
-# In[11]:
+# In[4]:
 
 
 from IPython.core.display import HTML
@@ -117,7 +107,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[16]:
+# In[5]:
 
 
 tidy = df[['Area','Period', 'MCHLG Scheme', 'MCHLG Scheme Type', 'Value', 'Marker', 'Measure Type', 'Unit']]
@@ -128,8 +118,15 @@ for column in tidy:
 
 tidy.head(50)
 
+from IPython.core.display import HTML
+for col in tidy:
+    if col not in ['Value']:
+        tidy[col] = tidy[col].astype('category')
+        display(HTML(f"<h2>{col}</h2>"))
+        display(tidy[col].cat.categories)    
 
-# In[17]:
+
+# In[6]:
 
 
 destinationFolder = Path('out')
