@@ -25,9 +25,11 @@ Year = cell.fill(RIGHT).is_not_blank().is_not_whitespace()
 grants = cell.fill(DOWN).is_not_blank().is_not_whitespace()
 observations = grants.fill(RIGHT).is_not_blank().is_not_whitespace()
 measure = cell.shift(0,1).fill(RIGHT).is_not_blank().is_not_whitespace()
+occupancy = tab.excel_ref('A').expand(DOWN).by_index([7,11,15])
 Dimensions = [
             HDim(Year,'Year',CLOSEST,LEFT),
-            HDim(grants,'NI Household Energy',DIRECTLY,LEFT ),
+            HDim(grants,'grants',DIRECTLY,LEFT ),
+            HDim(occupancy,'occupancy',CLOSEST,ABOVE),
             HDim(measure,'Unit',DIRECTLY,ABOVE),  
             HDim(measure,'Measure Type',DIRECTLY,ABOVE),
             HDimConst('NI Household Description','Warm Homes Scheme Grants Processed')
@@ -39,6 +41,7 @@ import numpy as np
 new_table.rename(columns={'OBS': 'Value','DATAMARKER': 'NI Marker'}, inplace=True)
 new_table['Period'] = 'gregorian-interval/' + new_table['Year'].astype(str).str[:4] + '-03-31T00:00:00/P1Y'
 # new_table['Geography'] = 'Northern Ireland'
+new_table['NI Household Energy'] = new_table['occupancy'] + '-' + new_table['grants']
 # -
 
 new_table['Measure Type'] = new_table['Measure Type'].map(
@@ -51,3 +54,10 @@ new_table['Unit'] = new_table['Unit'].map(
     lambda x: {
         'Number' : 'grants', 
         'Value' : 'gbp'}.get(x, x))
+
+new_table['NI Household Energy'] = new_table['NI Household Energy'].map(
+    lambda x: {
+        'Owner occupied-Owner occupied': 'Owner occupied',
+       'Private rented-Private rented' : 'Private rented',
+        'All sectors -All sectors ' : 'All sectors'
+        }.get(x, x))
