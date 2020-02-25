@@ -23,7 +23,7 @@
           ]
     },
     "notes": "Power BI consisting of a range of tables. We have previous link that should be able to suck data through direct."
-    transform": {
+    "transform": {
       "main_issue": 43
     }
 }
