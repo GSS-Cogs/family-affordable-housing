@@ -38,3 +38,6 @@ Dwelling Size,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwelling-size
 Area Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/area-type
 Deprived Local Areas,,Dimension,http://gss-data.org.uk/def/concept-scheme/deprived-local-areas
 Deprived Districts,,Dimension,http://gss-data.org.uk/def/concept-scheme/deprived-districts
+NI Household Description,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-household-description
+NI Household Energy Status,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-household-energy-status
+NI Marker,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-marker

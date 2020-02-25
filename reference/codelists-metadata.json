@@ -156,5 +156,17 @@
     "url": "codelists/wg-geography.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "WG Geography"
+ },{
+    "url": "codelists/ni-marker.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "NI Marker"
+  },{
+    "url": "codelists/ni-household-energy-status.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "NI Household Energy Status"
+  },{
+    "url": "codelists/ni-household-description.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "NI Household Description"
   }]
 }
