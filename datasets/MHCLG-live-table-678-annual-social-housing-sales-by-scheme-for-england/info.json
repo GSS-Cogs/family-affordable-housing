@@ -2,14 +2,13 @@
     "title": "MHCLG, Live Table 678: annual social housing sales by scheme for England",
     "publisher": "MHCLG",
     "description": "The table provides statistics on the sales of social housing stock – whether owned by local authorities or private registered providers.",
-    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-social-housing-sales",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-social-housing-sales",
     "contacts":
     [{
       	"name": "James Sampson, Katie Fulton, Andrew Shiels, Carley Bailie",
       	"tel": "0303 444 0229",
       	"email": "housing.statistics@communities.gov.uk"
     }],
-    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-social-housing-sales",
     "published": "19 Sept 2019",
     "families": ["Housing"],
     "stability": "Good",

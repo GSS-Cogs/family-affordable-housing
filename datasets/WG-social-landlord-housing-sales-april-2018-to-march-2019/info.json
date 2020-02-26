@@ -1,15 +1,14 @@
 {
     "title": "Social landlord housing sales: April 2018 to March 2019",
-    "publisher": "Welsh Governemnt",
+    "publisher": "Welsh Government",
     "description": "An annual report which includes information on the number of sales through the Right to Buy scheme and voluntary sales.",
-    "dataURL": "https://gov.wales/social-landlord-housing-sales",
+    "landingPage": "https://gov.wales/social-landlord-housing-sales",
     "contacts":
     [{
       	"name": "Judith David",
       	"tel": "0300 025 5055",
       	"email": "stats.housing@gov.wales"
     }],
-    "metaURL": "https://gov.wales/social-landlord-housing-sales",
     "published": "19 July 2019ßß",
     "families": ["Housing"],
     "stability": "Good",
