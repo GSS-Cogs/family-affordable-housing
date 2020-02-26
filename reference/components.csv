@@ -43,3 +43,4 @@ NI Household Energy Status,,Dimension,http://gss-data.org.uk/def/concept-scheme/
 NI Marker,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-marker
 Development Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/development-type
 Rate,,Measure,
+GBP Total,Total in British Pounds Sterling,Measure,
