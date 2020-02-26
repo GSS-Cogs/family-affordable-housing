@@ -1,0 +1,4 @@
+datasets/*/.cache
+datasets/*/.ipynb_checkpoints
+datasets/*/out
+datasets/*/Preview.html
