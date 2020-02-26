@@ -47,7 +47,7 @@ new_table['NI Household Energy'] = new_table['occupancy'] + '-' + new_table['gra
 new_table['Measure Type'] = new_table['Measure Type'].map(
     lambda x: {
         'Number' : 'Count', 
-        'Value' : 'gbp-total'}.get(x, x))
+        'Value' : 'GBP Total'}.get(x, x))
 
 
 new_table['Unit'] = new_table['Unit'].map(

@@ -45,7 +45,7 @@ new_table['Period'] = new_table['Year'].map(
 new_table['Measure Type'] = new_table['Measure Type'].map(
     lambda x: {
         'Number' : 'Count', 
-        'Value' : 'gbp-total'}.get(x, x))
+        'Value' : 'GBP Total'}.get(x, x))
 
 new_table['Unit'] = new_table['Unit'].map(
     lambda x: {
