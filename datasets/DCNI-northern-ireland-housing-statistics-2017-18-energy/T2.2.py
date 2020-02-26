@@ -28,7 +28,7 @@ Dimensions = [
             HDim(Year,'Year',DIRECTLY,ABOVE),
             HDim(sap,'NI Household Energy',DIRECTLY,LEFT ),
             HDimConst('Unit','sap-scale'),  
-            HDimConst('Measure Type','rate'),
+            HDimConst('Measure Type','Rate'),
             HDimConst('NI Household Description','Household energy SAP Rating')
     
 ]  
@@ -38,8 +38,3 @@ import numpy as np
 new_table.rename(columns={'OBS': 'Value','DATAMARKER': 'NI Marker'}, inplace=True)
 new_table['Period'] = 'year/' + new_table['Year']
 # new_table['Geography'] = 'Northern Ireland'
-# -
-
-savepreviewhtml(c1)
-
-
