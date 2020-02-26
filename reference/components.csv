@@ -42,3 +42,4 @@ NI Household Description,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni
 NI Household Energy Status,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-household-energy-status
 NI Marker,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-marker
 Development Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/development-type
+Rate,,Measure,

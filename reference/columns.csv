@@ -54,3 +54,4 @@ NI Household Description,ni_household_description,qb:dimension,http://gss-data.o
 NI Household Energy Status,ni_household_energy_status,qb:dimension,http://gss-data.org.uk/def/dimension/ni-household-energy-status,http://gss-data.org.uk/def/concept/ni-household-energy-status/{ni_household_energy_status},string,slugize,,http://gss-data.org.uk/def/classes/ni-household-energy-status/ni_household_energy_status
 NI Marker,ni_marker,qb:dimension,http://gss-data.org.uk/def/dimension/ni-marker,http://gss-data.org.uk/def/concept/ni-marker/{ni_marker},string,slugize,,http://gss-data.org.uk/def/classes/ni-marker/ni_marker
 Development Type,development_type,qb:dimension,http://gss-data.org.uk/def/dimension/development-type,http://gss-data.org.uk/def/concept/development-type/{development_type},string,slugize,,http://gss-data.org.uk/def/classes/development-type/development_type
+Rate,rate,qb:measure,http://gss-data.org.uk/def/measure/rate,,string,,,
