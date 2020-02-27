@@ -1,8 +1,8 @@
 {
     "title": " Local Authority Housing Statistics data returns, England 2018-19",
     "publisher": "Ministry of Housing, Communities & Local Government",
-    "description": "This collection brings together all documents relating to local authority housing data."
-    "dataURL": "https://www.gov.uk/government/statistical-data-sets/local-authority-housing-statistics-data-returns-for-2017-to-2018",
+    "description": "This collection brings together all documents relating to local authority housing data.",
+    "Landing Page": "https://www.gov.uk/government/statistical-data-sets/local-authority-housing-statistics-data-returns-for-2017-to-2018",
     "contacts":
     [{
       	"name": "",
