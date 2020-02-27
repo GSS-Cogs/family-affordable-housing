@@ -480,7 +480,7 @@ for fn in fleNmes:
                 #### Change the lines to the value in the variable headMain
                 if headMain in line.strip("\n"):
                     newLine = line
-                    newLine = line.replace(headMain, 'DWP - ' + headMain + ' - ' + fn)
+                    newLine = line.replace(headMain, headMain + ' - ' + fn)
                     output.write(newLine)
                 elif 'void:sparqlEndpoint </sparql> ;' in line.strip("\n"):
                     output.write('\t\t\t\tvoid:sparqlEndpoint <http://gss-data.org.uk/sparql> ;\n')
