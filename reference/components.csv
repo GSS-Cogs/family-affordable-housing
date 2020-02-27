@@ -44,3 +44,9 @@ NI Marker,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-marker
 Development Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/development-type
 Rate,,Measure,
 GBP Total,Total in British Pounds Sterling,Measure,
+Accommodation,,Dimension,http://gss-data.org.uk/def/concept-scheme/accommodation
+Bedrooms,,Dimension,http://gss-data.org.uk/def/concept-scheme/bedrooms
+Provider,,Dimension,http://gss-data.org.uk/def/concept-scheme/provider
+Dwelling Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/dwelling-type
+Stock,,Measure,
+Rent,,Measure,

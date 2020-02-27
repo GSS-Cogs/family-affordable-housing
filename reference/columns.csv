@@ -56,3 +56,9 @@ NI Marker,ni_marker,qb:dimension,http://gss-data.org.uk/def/dimension/ni-marker,
 Development Type,development_type,qb:dimension,http://gss-data.org.uk/def/dimension/development-type,http://gss-data.org.uk/def/concept/development-type/{development_type},string,slugize,,http://gss-data.org.uk/def/classes/development-type/development_type
 Rate,rate,qb:measure,http://gss-data.org.uk/def/measure/rate,,number,,,
 GBP Total,gbp_total,qb:measure,http://gss-data.org.uk/def/measure/gbp-total,,string,,,
+Accommodation,accommodation,qb:dimension,http://gss-data.org.uk/def/dimension/accommodation,http://gss-data.org.uk/def/concept/accommodation/{accommodation},string,slugize,,http://gss-data.org.uk/def/classes/accommodation/accommodation
+Bedrooms,bedrooms,qb:dimension,http://gss-data.org.uk/def/dimension/bedrooms,http://gss-data.org.uk/def/concept/bedrooms/{bedrooms},string,slugize,,http://gss-data.org.uk/def/classes/bedrooms/bedrooms
+Provider,provider,qb:dimension,http://gss-data.org.uk/def/dimension/provider,http://gss-data.org.uk/def/concept/provider/{provider},string,slugize,,http://gss-data.org.uk/def/classes/provider/provider
+Dwelling Type,dwelling_type,qb:dimension,http://gss-data.org.uk/def/dimension/dwelling-type,http://gss-data.org.uk/def/concept/dwelling-type/{dwelling_type},string,slugize,,http://gss-data.org.uk/def/classes/dwelling-type/dwelling_type
+Stock,stock,qb:measure,http://gss-data.org.uk/def/measure/stock,,number,,,
+Rent,rent,qb:measure,http://gss-data.org.uk/def/measure/rent,,number,,,
