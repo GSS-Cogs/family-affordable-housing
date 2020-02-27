@@ -1,0 +1,9 @@
+Label,Notation,Parent Notation,Sort Priority
+Houses,1,8,1
+Flats including self contained bedsits,4,8,2
+Self contained total including self-contained bedsits,5,8,3
+Flats,2,8,4
+Self contained bedsits,3,8,5
+Non self contained bedsits,6,8,6
+Non self contained hostels and shared housing,7,8,7
+Total self contained and non self contained,8,0,8

@@ -1,0 +1,9 @@
+Label,Notation,Parent Notation,Sort Priority
+1 bedroom,1,6,1
+2 bedrooms,2,5,2
+3 bedrooms,3,5,3
+4 or more bedrooms,4,5,4
+2 or more bedrooms,5,6,5
+Total,6,0,6
+4 bedrooms,7,4,7
+5 or more bedrooms,8,4,8

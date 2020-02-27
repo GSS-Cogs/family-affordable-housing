@@ -172,5 +172,21 @@
     "url": "codelists/development-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Development Type"
+},{
+    "url": "codelists/social-housing-accommodation.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Accommodation"
+  },{
+    "url": "codelists/social-housing-bedrooms.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Bedrooms"
+  },{
+    "url": "codelists/social-housing-provider.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Provider"
+  },{
+    "url": "codelists/social-housing-dwelling-type.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Dwelling Type"
   }]
 }
