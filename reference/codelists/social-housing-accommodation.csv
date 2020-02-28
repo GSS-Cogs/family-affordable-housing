@@ -1,8 +1,8 @@
 Label,Notation,Parent Notation,Sort Priority
 General needs stock,1,4,1
 Supported including sheltered stock,2,4,2
-Sheltered stock,2.1,4,3
-Other supported stock,2.2,4,4
+Sheltered stock,5,4,3
+Other supported stock,6,4,4
 Extra care stock,3,4,5
 Total stock at social rent,4,0,6
-General needs and sheltered sub-total used in target rent setting,4.1,0,7
+General needs and sheltered sub-total used in target rent setting,7,0,7
