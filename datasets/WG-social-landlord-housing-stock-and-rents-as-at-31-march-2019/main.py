@@ -92,6 +92,13 @@ table['Measure Type'] = table.apply(lambda row: user_perc1(row['Unit']), axis = 
 table['Social Housing Accommodation'] = table['Social Housing Accommodation'].astype(str)
 table['Social Housing Accommodation'] = table['Social Housing Accommodation'].map(lambda cell: cell.replace('.0', ''))
 
+table['Social Housing Accommodation'] = table['Social Housing Accommodation'].apply(pathify)
+table['Social Housing Accommodation'] = table['Social Housing Accommodation'].map(
+    lambda x: {
+        '2-1' : '5', 
+        '2-2' : '6',
+        '4-1': '7' }.get(x, x))
+
 table = table.drop('Year', axis = 1)
 
 table = table[['WG Geography','Period','Social Housing Accommodation', 'Social Housing Bedrooms','Social Housing Provider','Social Housing Dwelling Type','Measure Type','Value','Unit']]
