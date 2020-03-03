@@ -1,19 +1,19 @@
 {
-  "family": "Affordable Housing",
-  "github": "https://github.com/GSS-Cogs/family-affordable-housing",
-  "pipelines": [
-    "DCNI-northern-ireland-housing-statistics-2017-18-energy",
-    "DCNI-northern-ireland-housing-statistics-2017-18-supply",
-    "DWP-family-resources-survey-financial-year-2017-18",
-    "MCHLG-table-213-permanent-dwellings-started-and-completed-by-tenure-england-quarterly",
-    "MCHLG-table-255-permanent-dwellings-started-and-completed-by-tenure-and-local-enterprise-partnership",
-    "MCHLG-table-1000-additional-affordable-homes-provided-by-type-of-scheme-England",
-    "MCHLG-table-1011-additional-affordable-housing-supply-detailed-breakdown-by-local-authority-England",
-    "MCHLG-table-1012-affordable-housing-starts-and-completions-funded-by-Homes-England-and-the-GLA",
-    "MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",
-    "MHCLG-live-table-102-by-tenure-great-britain-historical-series",
-    "MHCLG-live-table-678-annual-social-housing-sales-by-scheme-for-england",
-    "SG-affordable-housing-supply-scot-gov",
-    "WG-social-landlord-housing-stock-and-rents-as-at-31-march-2019"
-  ]
+    "family": "Affordable Housing",
+    "github": "https://github.com/GSS-Cogs/family-affordable-housing",
+    "pipelines": [
+        "DWP-family-resources-survey-financial-year-2017-18",
+        "MCHLG-table-1000-additional-affordable-homes-provided-by-type-of-scheme-England",
+        "MCHLG-table-1011-additional-affordable-housing-supply-detailed-breakdown-by-local-authority-England",
+        "MCHLG-table-1012-affordable-housing-starts-and-completions-funded-by-Homes-England-and-the-GLA",
+        "MCHLG-table-213-permanent-dwellings-started-and-completed-by-tenure-england-quarterly",
+        "MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",
+        "MHCLG-live-table-102-by-tenure-great-britain-historical-series",
+        "NIDfC-Northern-Ireland-Housing-Bulletin-January-March-2019",
+        "NIDfC-Northern-Ireland-Housing-Statistics-2017-18-Energy",
+        "NIDfC-Northern-Ireland-Housing-Statistics-2017-18-Supply",
+        "SG-Housing-Statistics-for-Scotland-Key-Information-and-Summary-Tables",
+        "SG-affordable-housing-supply-scot-gov",
+        "WG-social-landlord-housing-stock-and-rents-as-at-31-march-2019"
+    ]
 }
