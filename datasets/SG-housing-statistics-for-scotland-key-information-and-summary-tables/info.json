@@ -1,36 +1,46 @@
 {
     "title": "Housing Statistics for Scotland - Key Information and Summary Tables",
-    "publisher": "Scottish Governemnt",
-    "description": "A range of key housing information and summary tables for Scotland and local authority area. Table 1-Estimated stock of dwellings by tenure - calendar year time series from 1993 to 2000 and financial year time series from 2001-02 to 2016-17, at Scotland level. Table 2-Estimated stock of dwellings by tenure and local authority, most recent year only.",
+    "publisher": "Scottish Government",
+    "description": "A range of key housing information and summary tables for Scotland and local authority area.\nTable 1-Estimated stock of dwellings by tenure - calendar year time series from 1993 to 2000 and financial year time series from 2001-02 to 2016-17, at Scotland level.\nTable 2-Estimated stock of dwellings by tenure and local authority, most recent year only.",
     "dataURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/KeyInfoTables",
-    "contacts":
-    [{
-      	"name": "Scottish Governemnt",
-      	"tel": "",
-      	"email": ""
-    }],
+    "contacts": [
+        {
+            "name": "Scottish Governemnt",
+            "tel": "",
+            "email": ""
+        }
+    ],
     "metaURL": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/KeyInfoTables",
-    "published": "Revised Sept 2019",
-    "families": ["Affordable Housing"],
+    "published": "2019-09-01",
+    "families": [
+        "Affordable Housing"
+    ],
     "stability": "Good",
     "future": "Good",
     "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "",
-        	"breakdowns":
-          [
-            {"Dwellings":[
-              "Vacant",
-              "Occupied",
-              "Privately Owned",
-              "Socially rented"
-            ]},
+        "source": "XLS",
+        "subset": "",
+        "breakdowns": [
+            {
+                "Dwellings": [
+                    "Vacant",
+                    "Occupied",
+                    "Privately Owned",
+                    "Socially rented"
+                ]
+            },
             "Date (month/year)",
             "Geography"
-      ]
+        ]
     },
-    "notes": "Information from Housing Statistics Annual Returns, and Scottish Household Survey data. Note the change in methodology from 2001, fully explained in the notes in the downloadable excel file",
+    "notes": "Information from Housing Statistics Annual Returns, and Scottish Household Survey data.\nNote the change in methodology from 2001, fully explained in the notes in the downloadable excel file.",
     "transform": {
-      "main_issue": 35
-    }
+        "main_issue": 35,
+        "airtable": "recsdsIjxrE3YkUwl"
+    },
+    "landingPage": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/KeyInfoTables",
+    "datasetNotes": [
+        "Data on this page identified under heading \"Downloadable document:\" towards bottom of page."
+    ],
+    "sizingNotes": "Simple table structure and dimensions to extract.  A bit of messiness from Number / percentage and from footnote markers"
 }

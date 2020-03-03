@@ -21,5 +21,24 @@
     "Route from landing page to data": "Data on this page identified as an excel file under the heading \"Live Tables\" entitled \"Table 102: by tenure, Great Britain (historical series)\" near the top of the page.",
     "Size": "Medium",
     "Sizing Notes": "Simple table, but has some odd handling of dates including footnote markers",
-    "Stage": "Prioritized"
+    "Stage": "Prioritized",
+    "title": "Live Table 102: by tenure, Great Britain (historical series)",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "Table 102: Dwelling stock: by tenure1, Great Britain (historical series)",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants",
+    "datasetNotes": [
+        "Data on this page identified as an excel file under the heading \"Live Tables\" entitled \"Table 102: by tenure, Great Britain (historical series)\" near the top of the page."
+    ],
+    "published": "2019-05-24",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "transform": {
+        "airtable": "reczCzbgYmk96NbV7"
+    },
+    "sizingNotes": "Simple table, but has some odd handling of dates including footnote markers",
+    "notes": ""
 }
