@@ -24,7 +24,23 @@
     "Sizing Notes": "We are going to discuss getting \"better data\" direct for the FRS in the next couple of weeks, so don't work on yet",
     "Stage": "Prioritized",
     "transform": {
-      "main_issue": 15,
-      "airtable": "rec0FCWdj9Tb46hIy"
-    }
+        "main_issue": 15,
+        "airtable": "rec0FCWdj9Tb46hIy"
+    },
+    "title": "Family Resources Survey: financial year 2017/18",
+    "publisher": "Department for Work and Pensions",
+    "description": "Results from the Family Resources Survey for financial year 2017 to 2018, providing information on income and circumstances of UK households.",
+    "landingPage": "https://www.gov.uk/government/statistics/family-resources-survey-financial-year-201718",
+    "datasetNotes": [
+        "Data on this page identified as multiple tales under the heading \"Documents\" but requires further discussion."
+    ],
+    "published": "2019-03-28",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "XLS, ODS"
+    },
+    "sizingNotes": "We are going to discuss getting \"better data\" direct for the FRS in the next couple of weeks, so don't work on yet",
+    "notes": "Some tabs are captured in Disabilities"
 }

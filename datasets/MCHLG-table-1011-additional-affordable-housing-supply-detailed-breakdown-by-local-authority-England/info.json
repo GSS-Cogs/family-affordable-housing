@@ -21,5 +21,24 @@
     "Route from landing page to data": "Data found on this landing page under live tables ",
     "Size": "Small",
     "Sizing Notes": "Data will be provided direct by MHCLG, so should be simple to work with.",
-    "Stage": "Prioritized"
+    "Stage": "Prioritized",
+    "transform": {
+        "airtable": "rec4tdTqX0w8H0kHI"
+    },
+    "title": "Table 1011: additional affordable housing supply, detailed breakdown by local authority (England MCHLG)",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "Affordable housing supply statistics (AHS) 2017-18.",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "datasetNotes": [
+        "Data found on this landing page under live tables "
+    ],
+    "published": "2019-12-03",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "sizingNotes": "Data will be provided direct by MHCLG, so should be simple to work with.",
+    "notes": "The table presented here provides a more detailed breakdown of the types of unit contributing to overall supply for each individual local authority. Only difference with \"Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England\" is that the subset dimension of Dwelling - Completion/Starts On Site is further broken into \"New Build and \"Rehab /Acquisition\"."
 }

@@ -22,5 +22,24 @@
     "Route from landing page to data": "Data on this page identified under heading \"Live Tables\" labelled as \"Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England\"",
     "Size": "Small",
     "Sizing Notes": "Data will be provided direct by MHCLG, so should be simple to work with.",
-    "Stage": "Prioritized"
+    "Stage": "Prioritized",
+    "transform": {
+        "airtable": "rec6sQzRSa6l0u9ws"
+    },
+    "title": "Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England (MCHLG)",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "Affordable housing supply statistics (AHS) 2017-18.\nLive tables - 1006C,1006S, 1006aC,1006aS, 1006bS, 1006bC, 1007C,1007S, 1008C,1008S, 1009",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "datasetNotes": [
+        "Data on this page identified under heading \"Live Tables\" labelled as \"Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England\""
+    ],
+    "published": "2019-06-18",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "sizingNotes": "Data will be provided direct by MHCLG, so should be simple to work with.",
+    "notes": "Very Similar to \"Table 1000: additional affordable homes provided by type of scheme, England (MHCLG)\" but broken down by Local Authority Area (only difference is addition of Geography dimension)."
 }

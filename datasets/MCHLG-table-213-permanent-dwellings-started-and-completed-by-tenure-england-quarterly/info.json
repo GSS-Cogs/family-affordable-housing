@@ -19,5 +19,24 @@
     "Route from landing page to data": "Data  found on the landing page  by scrolling to table 213 and clicking the link ",
     "Size": "Small",
     "Sizing Notes": "Simple table structure though with simple subdimension and one footnote.",
-    "Stage": "Prioritized"
+    "Stage": "Prioritized",
+    "transform": {
+        "airtable": "recCYitdcleTB3H6f"
+    },
+    "title": "Table 213: permanent dwellings started and completed, by tenure, England (quarterly) - MCHLG",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly)",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    "datasetNotes": [
+        "Data  found on the landing page  by scrolling to table 213 and clicking the link "
+    ],
+    "published": "2019-10-03",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "sizingNotes": "Simple table structure though with simple subdimension and one footnote.",
+    "notes": ""
 }
