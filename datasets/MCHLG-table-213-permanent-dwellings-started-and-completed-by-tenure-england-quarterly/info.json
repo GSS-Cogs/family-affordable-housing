@@ -1,39 +1,23 @@
 {
-    "title": "Table 213: permanent dwellings started and completed, by tenure, England (quarterly)",
-    "publisher": "MCHLG",
-    "description": "Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly).",
-    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
-    "contacts":
-    [{
-      	"name": "Anthony Myers",
-      	"tel": "0303 444 2246",
-      	"email": "housing.statistics@communities.gov.uk"
-    }],
-    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
-    "published": "3 October 2019",
-    "families": ["Housing","Construction"],
-    "stability": "Good",
-    "future": "Good",
-    "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "Both tabs",
-        	"breakdowns":
-          [
-            {"Period":
-              [
-                "Year",
-                "Financial Year",
-                "Quarter"
-              ]},
-            {"Dwelling (Tenure)":
-              [
-              "Started",
-              "Completed"
-              ]}
-          ]
-    },
-    "notes": "",
-    "transform": {
-      "main_issue": 11
-    }
+    "Contact Details": "Ministry of Housing,\nCommunities &\nLocal Government",
+    "Data type": [
+        "XLS"
+    ],
+    "Description": "Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly)",
+    "Family": [
+        "family-affordable-housing-airtable-test"
+    ],
+    "Frequency": "Quarterly",
+    "GitHub Issue Number": -100,
+    "Landing Page": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    "Last Published": "2019-10-03",
+    "Main Issue": "-100",
+    "Name": "Table 213: permanent dwellings started and completed, by tenure, England (quarterly) - MCHLG",
+    "Producer": [
+        "MHCLG"
+    ],
+    "Route from landing page to data": "Data  found on the landing page  by scrolling to table 213 and clicking the link ",
+    "Size": "Small",
+    "Sizing Notes": "Simple table structure though with simple subdimension and one footnote.",
+    "Stage": "Prioritized"
 }

@@ -1,30 +1,25 @@
 {
-    "title": "Table 1000: additional affordable homes provided by type of scheme, England",
-    "publisher": "MCHLG",
-    "description": "Affordable housing supply statistics (AHS) 2017-18. Live tables - 1000, 1000S, 1000C, 1000C Chart - 1004",
-    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
-    "contacts":
-    [{
-      	"name": "Miguel Marques dos Santos, MCHLG, SW1P 4DF",
-      	"tel": "030 3444 0000",
-      	"email": "housing.statistics@communities.gov.uk"
-    }],
-    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
-    "published": "18 June 2019",
-    "families": ["Housing","Construction"],
-    "stability": "Good",
-    "future": "Good",
-    "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "All tabs",
-        	"breakdowns":
-          [
-              	    "Year",
-                    {"Dwelling": ["Tenure", "Scheme", "Starts On Site", "Completion"]}
-          ]
-    },
-    "notes": "",
-    "transform": {
-      "main_issue": 2
-    }
+    "Contact Details": "Miguel Marques dos Santos, MCHLG, SW1P 4DF, 030 3444 0000\nEmail: housing.statistics@communities.gov.uk",
+    "Data type": [
+        "XLS"
+    ],
+    "Description": "Affordable housing supply statistics (AHS) 2017-18.\nLive tables - 1000, 1000S, 1000C, 1000C\nChart - 1004",
+    "Family": [
+        "family-affordable-housing-airtable-test"
+    ],
+    "Frequency": "Annual",
+    "GitHub Issue Number": -100,
+    "Landing Page": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "Last Published": "2019-06-18",
+    "Main Issue": "-100",
+    "Name": "Table 1000: additional affordable homes provided by type of scheme, England (MHCLG)",
+    "Next Due": "2020-06-18",
+    "PMD v3 publication": "http://gss-data.org.uk/dataset?uri=http%3A%2F%2Fgss-data.org.uk%2Fdata%2Fgss_data%2Faffordable-housing%2Fmchlg-table-1000-additional-affordable-homes-provided-by-type-of-scheme-england",
+    "Producer": [
+        "MHCLG"
+    ],
+    "Route from landing page to data": "Data on this page identified as an excel file under the heading \"Live Tables\" entitled \"Table 1000: additional affordable homes provided by type of scheme, England\" near the top of the page.",
+    "Size": "Small",
+    "Sizing Notes": "Data will be provided direct by MHCLG, so should be simple to work with.",
+    "Stage": "Prioritized"
 }

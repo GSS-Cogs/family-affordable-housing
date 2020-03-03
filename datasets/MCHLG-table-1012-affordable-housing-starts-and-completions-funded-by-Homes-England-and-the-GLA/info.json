@@ -1,30 +1,24 @@
 {
-    "title": "Table 1012: affordable housing starts and completions funded by Homes England and the GLA",
-    "publisher": "MCHLG",
-    "description": "Affordable housing supply statistics (AHS) 2017-18. Table 1012: Affordable Housing Starts and Completions funded by Homes England and the Greater London Authority 1,2,4",
-    "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
-    "contacts":
-    [{
-      	"name": "Miguel Marques dos Santos, MCHLG, SW1P 4DF",
-      	"tel": "030 3444 0000",
-      	"email": "housing.statistics@communities.gov.uk"
-    }],
-    "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
-    "published": "18 June 2019",
-    "families": ["Housing","Construction"],
-    "stability": "Good",
-    "future": "Good",
-    "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "All tabs",
-        	"breakdowns":
-          [
-              	    {"Period": ["Year", "Biannual Period"]},
-                    {"Dwelling": ["Tenure", "Starts On Site", "Completions"]}
-          ]
-    },
-    "notes": "Very Similar to Table 1000: additional affordable homes provided by type of scheme, England (MHCLG) but broken down by Local Authority Area (only difference is addition of Geography dimension).",
-    "transform": {
-      "main_issue": 4
-    }
+    "Contact Details": "Ministry of Housing,\nCommunities &\nLocal Government",
+    "Data type": [
+        "XLS"
+    ],
+    "Description": "Live tables - 1011S, 1011C",
+    "Family": [
+        "family-affordable-housing-airtable-test"
+    ],
+    "Frequency": "Annual",
+    "GitHub Issue Number": -100,
+    "Landing Page": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    "Last Published": "2019-12-03",
+    "Main Issue": "-100",
+    "Name": "Table 1012: affordable housing starts and completions funded by Homes England and the GLA (MCHLG)",
+    "Notes": "Summary table of \"Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England\" but in biannual format.",
+    "Producer": [
+        "MHCLG"
+    ],
+    "Route from landing page to data": "Data found on this landing page under live tables ",
+    "Size": "Small",
+    "Sizing Notes": "Data will be provided direct by MHCLG, so should be simple to work with.",
+    "Stage": "Prioritized"
 }

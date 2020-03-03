@@ -1,16 +1,25 @@
 {
-	"title": "Table 678: annual social housing sales by scheme for England",
-	"publisher": "MHCLG",
-	"description": "The tables below provide statistics on the sales of social housing stock – whether owned by local authorities or private registered providers.",
-	"landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-social-housing-sales",
-	"contacts": [],
-	"published": "2019-12-05",
-	"families": ["Housing"],
-	"extract": {
-		"source": "Excel Spreadsheet"
-	},
-	"notes": "",
-	"transform": {
-			"main_issue":70
-	}
+    "Contact Details": "Nicholas Mainwaring\nTelephone  0303 444 2255\nE-Mail:housing.statistics@Communities.gov.uk\n",
+    "Data type": [
+        "XLS"
+    ],
+    "Description": "Table 102: Dwelling stock: by tenure1, Great Britain (historical series)",
+    "Family": [
+        "family-affordable-housing-airtable-test"
+    ],
+    "Frequency": "Annual",
+    "GitHub Issue Number": -100,
+    "Landing Page": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants",
+    "Last Published": "2019-05-24",
+    "Main Issue": "-100",
+    "Name": "Live Table 102: by tenure, Great Britain (historical series)",
+    "Next Due": "2020-05-24",
+    "PMD v3 publication": "http://gss-data.org.uk/dataset?uri=http%3A%2F%2Fgss-data.org.uk%2Fdata%2Fgss_data%2Faffordable-housing%2Fmchlg-table-100-dwelling-stock-number-of-dwellings-by-tenure-and-district-england-2018",
+    "Producer": [
+        "MHCLG"
+    ],
+    "Route from landing page to data": "Data on this page identified as an excel file under the heading \"Live Tables\" entitled \"Table 102: by tenure, Great Britain (historical series)\" near the top of the page.",
+    "Size": "Medium",
+    "Sizing Notes": "Simple table, but has some odd handling of dates including footnote markers",
+    "Stage": "Prioritized"
 }
