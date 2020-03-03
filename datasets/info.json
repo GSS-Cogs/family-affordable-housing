@@ -2,14 +2,14 @@
   "family": "Affordable Housing",
   "github": "https://github.com/GSS-Cogs/family-affordable-housing",
   "pipelines": [
-    "WG-social-landlord-housing-stock-and-rents-as-at-31-march-2019",
-    "DCNI-northern-ireland-housing-statistics-2017-18-supply",
     "DCNI-northern-ireland-housing-statistics-2017-18-energy",
-    "MHCLG-live-table-102-by-tenure-great-britain-historical-series",
+    "DCNI-northern-ireland-housing-statistics-2017-18-supply",
     "DWP-family-resources-survey-financial-year-2017-18",
-    "MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",
-    "SG-affordable-housing-supply-scot-gov",
     "MCHLG-table-255-permanent-dwellings-started-and-completed-by-tenure-and-local-enterprise-partnership",
-    "MHCLG-live-table-678-annual-social-housing-sales-by-scheme-for-england"
+    "MCHLG-tables-1006-to-1009-additional-affordable-homes-provided-by-type-of-scheme-and-local-authority-England",
+    "MHCLG-live-table-102-by-tenure-great-britain-historical-series",
+    "MHCLG-live-table-678-annual-social-housing-sales-by-scheme-for-england",
+    "SG-affordable-housing-supply-scot-gov",
+    "WG-social-landlord-housing-stock-and-rents-as-at-31-march-2019"
   ]
 }
