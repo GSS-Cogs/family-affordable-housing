@@ -22,7 +22,9 @@
         {{/if}}
       </td>
       <td>
-        <a href='https://ci.floop.org.uk/job/GSS_data/job/Affordable-Housing/job/{{directory}}/'><img src='https://ci.floop.org.uk/buildStatus/icon?job=GSS_data%2FAffordable-Housing%2F{{directory}}'></a>
+        <a href='{{../jenkins_base}}/{{../jenkins_path}}/job/{{directory}}/'>
+        <img src='{{../jenkins_base}}/{{../jenkins_buildicon}}{{directory}}' />
+        </a>
       </td>
     </tr>
     {{/each}}
