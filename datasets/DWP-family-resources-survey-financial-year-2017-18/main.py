@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# + {}
+# +
 #### DWP Family Resources Survey for Financial Year 2017 to 2018 - Income & State Support - Affordable Housing ####
 
 # +
@@ -435,6 +435,7 @@ out.mkdir(exist_ok=True, parents=True)
 # Create and output metadata.trig files
 
 import numpy as np
+from os import environ
 
 fn1 = 'sources-of-income-by-region-ethnicity-age'
 fn2 = 'households-by-composition-region-ethnicity'
@@ -444,7 +445,6 @@ tblData = [sourcesTbl, householdsTbl, benefitsTbl]
 
 scraper.dataset.family = 'affordable-housing'
 
-i = 0
 for fn in fleNmes:
     if ethnicTitle in tblData[i].columns:
         tblData[i][ethnicTitle] = tblData[i][ethnicTitle].str.replace('/', '-', regex=True)
@@ -453,85 +453,7 @@ for fn in fleNmes:
 
     
     tblData[i].drop_duplicates().to_csv(out / (fn + '.csv'), index = False)
-    scraper.set_dataset_id(f'gss_data/affordable-housing/dwp-family-resources-survey-income-and-state-support/{fn}/')
-    with open(out / ('pre' + fn + '.csv-metadata.trig'), 'wb') as metadata:metadata.write(scraper.generate_trig())
+    scraper.set_dataset_id(f'{pathify(environ.get("JOB_NAME", ""))}/{fn}')
+    with open(out / (fn + '.csv-metadata.trig'), 'wb') as metadata:metadata.write(scraper.generate_trig())
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
     csvw.create(out / (fn + '.csv'), out / ((fn + '.csv') + '-schema.json'))
-    i = i + 1
-# -
-
-headMain = 'Family Resources Survey: financial year 2017/18'
-
-import os
-i = 1 #### Main looping index
-k = 1 #### Secondary index to skip over lines with ns2
-lineWanted = False
-#### Loop around each element in the main heading list
-for fn in fleNmes:
-    newDat = ''
-    curNme = f'out/pre{fn}.csv-metadata.trig'    #### Current file name
-    newNme = f'out/{fn}.csv-metadata.trig'       #### New file name
-    #### Open the file and loop around each line adding or deleting as you go
-    with open(curNme, "r") as input:
-        #### Also open the new file to add to as you go
-        with open(newNme, "w") as output: 
-            #### Loop around the input file
-            for line in input:
-                #### Change the lines to the value in the variable headMain
-                if headMain in line.strip("\n"):
-                    newLine = line
-                    newLine = line.replace(headMain, headMain + ' - ' + fn)
-                    output.write(newLine)
-                elif 'void:sparqlEndpoint </sparql> ;' in line.strip("\n"):
-                    output.write('\t\t\t\tvoid:sparqlEndpoint <http://gss-data.org.uk/sparql> ;\n')
-                else: 
-                    lineWanted = True
-                    #### Ignore lines with ns2 but loop for other ns# lines, deleteing any extra ones that do not match the value of k
-                    if '@prefix ns2:' not in line.strip("\n"):
-                        if '@prefix ns' in line.strip("\n"):
-                            if f'@prefix ns{k}:' not in line.strip("\n"):
-                                #### You do not want this line so ignore
-                                lineWanted = False
-                    #### If the line is needed check if it is a line that needs changing then write to new file 
-                    if lineWanted: 
-                        if 'a pmd:Dataset' in line.strip("\n"):
-                            line = line.replace(f'{fn}/', f'{fn}')
-
-                        if 'pmd:graph' in line.strip("\n"):
-                            line = line.replace(f'{fn}/', f'{fn}')
-                        #### Output the line to the new file                    
-                        output.write(line)
-
-    #### Close both files
-    input.close
-    output.close
-    #### Old trig file no longer needed so remove/delete
-    os.remove(curNme)
-    #### Increment i, ns2 is used for something else so you have got to jump k up by 1 at this point
-    i = i + 1
-    if i == 2:
-        k = k + 2
-    else:
-        k = k + 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
