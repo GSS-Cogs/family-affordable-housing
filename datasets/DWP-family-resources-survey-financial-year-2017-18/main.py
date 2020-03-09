@@ -444,7 +444,7 @@ fleNmes = [fn1, fn2, fn3]
 tblData = [sourcesTbl, householdsTbl, benefitsTbl]
 
 scraper.dataset.family = 'affordable-housing'
-
+i = 0
 for fn in fleNmes:
     if ethnicTitle in tblData[i].columns:
         tblData[i][ethnicTitle] = tblData[i][ethnicTitle].str.replace('/', '-', regex=True)
@@ -457,3 +457,4 @@ for fn in fleNmes:
     with open(out / (fn + '.csv-metadata.trig'), 'wb') as metadata:metadata.write(scraper.generate_trig())
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
     csvw.create(out / (fn + '.csv'), out / ((fn + '.csv') + '-schema.json'))
+    i = i + 1
