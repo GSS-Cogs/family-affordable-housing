@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # +
 #### DWP Family Resources Survey for Financial Year 2017 to 2018 - Income & State Support - Affordable Housing ####
-
+theMainTitle = 'DWP Family Resources Survey for Financial Year 2017 to 2018 - Income & State Support'
 # +
 from gssutils import *
 import datetime as d
@@ -453,7 +453,7 @@ for fn in fleNmes:
 
     
     tblData[i].drop_duplicates().to_csv(out / (fn + '.csv'), index = False)
-    scraper.dataset.title = environ.get("JOB_NAME", "") + ' - ' + fn
+    scraper.dataset.title = theMainTitle + ' - ' + fn
     scraper.set_dataset_id(f'{pathify(environ.get("JOB_NAME", ""))}/{fn}')
     with open(out / (fn + '.csv-metadata.trig'), 'wb') as metadata:metadata.write(scraper.generate_trig())
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
