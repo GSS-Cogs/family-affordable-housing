@@ -453,6 +453,7 @@ for fn in fleNmes:
 
     
     tblData[i].drop_duplicates().to_csv(out / (fn + '.csv'), index = False)
+    scraper.dataset.title = environ.get("JOB_NAME", "") + ' - ' + fn
     scraper.set_dataset_id(f'{pathify(environ.get("JOB_NAME", ""))}/{fn}')
     with open(out / (fn + '.csv-metadata.trig'), 'wb') as metadata:metadata.write(scraper.generate_trig())
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
