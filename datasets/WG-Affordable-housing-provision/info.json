@@ -1,0 +1,38 @@
+{
+    "title": "Affordable housing provision",
+    "publisher": "Welsh Government",
+    "description": "Information about the number of additional affordable housing units delivered across Wales by provider, location, housing type, tenure and funding.",
+    "dataURL": "https://statswales.gov.wales/Catalogue/Housing/Affordable-Housing/Provision?_ga=2.269051122.2089407384.1573120098-1106853716.1573120098",
+    "contacts": [
+        {
+            "name": "Judith David",
+            "tel": "0300 025 5055",
+            "email": "stats.housing@gov.wales"
+        }
+    ],
+    "metaURL": "https://statswales.gov.wales/Catalogue/Housing/Affordable-Housing/Provision?_ga=2.269051122.2089407384.1573120098-1106853716.1573120098",
+    "published": "2019-11-14",
+    "families": [
+        "Affordable Housing"
+    ],
+    "stability": "Good",
+    "future": "Good",
+    "extract": {
+        "source": "Power BI",
+        "subset": "",
+        "breakdowns": [
+            "Power BI range of tables"
+        ],
+        "stage": "Backlog"
+    },
+    "notes": "Power BI consisting of a range of tables. We have previous link that should be able to suck data through direct.",
+    "transform": {
+        "main_issue": 43,
+        "airtable": "rec3c0NqaHKLlY33E"
+    },
+    "landingPage": "https://gov.wales/affordable-housing-provision",
+    "datasetNotes": [
+        "Data can be found by scrolling down to the latest release and clicking on the 'Affordable housing provision: April 2018 to March 2019' link  Scroll down to data and click on the + click on the  'Affordable Housing Provision' link  there are 12 interactive report located by clicking on the text.  "
+    ],
+    "sizingNotes": "Available through the odata route, so simple to get, but may need a number of separate downloads / produce a number of different datasets, so needs a fair amount of up-front analysis"
+}
