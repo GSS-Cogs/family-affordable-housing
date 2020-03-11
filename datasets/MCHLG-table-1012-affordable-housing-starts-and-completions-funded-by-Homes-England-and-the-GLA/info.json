@@ -36,7 +36,8 @@
         "Affordable Housing"
     ],
     "extract": {
-        "source": "XLS"
+        "source": "XLS",
+        "stage": "Prioritized"
     },
     "sizingNotes": "Data will be provided direct by MHCLG, so should be simple to work with.",
     "notes": "Summary table of \"Tables 1006 to 1009: additional affordable homes provided by type of scheme and local authority, England\" but in biannual format."

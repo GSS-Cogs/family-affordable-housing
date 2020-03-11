@@ -34,7 +34,8 @@
         "Affordable Housing"
     ],
     "extract": {
-        "source": "Power BI"
+        "source": "Power BI",
+        "stage": "Prioritized"
     },
     "transform": {
         "airtable": "recGN0PmkzhmYTq5B"

@@ -37,7 +37,8 @@
         "Affordable Housing"
     ],
     "extract": {
-        "source": "XLS"
+        "source": "XLS",
+        "stage": "Prioritized"
     },
     "sizingNotes": "Data will be provided direct by MHCLG, so should be simple to work with.",
     "notes": ""

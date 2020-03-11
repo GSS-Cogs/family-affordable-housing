@@ -39,7 +39,8 @@
         "Affordable Housing"
     ],
     "extract": {
-        "source": "XLS, ODS"
+        "source": "XLS, ODS",
+        "stage": "Prioritized"
     },
     "sizingNotes": "We are going to discuss getting \"better data\" direct for the FRS in the next couple of weeks, so don't work on yet",
     "notes": "Some tabs are captured in Disabilities"

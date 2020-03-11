@@ -31,7 +31,8 @@
             },
             "Date (month/year)",
             "Geography"
-        ]
+        ],
+        "stage": "Backlog"
     },
     "notes": "Information from Housing Statistics Annual Returns, and Scottish Household Survey data.\nNote the change in methodology from 2001, fully explained in the notes in the downloadable excel file.",
     "transform": {

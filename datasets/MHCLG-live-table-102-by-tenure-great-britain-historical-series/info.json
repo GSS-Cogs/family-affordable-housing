@@ -34,7 +34,8 @@
         "Affordable Housing"
     ],
     "extract": {
-        "source": "XLS"
+        "source": "XLS",
+        "stage": "Prioritized"
     },
     "transform": {
         "airtable": "reczCzbgYmk96NbV7"

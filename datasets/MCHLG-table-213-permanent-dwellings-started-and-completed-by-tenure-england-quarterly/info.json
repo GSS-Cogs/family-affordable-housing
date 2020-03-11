@@ -35,7 +35,8 @@
         "Affordable Housing"
     ],
     "extract": {
-        "source": "XLS"
+        "source": "XLS",
+        "stage": "Prioritized"
     },
     "sizingNotes": "Simple table structure though with simple subdimension and one footnote.",
     "notes": ""
