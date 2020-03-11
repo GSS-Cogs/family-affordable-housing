@@ -1,31 +1,46 @@
 {
-    "title": "Table 254: permanent dwellings completed, by house and flat, number of bedroom and tenure, England",
-    "publisher": "MCHLG",
+    "title": "Table 254: permanent dwellings completed, by house and flat, number of bedroom and tenure, England - MCHLG",
+    "publisher": "Ministry for Housing, Communities and Local Government",
     "description": "Live tables on house building: new build dwellings completed, by house and flat, number of bedroom and tenure, England",
     "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
-    "contacts":
-    [{
-      	"name": "Nicholas Mainwaring",
-      	"tel": "0303 444 2255",
-      	"email": "housing.statistics@communities.gov.uk"
-    }],
+    "contacts": [
+        {
+            "name": "Nicholas Mainwaring",
+            "tel": "0303 444 2255",
+            "email": "housing.statistics@communities.gov.uk"
+        }
+    ],
     "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
-    "published": "4 July 2019",
-    "families": ["Housing","Construction"],
+    "published": "2019-10-03",
+    "families": [
+        "Affordable Housing"
+    ],
     "stability": "Good",
     "future": "Good",
     "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "All tabs",
-        	"breakdowns":
-          [
-                "Geography",
-              	"Financial Year",
-                {"Dwelling (Completed)": ["Tenure", "Type", "Bedrooms"]}
-          ]
+        "source": "XLS",
+        "subset": "All tabs",
+        "breakdowns": [
+            "Geography",
+            "Financial Year",
+            {
+                "Dwelling (Completed)": [
+                    "Tenure",
+                    "Type",
+                    "Bedrooms"
+                ]
+            }
+        ],
+        "stage": "Backlog"
     },
     "notes": "",
     "transform": {
-      "main_issue": 6
-    }
+        "main_issue": 6,
+        "airtable": "recN7jqzt6xvMdvPp"
+    },
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    "datasetNotes": [
+        "Data  found on the landing page  by scrolling to table 254 and clicking the link "
+    ],
+    "sizingNotes": "Simple table structure though with some simple subdimension and footnotes. All tabs are similar in structure."
 }

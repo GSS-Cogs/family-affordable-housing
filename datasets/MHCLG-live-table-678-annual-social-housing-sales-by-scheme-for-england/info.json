@@ -1,33 +1,42 @@
 {
-    "title": "MHCLG, Live Table 678: annual social housing sales by scheme for England",
-    "publisher": "MHCLG",
-    "description": "The table provides statistics on the sales of social housing stock – whether owned by local authorities or private registered providers.",
+    "title": "Table 678: annual social housing sales by scheme for England",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "The tables below provide statistics on the sales of social housing stock \u2013 whether owned by local authorities or private registered providers.",
     "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-social-housing-sales",
-    "contacts":
-    [{
-      	"name": "James Sampson, Katie Fulton, Andrew Shiels, Carley Bailie",
-      	"tel": "0303 444 0229",
-      	"email": "housing.statistics@communities.gov.uk"
-    }],
-    "published": "19 Sept 2019",
-    "families": ["Housing"],
+    "contacts": [
+        {
+            "name": "James Sampson, Katie Fulton, Andrew Shiels, Carley Bailie",
+            "tel": "0303 444 0229",
+            "email": "housing.statistics@communities.gov.uk"
+        }
+    ],
+    "published": "2019-12-05",
+    "families": [
+        "Affordable Housing"
+    ],
     "stability": "Good",
     "future": "Good",
     "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "All Tabs",
-        	"breakdowns":
-          [
+        "source": "XLS",
+        "subset": "All Tabs",
+        "breakdowns": [
             "Year",
-            {"Social Housing":
-              [
-                "Local Authority Social Housing Sales",
-                "Registered Provider Social Housing Sales"
-            ]}
-          ]
+            {
+                "Social Housing": [
+                    "Local Authority Social Housing Sales",
+                    "Registered Provider Social Housing Sales"
+                ]
+            }
+        ],
+        "stage": "Backlog"
     },
     "notes": "",
     "transform": {
-      "main_issue": 45
-    }
+        "main_issue": 45,
+        "airtable": "rectXQuosytg1Ywqe"
+    },
+    "datasetNotes": [
+        "Data can be located by scrolling down to Social housing sales and clicking on the 678 table link "
+    ],
+    "sizingNotes": "Simple table structure though with simple subdimension and footnotes."
 }
