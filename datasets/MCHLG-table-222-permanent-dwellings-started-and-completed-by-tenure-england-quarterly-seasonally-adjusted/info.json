@@ -1,38 +1,49 @@
 {
-    "title": "Table 222: permanent dwellings started and completed, by tenure, England (quarterly seasonally adjusted)",
-    "publisher": "MCHLG",
-    "description": "Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly seasonally adjusted).",
+    "title": "Table 222: permanent dwellings started and completed, by tenure, England (quarterly seasonally adjusted) -MCHLG",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "Live tables on house building: new build dwellings started and completed, by tenure, England (quarterly seasonally adjusted)",
     "dataURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
-    "contacts":
-    [{
-      	"name": "Anthony Myers",
-      	"tel": "0303 444 2246",
-      	"email": "housing.statistics@communities.gov.uk"
-    }],
+    "contacts": [
+        {
+            "name": "Anthony Myers",
+            "tel": "0303 444 2246",
+            "email": "housing.statistics@communities.gov.uk"
+        }
+    ],
     "metaURL": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
-    "published": " 3 October 2019",
-    "families": ["Housing","Construction"],
+    "published": "2019-10-03",
+    "families": [
+        "Affordable Housing"
+    ],
     "stability": "Good",
     "future": "Good",
     "extract": {
-        	"source": "Excel Spreadsheet",
-        	"subset": "Single tabs",
-        	"breakdowns":
-          [
-            {"Period":
-              [
-                "Year",
-                "Quarter"
-              ]},
-            {"Dwelling (Tenure)":
-              [
-              "Started",
-              "Completed"
-              ]}
-          ]
+        "source": "XLS",
+        "subset": "Single tabs",
+        "breakdowns": [
+            {
+                "Period": [
+                    "Year",
+                    "Quarter"
+                ]
+            },
+            {
+                "Dwelling (Tenure)": [
+                    "Started",
+                    "Completed"
+                ]
+            }
+        ],
+        "stage": "Backlog"
     },
     "notes": "",
     "transform": {
-      "main_issue": 5
-    }
+        "main_issue": 5,
+        "airtable": "recqgrgUS7M86o3Wl"
+    },
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    "datasetNotes": [
+        "Data  found on the landing page  by scrolling to table 222 and clicking the link "
+    ],
+    "sizingNotes": "Simple table structure though with simple subdimension and one footnote."
 }
