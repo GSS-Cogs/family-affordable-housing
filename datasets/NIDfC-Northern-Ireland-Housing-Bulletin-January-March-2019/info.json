@@ -1,0 +1,22 @@
+{
+    "title": "Northern Ireland Housing Bulletin January - March 2019",
+    "publisher": "Northern Ireland Department for Communities",
+    "description": "The Northern Ireland Housing Bulletin is a quarterly bulletin containing information on new housing starts and completions, homelessness, the NI House Price Index and new house sales and prices.",
+    "landingPage": "https://www.communities-ni.gov.uk/publications/northern-ireland-housing-bulletin-january-march-2019",
+    "datasetNotes": [
+        "Data on this page identified as an ODS file entitled \"Northern Ireland Housing Bulletin January - March 2019\" under heading \"Documents\"."
+    ],
+    "published": "2019-08-06",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "ODS",
+        "stage": "Prioritized"
+    },
+    "transform": {
+        "airtable": "recmJdQPCOwH0SPQV"
+    },
+    "sizingNotes": "Probably 3 datasets.  Tables look simple at first glance, but there is some mixed dimension bits, and some dimension interpretation up front",
+    "notes": ""
+}

@@ -1,0 +1,22 @@
+{
+    "title": "Applications for and sales of local authority owned housing",
+    "publisher": "Scottish Government",
+    "description": "National and local authority area time series of sales to sitting tenants, with market value, selling price and discount information",
+    "landingPage": "https://www2.gov.scot/Topics/Statistics/Browse/Housing-Regeneration/HSfS/Sales",
+    "datasetNotes": [
+        "Data can be found by scrolling to the bottom of the page and clicking on the 'sales to sitting tenants'  the XLS spreadsheet can be found in the table under field."
+    ],
+    "published": "2019-09-19",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "XLS",
+        "stage": "Backlog"
+    },
+    "transform": {
+        "airtable": "reco4gep5psD4pFhD"
+    },
+    "sizingNotes": "Simple table structure,  however a number of the cells have  hidden notes, which should initially be ignored until discussion are held with the producers.",
+    "notes": "1 of 4 Spreadsheets in the SG, Applications for and sales of local authority owned housing"
+}

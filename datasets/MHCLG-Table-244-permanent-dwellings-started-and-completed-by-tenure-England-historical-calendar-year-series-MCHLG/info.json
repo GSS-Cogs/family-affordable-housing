@@ -1,0 +1,19 @@
+{
+    "title": "Table 244: permanent dwellings started and completed, by tenure, England, historical calendar year series - MCHLG",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "",
+    "landingPage": "",
+    "published": "",
+    "families": [
+        "Affordable Housing"
+    ],
+    "extract": {
+        "source": "",
+        "stage": "Candidate"
+    },
+    "transform": {
+        "airtable": "recbBxpCIflPqkdvH"
+    },
+    "sizingNotes": "",
+    "notes": "Need to speak to stakeholders"
+}
