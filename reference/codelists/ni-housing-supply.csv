@@ -1,0 +1,66 @@
+Label,Notation,Parent Notation,Sort Priority
+Population (Thousands),population-thousands,,1
+Average Household Size,average-household-size,,2
+Total Housing Stock (Thousands),total-housing-stock-thousands,,3
+Total Stock Per 1000 Population,total-stock-per-1-000-population,,4
+New Dwellings Started,new-dwellings-started,,5
+New Dwellings Started Per 1000 Population,new-dwellings-started-per-1-000-population,,6
+New Dwellings Completed,new-dwellings-completed,,7
+New Dwellings Completed Per 1000 Population,new-dwellings-completed-per-1-000-population,,8
+New Dwellings Started (Thousands),new-dwellings-started-thousands,,9
+New Dwellings Completed (Thousands),new-dwellings-completed-thousands,,10
+Area Stock,area-stock,,11
+Owned with mortgage,owned-with-mortgage,,12
+Rented- NIHE,rented-nihe,,13
+Rented other,rented-other,,14
+rented from housing association,rented-from-housing-association,,15
+rented privately,rented-privately,,16
+Rent free,rent-free,,17
+All Tenure,all-tenure,,18
+Apartment,apartment,,19
+Detached,detached,,20
+Semi-Detached,semi-detached,,21
+Terrace,terrace,,22
+Total Housing Stock,total-housing-stock,,23
+Unfit Dwellings,unfit-dwellings,,24
+Dwellings Lacking One Or More Basic Amenities,dwellings-lacking-one-or-more-basic-amenities,,25
+Private owner or speculative development,private-owner-or-speculative-development,,26
+Social Housing Development,social-housing-development,,27
+Total New Dwelling Starts,total-new-dwelling-starts,,28
+Total New Dwelling Completions,total-new-dwelling-completions,,29
+Shared New Build ,shared-new-build,,30
+Shared Off-the-Shelf,shared-off-the-shelf,,31
+Shared Existing Satisfactory Purchase,shared-existing-satisfactory-purchase,,32
+Shared Rehabilitation,shared-rehabilitation,,33
+Shared Reimprovement,shared-reimprovement,,34
+Shared Sub-total,shared-sub-total,,35
+Self-Contained New Build ,self-contained-new-build,,36
+Self-Contained Off-the-Shelf,self-contained-off-the-shelf,,37
+Self-Contained Existing Satisfactory Purchase,self-contained-existing-satisfactory-purchase,,38
+Self-Contained Rehabilitation,self-contained-rehabilitation,,39
+Self-Contained Reimprovement,self-contained-reimprovement,,40
+Self-Contained Sub-total,self-contained-sub-total,,41
+Self-Contained Totals,self-contained-totals,,42
+Chained Volume Measure (2016) Prices,chained-volume-measure-2016-prices,,43
+Quarter on Quarter Growths,quarter-on-quarter-growths,,44
+Public New Housing,public-new-housing,,45
+Private New Housing,private-new-housing,,46
+Public New Housing Infrastructure,public-new-housing-infrastructure,,47
+Private  New Housing Infrastructure,private-new-housing-infrastructure,,48
+Public New Housing Other New Work,public-new-housing-other-new-work,,49
+Private  New Housing Other New Work,private-new-housing-other-new-work,,50
+New Housing All New Work,new-housing-all-new-work,,51
+Public Housing Repair and Maintenance,public-housing-repair-and-maintenance,,52
+Private Housing Repair and Maintenance,private-housing-repair-and-maintenance,,53
+Public Housing Infrastructure Repair and Maintenance,public-housing-infrastructure-repair-and-maintenance,,54
+Private Housing Infrastructure Repair and Maintenance,private-housing-infrastructure-repair-and-maintenance,,55
+Public Housing Repair and Maintenance Other Work,public-housing-repair-and-maintenance-other-work,,56
+Private Housing Repair and Maintenance Other Work,private-housing-repair-and-maintenance-other-work,,57
+All Repair & maintenance Work,all-repair-maintenance-work,,58
+All Work,all-work,,59
+Applications Received,applications-received,,60
+Decisions,decisions,,61
+Decisions Granted,decisions-granted,,62
+Percentage Of Decisions Granted,percentage-of-decisions-granted,,63
+Applications Withdrawn,applications-withdrawn,,64
+Applications Outstanding at 31 March,applications-outstanding-at-31-march,,65
