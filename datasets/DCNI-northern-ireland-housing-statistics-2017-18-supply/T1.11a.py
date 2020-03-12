@@ -33,7 +33,7 @@ Dimensions = [
             HDim(quarter,'quarter',DIRECTLY,LEFT),
             HDimConst('Geography','Northern Ireland'),
             HDim(housing, 'housing', CLOSEST,LEFT),
-            HDim(status,'NI Housing Supply',DIRECTLY,ABOVE),
+            HDim(status,'NI Housing Supply',CLOSEST,LEFT),
             HDim(supply,'Supply',CLOSEST,LEFT),
             HDimConst('Unit','gbp-million'),  
             HDimConst('Measure Type','GBP Total'),
@@ -64,8 +64,10 @@ new_table['NI Housing Supply'] = new_table['NI Housing Supply'].map(
        'Private Repair and Maintenance Other Work' : 'Private Housing Repair and Maintenance Other Work',
        'None All Repair & maintenance Other Work' :'All Repair & maintenance Work',
        'None All Work Other Work' :  'All Work',
+        'Private  New Housing All New Work' : 'New Housing All New Work',
         'Private Repair and Maintenance Infrastructure' : 'Private Housing Infrastructure Repair and Maintenance',
-       
+       'Private All Repair & maintenance Other Work' : 'All Repair & maintenance Work',
+       'Private All Work Other Work' : 'All Work'
         }.get(x, x))
 
 
@@ -88,6 +90,3 @@ def user_perc(y,x):
         return 'gregorian-interval/' + str(x)[0:4] + '-03-31T00:00:00/P1Y'
     
 new_table['Period'] = new_table.apply(lambda row: user_perc(row['Year'],row['quarter']), axis = 1)
-# -
-
-
