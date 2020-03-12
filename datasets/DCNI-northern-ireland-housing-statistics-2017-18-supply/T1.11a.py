@@ -37,7 +37,7 @@ Dimensions = [
             HDim(supply,'Supply',CLOSEST,LEFT),
             HDimConst('Unit','gbp-million'),  
             HDimConst('Measure Type','GBP Total'),
-            HDimConst('NI Housing Description','Volume of Output By Construction Sector')
+            HDimConst('NI Housing Description','Construction Sector Volume of Output Current Prices')
     
 ]  
 c1 = ConversionSegment(observations, Dimensions, processTIMEUNIT=True)
