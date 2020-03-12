@@ -33,7 +33,7 @@ Dimensions = [
             HDimConst('Unit','applications'),  
             HDimConst('Measure Type','Count'),
             HDim(description,'Description1',DIRECTLY,ABOVE),
-            HDim(desc1,'Description2',DIRECTLY,ABOVE),
+            HDim(desc1,'Description2',CLOSEST,LEFT),
             HDim(desc2,'Description3',DIRECTLY,ABOVE)
     
 ]  
@@ -51,9 +51,9 @@ new_table['NI Housing Description'] = new_table['NI Housing Description'].map(
        'Urban  Extensions & Alterations': 'Urban  Extensions and Alterations' , 
         'Rural  Replacement Single' : 'Rural  Replacement Single Dwellings' , 
         'Rural  Extensions & Alterations': 'Rural  Extensions and Alterations' ,
-       'None Other2 - Urban' : 'Urban Other' , 
-        'None Other2 - Rural' : 'Rural Other', 
-        'None All Dwellings' : 'All Dwellings'
+       'Rural Other2 - Urban' : 'Urban Other' , 
+        'Rural Other2 - Rural' : 'Rural Other', 
+        'Rural All Dwellings' : 'All Dwellings'
         }.get(x, x))
 
 new_table['NI Housing Description'] = 'Residential Planning Decisions By Planning Authority ' + new_table['NI Housing Description']
@@ -78,5 +78,7 @@ new_table['Measure Type'] = new_table.apply(lambda row: user_perc(row['NI Housin
 
 new_table['NI Housing Supply'] = new_table['NI Housing Supply'].str.rstrip(' ')
 new_table['NI Housing Supply'] = new_table['NI Housing Supply'].str.lstrip(' ')
+
+savepreviewhtml(c1)
 
 
