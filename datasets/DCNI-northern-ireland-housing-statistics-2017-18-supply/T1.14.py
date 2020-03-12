@@ -23,7 +23,7 @@ tab = tabs['T1.14']
 cell = tab.excel_ref('A3')
 supply = cell.fill(RIGHT).is_not_blank().is_not_whitespace() 
 area = cell.fill(DOWN).is_not_blank().is_not_whitespace() 
-observations = supply.fill(DOWN).is_not_blank().is_not_whitespace()
+observations = supply.fill(DOWN).is_not_blank().is_not_whitespace() - tab.excel_ref('E22')
 Dimensions = [
             HDim(area,'Geography',DIRECTLY,LEFT),
             HDim(supply,'NI Housing Supply',DIRECTLY,ABOVE ),
