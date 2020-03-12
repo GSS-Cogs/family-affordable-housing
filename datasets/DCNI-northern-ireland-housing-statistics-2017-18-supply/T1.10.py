@@ -39,17 +39,6 @@ c1 = ConversionSegment(observations, Dimensions, processTIMEUNIT=True)
 new_table = c1.topandas()
 import numpy as np
 new_table.rename(columns={'OBS': 'Value','DATAMARKER': 'NI Marker'}, inplace=True)
-# new_table['NI Housing Supply'] = new_table['house']+ ' ' + new_table['NI Housing Supply']
-# new_table['NI Housing Supply'] = new_table['NI Housing Supply'].str.rstrip('123457')
-# def user_perc(x):
-    
-#     if (str(x) ==  'Totals '): 
-        
-#         return 'gregorian-interval/2010-03-31T00:00:00/P8Y'
-#     else:
-#         return 'gregorian-interval/' + str(x)[0:4] + '-03-31T00:00:00/P1Y'
-    
-# new_table['Period'] = new_table.apply(lambda row: user_perc(row['Year']), axis = 1)
 # +
 def user_perc(y,x):
     

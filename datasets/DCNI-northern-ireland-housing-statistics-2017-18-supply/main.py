@@ -125,3 +125,7 @@ with open(out / 'observations.csv-metadata.trig', 'wb') as metadata:
 
 csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
 csvw.create(out / 'observations.csv', out / 'observations.csv-schema.json')
+
+next_table['Unit'].unique()
+
+

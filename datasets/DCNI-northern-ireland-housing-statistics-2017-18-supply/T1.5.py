@@ -42,7 +42,8 @@ new_table['Period'] = 'year/' + new_table['Year']
 new_table['Measure Type'] = new_table['Measure Type'].map(
     lambda x: {
         'Number' : 'Count', 
-        '%' : 'Percentages'
+        'Number ' : 'Count',        
+        '%' : 'Percentage'
         }.get(x, x))
 new_table['NI Housing Supply'] = new_table['NI Housing Supply'].map(
     lambda x: {'Dwellings Lacking One Or ' : 'Dwellings Lacking One Or More Basic Amenities'

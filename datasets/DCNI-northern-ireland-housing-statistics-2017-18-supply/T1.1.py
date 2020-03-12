@@ -65,7 +65,7 @@ def user_perc(x):
     if ('Dwellings' in str(x)) | ('Housing' in str(x)) :
         return 'Count'
     elif ('Household' in str(x)) :
-        return 'Average Household size'
+        return 'Average household size'
     else:
         return 'Count'
     

@@ -69,7 +69,7 @@ def user_perc(x):
     
     if (str(x) ==  'Percentage Of Decisions Granted') : 
         
-        return 'Percentages'
+        return 'Percentage'
     else:
         return 'Count'
     
