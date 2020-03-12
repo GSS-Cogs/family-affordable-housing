@@ -67,5 +67,5 @@ NI Housing Description,ni_housing_description,qb:dimension,http://gss-data.org.u
 NI Housing Supply,ni_housing_supply,qb:dimension,http://gss-data.org.uk/def/dimension/ni-housing-supply,http://gss-data.org.uk/def/concept/ni-housing-supply/{ni_housing_supply},string,slugize,,http://gss-data.org.uk/def/classes/ni-housing-supply/ni_housing_supply
 People,people,qb:measure,http://gss-data.org.uk/def/measure/people,,number,,,
 Houses,houses,qb:measure,http://gss-data.org.uk/def/measure/houses,,number,,,
-Average household size,average household size,qb:measure,http://gss-data.org.uk/def/measure/average-household-size,,number,,,
+Average household size,average_household_size,qb:measure,http://gss-data.org.uk/def/measure/average-household-size,,number,,,
 Applications,applications,qb:measure,http://gss-data.org.uk/def/measure/applications,,number,,,
