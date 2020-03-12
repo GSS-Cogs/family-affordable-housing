@@ -23,7 +23,7 @@ tab = tabs['T1.4']
 cell = tab.excel_ref('A3')
 dwelling = cell.fill(RIGHT).is_not_blank().is_not_whitespace() 
 area = cell.fill(DOWN).is_not_blank().is_not_whitespace()
-observations = dwelling.fill(DOWN).is_not_blank().is_not_whitespace()
+observations = dwelling.fill(DOWN).is_not_blank().is_not_whitespace() - tab.excel_ref('F17')
 Dimensions = [
             HDim(area,'Geography',DIRECTLY,LEFT),
             HDim(dwelling,'NI Housing Supply',DIRECTLY,ABOVE ),
@@ -37,8 +37,3 @@ new_table = c1.topandas()
 import numpy as np
 new_table.rename(columns={'OBS': 'Value','DATAMARKER': 'NI Marker'}, inplace=True)
 new_table['Period'] = 'year/2018'
-# -
-
-new_table
-
-

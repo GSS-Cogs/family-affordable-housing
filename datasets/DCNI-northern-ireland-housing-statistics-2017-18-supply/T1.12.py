@@ -58,3 +58,6 @@ def user_perc(x):
         return 'Count'
     
 new_table['Measure Type'] = new_table.apply(lambda row: user_perc(row['NI Housing Supply']), axis = 1)
+# -
+
+

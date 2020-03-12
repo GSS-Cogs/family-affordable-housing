@@ -23,7 +23,7 @@ tab = tabs['T1.2']
 cell = tab.excel_ref('A3')
 Year = cell.fill(RIGHT).is_not_blank().is_not_whitespace() 
 area = cell.fill(DOWN).is_not_blank().is_not_whitespace()
-observations = Year.shift(0,2).fill(DOWN).is_not_blank().is_not_whitespace()
+observations = Year.shift(0,1).fill(DOWN).is_not_blank().is_not_whitespace() - tab.excel_ref('L17')
 Dimensions = [
             HDim(Year,'Year',DIRECTLY,ABOVE),
             HDim(area,'Geography',DIRECTLY,LEFT),

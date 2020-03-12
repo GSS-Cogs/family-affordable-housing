@@ -23,25 +23,52 @@ tab = tabs['T1.11a']
 cell = tab.excel_ref('A5')
 Year = cell.fill(DOWN).is_not_blank().is_not_whitespace() 
 quarter = cell.shift(1,0).fill(DOWN).is_not_blank().is_not_whitespace()
-supply = tab.excel_ref('F3:L3') | tab.excel_ref('M4:Q4')             
+supply = tab.excel_ref('F3:L3').is_not_blank().is_not_whitespace() | \
+            tab.excel_ref('M4:Q4').is_not_blank().is_not_whitespace()            
 status = cell.fill(RIGHT).is_not_blank().is_not_whitespace() 
+housing = tab.excel_ref('A5') | tab.excel_ref('M3:T3').is_not_blank().is_not_whitespace()
 observations = tab.excel_ref('F7').expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace() - tab.excel_ref('T61')
 Dimensions = [
             HDim(Year,'Year',CLOSEST,ABOVE),
             HDim(quarter,'quarter',DIRECTLY,LEFT),
             HDimConst('Geography','Northern Ireland'),
+            HDim(housing, 'housing', CLOSEST,LEFT),
             HDim(status,'NI Housing Supply',DIRECTLY,ABOVE),
             HDim(supply,'Supply',CLOSEST,LEFT),
             HDimConst('Unit','gbp-million'),  
             HDimConst('Measure Type','GBP Total'),
-            HDimConst('NI Housing Description','Chained Volume Measure of Housing Output')
+            HDimConst('NI Housing Description','Volume of Output By Construction Sector')
     
 ]  
 c1 = ConversionSegment(observations, Dimensions, processTIMEUNIT=True)
 new_table = c1.topandas()
 import numpy as np
 new_table.rename(columns={'OBS': 'Value','DATAMARKER': 'NI Marker'}, inplace=True)
-new_table['NI Housing Supply'] = new_table['NI Housing Supply']+ ' ' + new_table['Supply']
+# -
+new_table['housing'] = new_table['housing'].map(
+    lambda x: {
+        'YEAR/ QUARTER' : 'New Housing'              
+        }.get(x, x))
+
+new_table['NI Housing Supply'] = new_table['NI Housing Supply'].astype(str) + ' ' + new_table['housing'].astype(str) + ' ' + new_table['Supply'].astype(str)
+
+new_table['NI Housing Supply'] = new_table['NI Housing Supply'].map(
+    lambda x: {
+        'Public New Housing New housing' : 'Public New Housing' , 
+        'Private  New Housing New housing' :'Private New Housing',
+        'None New Housing All New Work' : 'New Housing All New Work' ,
+       'Public Repair and Maintenance Housing' : 'Public Housing Repair and Maintenance' ,
+       'Private Repair and Maintenance Housing' : 'Private Housing Repair and Maintenance',
+       'Public Repair and Maintenance Infrastructure' : 'Public Housing Infrastructure Repair and Maintenance',
+       'Public  Repair and Maintenance Other Work' : 'Public Housing Repair and Maintenance Other Work',
+       'Private Repair and Maintenance Other Work' : 'Private Housing Repair and Maintenance Other Work',
+       'None All Repair & maintenance Other Work' :'All Repair & maintenance Work',
+       'None All Work Other Work' :  'All Work',
+        'Private Repair and Maintenance Infrastructure' : 'Private Housing Infrastructure Repair and Maintenance',
+       
+        }.get(x, x))
+
+
 # +
 def user_perc(y,x):
     
@@ -62,9 +89,5 @@ def user_perc(y,x):
     
 new_table['Period'] = new_table.apply(lambda row: user_perc(row['Year'],row['quarter']), axis = 1)
 # -
-
-new_table.tail()
-
-savepreviewhtml(c1)
 
 

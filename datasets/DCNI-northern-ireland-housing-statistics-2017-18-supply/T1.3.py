@@ -23,14 +23,14 @@ tab = tabs['T1.3']
 cell = tab.excel_ref('A3')
 Year = cell.fill(RIGHT).is_not_blank().is_not_whitespace() 
 supply = cell.fill(DOWN).is_not_blank().is_not_whitespace()
-observations = Year.shift(0,2).fill(DOWN).is_not_blank().is_not_whitespace()
+observations = Year.shift(0,2).fill(DOWN).is_not_blank().is_not_whitespace() - tab.excel_ref('K14')
 Dimensions = [
             HDim(Year,'Year',DIRECTLY,ABOVE),
             HDimConst('Geography','Northern Ireland'),
             HDim(supply,'NI Housing Supply',DIRECTLY,LEFT ),
             HDimConst('Unit','houses'),  
             HDimConst('Measure Type','Percentage'),
-            HDimConst('NI Housing Description',' Household Tenure')
+            HDimConst('NI Housing Description','Household Tenure')
     
 ]  
 c1 = ConversionSegment(observations, Dimensions, processTIMEUNIT=True)
@@ -42,11 +42,11 @@ new_table['Period'] = new_table['Period'].str.replace('\.0', '')
 new_table['NI Housing Supply'] = new_table['NI Housing Supply'].str.rstrip('123457')
 new_table['NI Housing Supply'] = new_table['NI Housing Supply'].map(
     lambda x: {
-        'Bases=100%' : 'Total'
+        'Bases=100%' : 'All Tenure'
         }.get(x, x))
 def user_perc(x):
     
-    if (str(x) ==  'Total') : 
+    if (str(x) ==  'All Tenure') : 
         
         return 'Count'
     else:
@@ -55,6 +55,5 @@ def user_perc(x):
 new_table['Measure Type'] = new_table.apply(lambda row: user_perc(row['NI Housing Supply']), axis = 1)
 # -
 
-new_table
-
-
+new_table['NI Housing Supply'] = new_table['NI Housing Supply'].str.rstrip('4 ')
+new_table['NI Housing Supply'] = new_table['NI Housing Supply'].str.lstrip(' ')

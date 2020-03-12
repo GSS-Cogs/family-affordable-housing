@@ -23,8 +23,8 @@ tab = tabs['T1.13']
 cell = tab.excel_ref('B4')
 Year = cell.shift(0,2).fill(RIGHT).is_not_blank().is_not_whitespace() 
 supply = tab.excel_ref('C3:F3').is_not_blank().is_not_whitespace() 
-description = cell.fill(DOWN).is_not_blank().is_not_whitespace()
-observations = Year.fill(DOWN).is_not_blank().is_not_whitespace()
+description = cell.fill(DOWN).is_not_blank().is_not_whitespace() | tab.excel_ref('A21')
+observations = Year.fill(DOWN).is_not_blank().is_not_whitespace() - tab.excel_ref('K23')
 Dimensions = [
             HDim(Year,'Year',DIRECTLY,ABOVE),
             HDimConst('Geography','Northern Ireland'),
@@ -40,7 +40,7 @@ import numpy as np
 new_table.rename(columns={'OBS': 'Value','DATAMARKER': 'NI Marker'}, inplace=True)
 new_table['Period'] = 'gregorian-interval/' + new_table['Year'].astype(str).str[0:4] + '-03-31T00:00:00/P1Y'
 # -
-new_table['NI Housing Description'] = 'Residential Planning Decisions By' + new_table['NI Housing Description']
+new_table['NI Housing Description'] = 'Residential Planning Decisions By ' + new_table['NI Housing Description']
 
 new_table['NI Housing Supply'] = new_table['NI Housing Supply'].map(
     lambda x: {
@@ -58,3 +58,6 @@ def user_perc(x):
         return 'Count'
     
 new_table['Measure Type'] = new_table.apply(lambda row: user_perc(row['NI Housing Supply']), axis = 1)
+# -
+
+

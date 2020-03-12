@@ -24,7 +24,7 @@ cell = tab.excel_ref('A3')
 Year = cell.fill(RIGHT).is_not_blank().is_not_whitespace() 
 area = tab.excel_ref('A').expand(DOWN).by_index([6,16,26])
 supply = cell.fill(DOWN).is_not_blank().is_not_whitespace() - area
-observations = Year.shift(0,2).fill(DOWN).is_not_blank().is_not_whitespace()
+observations = Year.shift(0,2).fill(DOWN).is_not_blank().is_not_whitespace() - tab.excel_ref('K35')
 Dimensions = [
             HDim(Year,'Year',DIRECTLY,ABOVE),
             HDim(area,'Geography',CLOSEST,ABOVE),
@@ -48,6 +48,25 @@ def user_perc(x):
         return 'gregorian-interval/' + str(x)[0:4] + '-03-31T00:00:00/P1Y'
     
 new_table['Period'] = new_table.apply(lambda row: user_perc(row['Year']), axis = 1)
-# -
 
 
+# +
+def user_perc(x):
+    if ('Dwellings' in str(x)) | ('Housing' in str(x))  :
+        return 'Houses'
+    else:
+        return 'People'
+    
+new_table['Measure Type'] = new_table.apply(lambda row: user_perc(row['NI Housing Supply']), axis = 1)
+
+
+# +
+def user_perc(x):
+    if ('Dwellings' in str(x)) | ('Housing' in str(x)) :
+        return 'Count'
+    elif ('Household' in str(x)) :
+        return 'Average Household size'
+    else:
+        return 'Count'
+    
+new_table['Unit'] = new_table.apply(lambda row: user_perc(row['NI Housing Supply']), axis = 1)

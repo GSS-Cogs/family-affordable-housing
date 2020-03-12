@@ -56,3 +56,10 @@ def user_perc(x):
         return 'gregorian-interval/' + str(x)[0:4] + '-03-31T00:00:00/P1Y'
     
 new_table['Period'] = new_table.apply(lambda row: user_perc(row['Year']), axis = 1)
+# -
+
+new_table['NI Housing Supply'] = new_table['NI Housing Supply'].map(
+    lambda x: {
+        'Private owner/ speculative development' : 'Private owner or speculative development' ,
+       'Total \nNew Dwelling \nCompletions' : 'Total New Dwelling Completions'        
+        }.get(x, x))
