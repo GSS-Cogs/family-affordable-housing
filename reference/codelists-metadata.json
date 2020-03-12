@@ -188,5 +188,17 @@
     "url": "codelists/social-housing-dwelling-type.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Social Housing Dwelling Type"
+},{
+    "url": "codelists/ni-geography.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Bedrooms"
+  },{
+    "url": "codelists/ni-housing-description.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Provider"
+  },{
+    "url": "codelists/ni-housing-supply.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Social Housing Dwelling Type"
   }]
 }

@@ -62,3 +62,10 @@ Social Housing Provider,social_housing_provider,qb:dimension,http://gss-data.org
 Social Housing Dwelling Type,social_housing_dwelling_type,qb:dimension,http://gss-data.org.uk/def/dimension/social-housing-dwelling-type,http://gss-data.org.uk/def/concept/social-housing-dwelling-type/{social_housing_dwelling_type},string,slugize,,http://gss-data.org.uk/def/classes/social-housing-dwelling-type/social_housing_dwelling_type
 Stock,stock,qb:measure,http://gss-data.org.uk/def/measure/stock,,number,,,
 Rents,rents,qb:measure,http://gss-data.org.uk/def/measure/rents,,number,,,
+NI Geography,ni_geography,qb:dimension,http://gss-data.org.uk/def/dimension/ni-geography,http://gss-data.org.uk/def/concept/ni-geography/{ni_geography},string,slugize,,http://gss-data.org.uk/def/classes/ni-geography/ni_geography
+NI Housing Description,ni_housing_description,qb:dimension,http://gss-data.org.uk/def/dimension/ni-housing-description,http://gss-data.org.uk/def/concept/ni-housing-description/{ni_housing_description},string,slugize,,http://gss-data.org.uk/def/classes/ni-housing-description/ni_housing_description
+NI Housing Supply,ni_housing_supply,qb:dimension,http://gss-data.org.uk/def/dimension/ni-housing-supply,http://gss-data.org.uk/def/concept/ni-housing-supply/{ni_housing_supply},string,slugize,,http://gss-data.org.uk/def/classes/ni-housing-supply/ni_housing_supply
+People,people,qb:measure,http://gss-data.org.uk/def/measure/people,,number,,,
+Houses,houses,qb:measure,http://gss-data.org.uk/def/measure/houses,,number,,,
+Average household size,average household size,qb:measure,http://gss-data.org.uk/def/measure/average-household-size,,number,,,
+Applications,applications,qb:measure,http://gss-data.org.uk/def/measure/applications,,number,,,

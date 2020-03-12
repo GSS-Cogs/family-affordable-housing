@@ -50,3 +50,10 @@ Social Housing Provider,,Dimension,http://gss-data.org.uk/def/concept-scheme/soc
 Social Housing Dwelling Type,,Dimension,http://gss-data.org.uk/def/concept-scheme/social-housing-dwelling-type
 Stock,,Measure,
 Rents,,Measure,
+NI Geography,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-geography
+NI Housing Description,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-housing-description
+NI Housing Supply,,Dimension,http://gss-data.org.uk/def/concept-scheme/ni-housing-supply
+People,,Measure,http://gss-data.org.uk/def/concept-scheme/people
+Houses,,Measure,http://gss-data.org.uk/def/concept-scheme/houses
+Average household size,,Measure,http://gss-data.org.uk/def/concept-scheme/average-household-size
+Applications,,Measure,http://gss-data.org.uk/def/concept-scheme/applications
