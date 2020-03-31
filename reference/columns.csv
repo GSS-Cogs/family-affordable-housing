@@ -69,3 +69,4 @@ People,people,qb:measure,http://gss-data.org.uk/def/measure/people,,number,,,
 Houses,houses,qb:measure,http://gss-data.org.uk/def/measure/houses,,number,,,
 Average household size,average_household_size,qb:measure,http://gss-data.org.uk/def/measure/average-household-size,,number,,,
 Applications,applications,qb:measure,http://gss-data.org.uk/def/measure/applications,,number,,,
+Financial Year,financial_year,qb:dimension,http://gss-data.org.uk/def/dimension/financial-year,http://gss-data.org.uk/def/concept/financial-year/{financial_year},string,slugize,,http://gss-data.org.uk/def/classes/financial-year/financial-year
