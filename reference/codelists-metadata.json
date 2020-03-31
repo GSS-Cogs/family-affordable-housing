@@ -200,5 +200,9 @@
     "url": "codelists/ni-housing-supply.csv",
     "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
     "rdfs:label": "Social Housing Dwelling Type"
+  },{
+    "url": "codelists/financial-year.csv",
+    "tableSchema": "https://gss-cogs.github.io/ref_common/codelist-schema.json",
+    "rdfs:label": "Financial Year"
   }]
 }
