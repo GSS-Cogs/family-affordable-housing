@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[1]:
-
-
+# %%
 from gssutils import *
 from databaker.framework import *
 import pandas as pd
@@ -29,7 +26,7 @@ scraper.dataset.title = dist.title
 dist
 
 
-# In[2]:
+# %%
 
 
 tabs = (t for t in dist.as_databaker())
@@ -68,12 +65,12 @@ for tab in tabs:
         
 
 
-# In[3]:
+# %%
 
 
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
 
-df['Period'] = df['Period'].map(lambda x: 'year/' + left(x, 4))
+df['Period'] = df['Period'].map(lambda x: 'government-year/' + left(x, 4))
 
 df = df.replace({'scheme' : {
     'Private Registered Provider (PRP) Social Housing Sales6' : 'Private Registered Provider (PRP) Social Housing Sales',},
@@ -96,9 +93,7 @@ df.rename(columns={'OBS' : 'Value',
 df.head(50)
 
 
-# In[4]:
-
-
+# %%
 from IPython.core.display import HTML
 for col in df:
     if col not in ['Value']:
@@ -107,9 +102,7 @@ for col in df:
         display(df[col].cat.categories)    
 
 
-# In[5]:
-
-
+# %%
 tidy = df[['Area','Period', 'MCHLG Scheme', 'MCHLG Scheme Type', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
 for column in tidy:
@@ -126,9 +119,7 @@ for col in tidy:
         display(tidy[col].cat.categories)    
 
 
-# In[6]:
-
-
+# %%
 destinationFolder = Path('out')
 destinationFolder.mkdir(exist_ok=True, parents=True)
 
@@ -152,7 +143,7 @@ csvw.create(destinationFolder / f'{TAB_NAME}.csv', destinationFolder / f'{TAB_NA
 tidy
 
 
-# In[ ]:
+# %%
 
 
 
