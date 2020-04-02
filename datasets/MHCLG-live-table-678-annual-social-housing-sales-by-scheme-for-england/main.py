@@ -66,11 +66,12 @@ for tab in tabs:
 
 
 # %%
-
-
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
 
-df['Period'] = df['Period'].map(lambda x: 'government-year/' + left(x, 4))
+df = df.replace({'Period' : {
+    '2018-195' : '2018-19',}})
+
+df['Period'] = df['Period'].map(lambda x: 'government-year/' + left(x, 4) + '-19' + right(x,2) if '19' in left(x,2) else 'government-year/' + left(x, 4) + '-20' + right(x,2))
 
 df = df.replace({'scheme' : {
     'Private Registered Provider (PRP) Social Housing Sales6' : 'Private Registered Provider (PRP) Social Housing Sales',},
