@@ -80,7 +80,7 @@ for tab in tabs:
 pd.set_option('display.float_format', lambda x: '%.0f' % x)
 df = pd.concat(tidied_sheets, ignore_index = True, sort = False).fillna('')
 
-df['Period'] = df['Period'].map(lambda x: 'year/' + left(x,4))
+df['Period'] = df['Period'].map(lambda x: 'government-year/' + left(x, 4) + '-19' + right(x,2) if '19' in left(x,2) else 'government-year/' + left(x, 4) + '-20' + right(x,2))
 
 df['Completions'] = df.apply(lambda x: 'Completions' if 'Private' in x['Tenure'] and ' ' in x['Completions'] else x['Completions'], axis = 1)
 df['Completions'] = df.apply(lambda x: 'Completions' if 'completed' in str(x['Completions']).lower() else x['Completions'], axis = 1)
