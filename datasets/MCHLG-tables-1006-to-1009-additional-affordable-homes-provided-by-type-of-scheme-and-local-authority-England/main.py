@@ -135,7 +135,7 @@ for i in tidied_tables:
         
         df1 = tidied_tables.get(i)
 
-        df1['Period'] = df1['Period'].map(lambda x: 'year/' + left(x,4))
+        df['Period'] = df['Period'].map(lambda x: 'government-year/' + left(x, 4) + '-19' + right(x,2) if '19' in left(x,2) else 'government-year/' + left(x, 4) + '-20' + right(x,2))
 
         df1 = df1.replace({'DATAMARKER' : {
             '..' : 'not applicable'},
@@ -197,7 +197,7 @@ for i in tidied_tables:
         
         df2 = tidied_tables.get(i)
 
-        df2['Period'] = df2['Period'].map(lambda x: 'year/' + left(x,4))
+        df['Period'] = df['Period'].map(lambda x: 'government-year/' + left(x, 4) + '-19' + right(x,2) if '19' in left(x,2) else 'government-year/' + left(x, 4) + '-20' + right(x,2))
 
         df2 = df2.replace({'DATAMARKER' : {
             '..' : 'not applicable'},
