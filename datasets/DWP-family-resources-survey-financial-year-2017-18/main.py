@@ -220,6 +220,7 @@ except Exception as e:
 
 
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
+t.columns
 
 # +
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
