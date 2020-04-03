@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# +
+# + {}
 #### DWP Family Resources Survey for Financial Year 2017 to 2018 - Income & State Support - Affordable Housing ####
 theMainTitle = 'DWP Family Resources Survey for Financial Year 2017 to 2018 - Income & State Support'
-# +
+# # +
 from gssutils import *
 import datetime as d
 import numpy as np
@@ -129,6 +129,8 @@ try:
 except Exception as e:
     print(e.message, e.args)
 
+
+
 #### Set all the column names in one place
 periodTitle = 'Period'
 markerTitle = 'Marker'
@@ -187,7 +189,7 @@ def fixTable2_5(myTbl):
 
 
 # +
-# %%capture
+# # %%capture
 #### Transform all the sheets
 try:
     tbl1 = extract_sheet_single_table('2', [t for t in sheets if t.name == '2_1'][0], 'B8', 'C9:H22', 'C8', 'Sample Size', periodTitle, incomeTitle, '', True, unitVal1, '1')
@@ -212,12 +214,9 @@ try:
 
 except Exception as e:
     print(str(e))
-
-# +
- 
-allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
-#tbl5[houseCompTitle].unique()
 # -
+
+allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
 
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
 for t in allTbls:
@@ -240,8 +239,9 @@ for t in allTbls:
                     t[ttl] = t[ttl].str.strip(str(x))
                     t[ttl] = t[ttl].str.strip(',')
 
+
 # +
-#### Set all the names of output observation datasets
+### Set all the names of output observation datasets
 tableHeadings = [
     "DWP - Family Resource Survey - Sources of total gross household income by Region - Ethnic group - Age of head",
     "Table 2.5 - Households by composition and total gross weekly household income",
@@ -261,8 +261,8 @@ tableHeadings = [
 ukTitle = 'United Kingdom'
 hhTitle = 'All households'
 abTitle = 'All benefit units'
-# -
 
+# +
 ### SOURCES TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[0][regionTitle] = ukTitle
@@ -409,27 +409,39 @@ allTbls[15] = allTbls[15][columnOrder]
 benefitsTbl = pd.concat([allTbls[8], allTbls[9], allTbls[10], allTbls[11], allTbls[12], allTbls[13], allTbls[14], allTbls[15]])
 # -
 
-#### Pathify columns
-benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
-benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.replace('/ ', ' ', regex=True)
-benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.strip().apply(pathify)
-benefitsTbl[ageTitle] = benefitsTbl[ageTitle].str.strip().apply(pathify)
-benefitsTbl[regionTitle] = benefitsTbl[regionTitle].str.strip().apply(pathify)
-benefitsTbl[tenureTitle] = benefitsTbl[tenureTitle].str.strip().apply(pathify)
-benefitsTbl[econStatTitle] = benefitsTbl[econStatTitle].str.strip().apply(pathify)
-benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.replace(',', '', regex=True)
-benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
-benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
-#benefitsTbl[benUntTitle].unique()
+
+
+
+
+
+allTbls[10]#[ethnicTitle].unique()
 
 # +
+# # +
+#### Pathify columns
+#benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
+#benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.replace('/ ', ' ', regex=True)
+#benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.strip().apply(pathify)
+#benefitsTbl[ageTitle] = benefitsTbl[ageTitle].str.strip().apply(pathify)
+#benefitsTbl[regionTitle] = benefitsTbl[regionTitle].str.strip().apply(pathify)
+#benefitsTbl[tenureTitle] = benefitsTbl[tenureTitle].str.strip().apply(pathify)
+#benefitsTbl[econStatTitle] = benefitsTbl[econStatTitle].str.strip().apply(pathify)
+#benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.replace(',', '', regex=True)
+#benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
+#benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
+#benefitsTbl[benefitsTbl[ethnicTitle] is None]#.unique()
+
+
+
+# + {"endofcell": "--"}
+# # +
 #### Set up the folder path for the output files
 from pathlib import Path
 
 out = Path('out')
 out.mkdir(exist_ok=True, parents=True)
 
-# +
+# # +
 # Output Observation.csv files
 # Create and output Schema.json files
 # Create and output metadata.trig files
@@ -459,3 +471,19 @@ for fn in fleNmes:
     csvw = CSVWMetadata('https://gss-cogs.github.io/family-affordable-housing/reference/')
     csvw.create(out / (fn + '.csv'), out / ((fn + '.csv') + '-schema.json'))
     i = i + 1
+
+
+
+
+
+
+# -
+
+
+
+
+# --
+
+
+
+
