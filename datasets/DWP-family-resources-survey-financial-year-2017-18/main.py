@@ -306,7 +306,7 @@ sourcesTbl[ethnicTitle] = sourcesTbl[ethnicTitle].str.strip().apply(pathify)
 sourcesTbl[incomeTitle] = sourcesTbl[incomeTitle].str.strip().apply(pathify)
 sourcesTbl[incBreakTitle] = sourcesTbl[incBreakTitle].str.strip().apply(pathify)
 
-sourcesTbl[incomeTitle][sourcesTbl[incomeTitle] == 'state-pension-plus-any-is/pc'] = 'state-pension-plus-any-is-pc'
+sourcesTbl[incomeTitle][sourcesTbl[incomeTitle] == 'state-pension-plus-any-is/pc'] = 'state-pension-plus-any-pc'
 
 
 # # +
