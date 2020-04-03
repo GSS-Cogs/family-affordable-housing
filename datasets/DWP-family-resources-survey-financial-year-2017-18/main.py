@@ -203,7 +203,7 @@ try:
     tbl7 = extract_sheet_single_table('7', [t for t in sheets if t.name == '2_7'][0], 'B8', 'C9:O23', 'C8', 'Sample size', ethnicTitle, wklyIncomeTitle, threeYr, True, unitVal1, '3')
     tbl8 = extract_sheet_single_table('8', [t for t in sheets if t.name == '2_8'][0], 'B8', 'C9:S41', 'C8', 'Sample size', steSupTitle, regionTitle, currYr, False, unitVal1, '1')
     tbl9 = extract_sheet_single_table('9', [t for t in sheets if t.name == '2_9'][0], 'B8', 'C9:Q42', 'C8', 'Sample size', steSupTitle, benUntTitle, currYr, False, unitVal1, '1')
-    tbl10 = extract_sheet_single_table('10', [t for t in sheets if t.name == '2_10'][0], 'B8', 'C9:M42', 'C8', 'Sample size', steSupTitle, ethnicTitle, threeYr, False, unitVal1, '3')
+    tbl10 = extract_sheet_single_table('10', [t for t in sheets if t.name == '2_10'][0], 'B9', 'C9:M42', 'C8', 'Sample size', steSupTitle, ethnicTitle, threeYr, False, unitVal1, '3')
     tbl11 = extract_sheet_single_table('11', [t for t in sheets if t.name == '2_11'][0], 'B8', 'C9:L42', 'C8', 'Sample size', steSupTitle, ageTitle, currYr, False, unitVal1, '1')
     tbl12 = extract_sheet_single_table('12', [t for t in sheets if t.name == '2_12'][0], 'B8', 'C9:H42', 'C8', 'Sample size', steSupTitle, tenureTitle, currYr, False, unitVal1, '1')
     tbl13 = extract_sheet_single_table('13', [t for t in sheets if t.name == '2_13'][0], 'B8', 'C9:K42', 'C8', 'Sample size', steSupTitle, econStatTitle, currYr, False, unitVal1, '1')
