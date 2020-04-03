@@ -305,7 +305,9 @@ sourcesTbl[regionTitle] = sourcesTbl[regionTitle].str.strip().apply(pathify)
 sourcesTbl[ethnicTitle] = sourcesTbl[ethnicTitle].str.strip().apply(pathify)
 sourcesTbl[incomeTitle] = sourcesTbl[incomeTitle].str.strip().apply(pathify)
 sourcesTbl[incBreakTitle] = sourcesTbl[incBreakTitle].str.strip().apply(pathify)
-#sourcesTbl.head(20)
+
+sourcesTbl[incomeTitle][sourcesTbl[incomeTitle] == 'state-pension-plus-any-is/pc'] = 'state-pension-plus-any-is-pc'
+
 
 # # +
 #### HOUSEHOLDS TABLE - Join some tables together adding columns where needed
@@ -468,8 +470,9 @@ for fn in fleNmes:
     csvw.create(out / (fn + '.csv'), out / ((fn + '.csv') + '-schema.json'))
     i = i + 1
 
-# -
 
-householdsTbl.head(60)
+# +
+#sourcesTbl.head(60)
+# -
 
 
