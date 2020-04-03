@@ -216,16 +216,18 @@ except Exception as e:
     print(str(e))
 # -
 
+
+
+
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
 
+# +
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
 for t in allTbls:
     for x in range(10): 
         if (x > 0):
             for ttl in allMainTitles:
                 if ttl in t.columns:
-                    #t[markerTitle][t[ttl].str.contains(str(x))] += ' ' + str(x)
-                    #t[markerTitle] = t[markerTitle].str.lstrip()
                     t[ttl] = t[ttl].str.replace('\n',' ')
                     t[ttl] = t[ttl].str.strip(str(x))
                     t[ttl] = t[ttl].str.strip(',')
@@ -233,14 +235,15 @@ for t in allTbls:
         if (x > 0):
             for ttl in allMainTitles:
                 if ttl in t.columns:
-                    #t[markerTitle][t[ttl].str.contains(str(x))] += ' ' + str(x)
-                    #t[markerTitle] = t[markerTitle].str.lstrip()
                     t[ttl] = t[ttl].str.replace('\n',' ')
                     t[ttl] = t[ttl].str.strip(str(x))
                     t[ttl] = t[ttl].str.strip(',')
 
 
-# +
+# # +
+
+# + {"endofcell": "---"}
+
 ### Set all the names of output observation datasets
 tableHeadings = [
     "DWP - Family Resource Survey - Sources of total gross household income by Region - Ethnic group - Age of head",
@@ -262,7 +265,7 @@ ukTitle = 'United Kingdom'
 hhTitle = 'All households'
 abTitle = 'All benefit units'
 
-# +
+# # +
 ### SOURCES TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[0][regionTitle] = ukTitle
@@ -303,7 +306,7 @@ sourcesTbl[incomeTitle] = sourcesTbl[incomeTitle].str.strip().apply(pathify)
 sourcesTbl[incBreakTitle] = sourcesTbl[incBreakTitle].str.strip().apply(pathify)
 #sourcesTbl.head(20)
 
-# +
+# # +
 #### HOUSEHOLDS TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[5][regionTitle] = ukTitle
@@ -323,7 +326,7 @@ allTbls[7] = allTbls[7][columnOrder]
 #### Concatenate the tables 
 householdsTbl = pd.concat([allTbls[5], allTbls[6], allTbls[7]])
 
-# +
+# # +
 #### Pathify columns
 householdsTbl[houseCompTitle] = householdsTbl[houseCompTitle].str.strip().apply(pathify)
 householdsTbl[regionTitle] = householdsTbl[regionTitle].str.strip().apply(pathify)
@@ -334,7 +337,7 @@ householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.replace('ps'
 
 householdsTbl.head(12)
 
-# +
+# # +
 #### BENEFITS TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[8][benUntTitle] = abTitle
@@ -416,8 +419,8 @@ benefitsTbl = pd.concat([allTbls[8], allTbls[9], allTbls[10], allTbls[11], allTb
 
 allTbls[10]#[ethnicTitle].unique()
 
-# +
 # # +
+# # # +
 #### Pathify columns
 #benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
 #benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.replace('/ ', ' ', regex=True)
@@ -433,15 +436,15 @@ allTbls[10]#[ethnicTitle].unique()
 
 
 
-# + {"endofcell": "--"}
-# # +
+# # + {"endofcell": "--"}
+# # # +
 #### Set up the folder path for the output files
 from pathlib import Path
 
 out = Path('out')
 out.mkdir(exist_ok=True, parents=True)
 
-# # +
+# # # +
 # Output Observation.csv files
 # Create and output Schema.json files
 # Create and output metadata.trig files
@@ -485,5 +488,8 @@ for fn in fleNmes:
 # --
 
 
+
+
+# ---
 
 
