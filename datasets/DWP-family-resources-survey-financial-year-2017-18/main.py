@@ -336,7 +336,7 @@ householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.replace(',',
 householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.strip().apply(pathify)
 householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.replace('ps', '', regex=True)
 
-householdsTbl.head(12)
+householdsTbl[wklyIncomeTitle][householdsTbl[wklyIncomeTitle] == '900-but-less-than1000'] = '900-but-less-than-1000'
 
 
 #### BENEFITS TABLE - Join some tables together adding columns where needed
@@ -470,6 +470,6 @@ for fn in fleNmes:
 
 # -
 
-
+householdsTbl.head(60)
 
 
