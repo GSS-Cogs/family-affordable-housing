@@ -427,7 +427,7 @@ benefitsTbl[econStatTitle] = benefitsTbl[econStatTitle].str.strip().apply(pathif
 benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.replace(',', '', regex=True)
 benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
 benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
-benefitsTbl[benefitsTbl[ethnicTitle] is None]#.unique()
+
 
 
 
