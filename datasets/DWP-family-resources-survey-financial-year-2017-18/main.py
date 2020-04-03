@@ -72,6 +72,9 @@ def extract_sheet_single_table(refTab, tab, ref1, ref2, ref3, refSS, mainTitle1,
 
         c1 = ConversionSegment(col2, Dimensions, processTIMEUNIT=True)
         c1 = c1.topandas()
+        
+        c1[mainTitle1] = c1[mainTitle1].str.replace('\n','').str.strip()
+        c1[mainTitle2] = c1[mainTitle2].str.replace('\n','').str.strip()
         #### Sample Size is in a column
         if (sampleSizeInColumn):
             c2 = c1[[mainTitle1,mainTitle2,'OBS']][c1[mainTitle2].str.strip() == refSS]
@@ -188,39 +191,37 @@ def fixTable2_5(myTbl):
         print(str(e))
 
 
-# +
 # # %%capture
 #### Transform all the sheets
 try:
-    tbl1 = extract_sheet_single_table('2', [t for t in sheets if t.name == '2_1'][0], 'B8', 'C9:H22', 'C8', 'Sample Size', periodTitle, incomeTitle, '', True, unitVal1, '1')
-    tbl2_1 = extract_sheet_single_table('2_1', [t for t in sheets if t.name == '2_2'][0], 'B8', 'C9:M31', 'C8', 'Sample size', regionTitle, incomeTitle, currYr, True, unitVal1, '1')
-    tbl2_2 = extract_sheet_single_table('2_2', [t for t in sheets if t.name == '2_2'][0], 'B37', 'C38:H60', 'C37', 'Sample size', regionTitle, incomeTitle, currYr, True, unitVal1, '1')
-    tbl3 = extract_sheet_single_table('3', [t for t in sheets if t.name == '2_3'][0], 'B8', 'C9:M23', 'C8', 'Sample size', ethnicTitle, incomeTitle, threeYr, True, unitVal1, '3')
+    tbl1 = extract_sheet_single_table('2', [t for t in sheets if t.name == '2_1'][0], 'B9', 'C10:H23', 'C9', 'Sample Size', periodTitle, incomeTitle, '', True, unitVal1, '1')
+    tbl2_1 = extract_sheet_single_table('2_1', [t for t in sheets if t.name == '2_2'][0], 'B8', 'C9:M30', 'C8', 'Sample size', regionTitle, incomeTitle, currYr, True, unitVal1, '1')
+    tbl2_2 = extract_sheet_single_table('2_2', [t for t in sheets if t.name == '2_2'][0], 'B40', 'C41:H62', 'C40', 'Sample size', regionTitle, incomeTitle, currYr, True, unitVal1, '1')
+    tbl3 = extract_sheet_single_table('3', [t for t in sheets if t.name == '2_3'][0], 'B9', 'C10:M24', 'C9', 'Sample size', ethnicTitle, incomeTitle, threeYr, True, unitVal1, '3')
     tbl4 = extract_sheet_single_table('4', [t for t in sheets if t.name == '2_4'][0], 'B8', 'C9:M22', 'C8', 'Sample size', ageTitle, incomeTitle, currYr, True, unitVal1, '1')
     tbl5 = extract_sheet_single_table('5', [t for t in sheets if t.name == '2_5'][0], 'B8', 'C9:O42', 'C8', 'Sample size', houseCompTitle, wklyIncomeTitle, currYr, True, unitVal1, '1')
     print('Count 1: ' + str(tbl5[houseCompTitle].count()))
     tbl5 = fixTable2_5(tbl5)
     print('Count 2: ' + str(tbl5[houseCompTitle].count()))
     tbl6 = extract_sheet_single_table('6', [t for t in sheets if t.name == '2_6'][0], 'B8', 'C9:O32', 'C8', 'Sample size', regionTitle, wklyIncomeTitle, currYr, True, unitVal1, '1')
-    tbl7 = extract_sheet_single_table('7', [t for t in sheets if t.name == '2_7'][0], 'B8', 'C9:O23', 'C8', 'Sample size', ethnicTitle, wklyIncomeTitle, threeYr, True, unitVal1, '3')
+    tbl7 = extract_sheet_single_table('7', [t for t in sheets if t.name == '2_7'][0], 'B9', 'C10:O24', 'C9', 'Sample size', ethnicTitle, wklyIncomeTitle, threeYr, True, unitVal1, '3')
     tbl8 = extract_sheet_single_table('8', [t for t in sheets if t.name == '2_8'][0], 'B8', 'C9:S41', 'C8', 'Sample size', steSupTitle, regionTitle, currYr, False, unitVal1, '1')
     tbl9 = extract_sheet_single_table('9', [t for t in sheets if t.name == '2_9'][0], 'B8', 'C9:Q42', 'C8', 'Sample size', steSupTitle, benUntTitle, currYr, False, unitVal1, '1')
-    tbl10 = extract_sheet_single_table('10', [t for t in sheets if t.name == '2_10'][0], 'B9', 'C9:M42', 'C8', 'Sample size', steSupTitle, ethnicTitle, threeYr, False, unitVal1, '3')
+    tbl10 = extract_sheet_single_table('10', [t for t in sheets if t.name == '2_10'][0], 'B9', 'C10:M43', 'C9', 'Sample size', steSupTitle, ethnicTitle, threeYr, False, unitVal1, '3')
     tbl11 = extract_sheet_single_table('11', [t for t in sheets if t.name == '2_11'][0], 'B8', 'C9:L42', 'C8', 'Sample size', steSupTitle, ageTitle, currYr, False, unitVal1, '1')
     tbl12 = extract_sheet_single_table('12', [t for t in sheets if t.name == '2_12'][0], 'B8', 'C9:H42', 'C8', 'Sample size', steSupTitle, tenureTitle, currYr, False, unitVal1, '1')
     tbl13 = extract_sheet_single_table('13', [t for t in sheets if t.name == '2_13'][0], 'B8', 'C9:K42', 'C8', 'Sample size', steSupTitle, econStatTitle, currYr, False, unitVal1, '1')
-    tbl14_1 = extract_sheet_single_table('14_1', [t for t in sheets if t.name == '2_14'][0], 'B7', 'C8:E21', 'C7', 'Sample size', annAmtTitle, periodTitle, '', False, unitVal2, '1')
-    tbl14_2 = extract_sheet_single_table('14_2', [t for t in sheets if t.name == '2_14'][0], 'B24', 'C25:E38', 'C24', 'Sample size', annAmtTitle, periodTitle, '', False, unitVal1, '1')
+    tbl14_1 = extract_sheet_single_table('14_1', [t for t in sheets if t.name == '2_14'][0], 'B9', 'C10:E23', 'C9', 'Sample size', annAmtTitle, periodTitle, '', False, unitVal2, '1')
+    tbl14_2 = extract_sheet_single_table('14_2', [t for t in sheets if t.name == '2_14'][0], 'B26', 'C27:E40', 'C26', 'Sample size', annAmtTitle, periodTitle, '', False, unitVal1, '1')
 
 except Exception as e:
     print(str(e))
-# -
 
 
 
+tbl14_2
 
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
-
 
 # +
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
@@ -492,6 +493,48 @@ for fn in fleNmes:
 
 
 # ---
+
+
+
+
+
+"""
+tab = [t for t in sheets if t.name == '2_2'][0]
+#'B8', 'C9:M30', 'C8', 'Sample size', regionTitle, incomeTitle, currYr, True, unitVal1, '1')
+ref1 = 'B8'
+ref2 = 'C9:M30'
+ref3 = 'C8'
+mainTitle1 = regionTitle
+mainTitle2 = incomeTitle
+col1 = tab.excel_ref(ref1).fill(DOWN).is_not_blank()
+col2 = tab.excel_ref(ref2).is_not_blank()
+col3 = tab.excel_ref(ref3).expand(RIGHT).is_not_blank() 
+
+Dimensions = [
+    HDim(col1,mainTitle1, DIRECTLY, LEFT),
+    HDim(col3,mainTitle2, DIRECTLY, ABOVE)
+    ]
+
+c1 = ConversionSegment(col2, Dimensions, processTIMEUNIT=True)
+c1 = c1.topandas()
+"""
+
+"""
+c1[mainTitle1] = c1[mainTitle1].str.replace('\n','').str.strip()
+c1[mainTitle2] = c1[mainTitle2].str.replace('\n','').str.strip()
+c1.head(60)
+"""
+
+"""
+refSS = 'Sample size'
+c2 = c1[[mainTitle1,mainTitle2,'OBS']][c1[mainTitle2] == refSS]
+c1 = c1[(c1[mainTitle2].str.strip() != refSS) & (c1[mainTitle2].str.strip() != 'All')]
+tbl = pd.merge(c1, c2, on=mainTitle1)
+tbl = tbl.rename(columns={'OBS_x':valueTitle,mainTitle2 + '_x':mainTitle2,'OBS_y':refSS})
+tbl = tbl.drop(columns=[mainTitle2 +'_y'])
+"""
+
+
 
 
 
