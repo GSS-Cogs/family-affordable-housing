@@ -242,9 +242,8 @@ for t in allTbls:
                     t[ttl] = t[ttl].str.strip(',')
 
 
-# # +
 
-# + {"endofcell": "---"}
+# +
 
 ### Set all the names of output observation datasets
 tableHeadings = [
@@ -267,7 +266,7 @@ ukTitle = 'United Kingdom'
 hhTitle = 'All households'
 abTitle = 'All benefit units'
 
-# # +
+
 ### SOURCES TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[0][regionTitle] = ukTitle
@@ -328,7 +327,7 @@ allTbls[7] = allTbls[7][columnOrder]
 #### Concatenate the tables 
 householdsTbl = pd.concat([allTbls[5], allTbls[6], allTbls[7]])
 
-# # +
+
 #### Pathify columns
 householdsTbl[houseCompTitle] = householdsTbl[houseCompTitle].str.strip().apply(pathify)
 householdsTbl[regionTitle] = householdsTbl[regionTitle].str.strip().apply(pathify)
@@ -339,7 +338,7 @@ householdsTbl[wklyIncomeTitle] = householdsTbl[wklyIncomeTitle].str.replace('ps'
 
 householdsTbl.head(12)
 
-# # +
+
 #### BENEFITS TABLE - Join some tables together adding columns where needed
 #### Add various columns
 allTbls[8][benUntTitle] = abTitle
@@ -412,41 +411,33 @@ allTbls[15] = allTbls[15][columnOrder]
 
 #### Concatenate the tables 
 benefitsTbl = pd.concat([allTbls[8], allTbls[9], allTbls[10], allTbls[11], allTbls[12], allTbls[13], allTbls[14], allTbls[15]])
-# -
 
 
+#allTbls[10]#[ethnicTitle].unique()
 
 
-
-
-allTbls[10]#[ethnicTitle].unique()
-
-# # +
-# # # +
 #### Pathify columns
-#benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
-#benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.replace('/ ', ' ', regex=True)
-#benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.strip().apply(pathify)
-#benefitsTbl[ageTitle] = benefitsTbl[ageTitle].str.strip().apply(pathify)
-#benefitsTbl[regionTitle] = benefitsTbl[regionTitle].str.strip().apply(pathify)
-#benefitsTbl[tenureTitle] = benefitsTbl[tenureTitle].str.strip().apply(pathify)
-#benefitsTbl[econStatTitle] = benefitsTbl[econStatTitle].str.strip().apply(pathify)
-#benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.replace(',', '', regex=True)
-#benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
-#benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
-#benefitsTbl[benefitsTbl[ethnicTitle] is None]#.unique()
+benefitsTbl[steSupTitle] = benefitsTbl[steSupTitle].str.strip().apply(pathify)
+benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.replace('/ ', ' ', regex=True)
+benefitsTbl[ethnicTitle] = benefitsTbl[ethnicTitle].str.strip().apply(pathify)
+benefitsTbl[ageTitle] = benefitsTbl[ageTitle].str.strip().apply(pathify)
+benefitsTbl[regionTitle] = benefitsTbl[regionTitle].str.strip().apply(pathify)
+benefitsTbl[tenureTitle] = benefitsTbl[tenureTitle].str.strip().apply(pathify)
+benefitsTbl[econStatTitle] = benefitsTbl[econStatTitle].str.strip().apply(pathify)
+benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.replace(',', '', regex=True)
+benefitsTbl[annAmtTitle] = benefitsTbl[annAmtTitle].str.strip().apply(pathify)
+benefitsTbl[benUntTitle] = benefitsTbl[benUntTitle].str.strip().apply(pathify)
+benefitsTbl[benefitsTbl[ethnicTitle] is None]#.unique()
 
 
 
-# # + {"endofcell": "--"}
-# # # +
 #### Set up the folder path for the output files
 from pathlib import Path
 
 out = Path('out')
 out.mkdir(exist_ok=True, parents=True)
 
-# # # +
+
 # Output Observation.csv files
 # Create and output Schema.json files
 # Create and output metadata.trig files
@@ -477,66 +468,7 @@ for fn in fleNmes:
     csvw.create(out / (fn + '.csv'), out / ((fn + '.csv') + '-schema.json'))
     i = i + 1
 
-
-
-
-
-
 # -
-
-
-
-
-# --
-
-
-
-
-# ---
-
-
-
-
-
-"""
-tab = [t for t in sheets if t.name == '2_2'][0]
-#'B8', 'C9:M30', 'C8', 'Sample size', regionTitle, incomeTitle, currYr, True, unitVal1, '1')
-ref1 = 'B8'
-ref2 = 'C9:M30'
-ref3 = 'C8'
-mainTitle1 = regionTitle
-mainTitle2 = incomeTitle
-col1 = tab.excel_ref(ref1).fill(DOWN).is_not_blank()
-col2 = tab.excel_ref(ref2).is_not_blank()
-col3 = tab.excel_ref(ref3).expand(RIGHT).is_not_blank() 
-
-Dimensions = [
-    HDim(col1,mainTitle1, DIRECTLY, LEFT),
-    HDim(col3,mainTitle2, DIRECTLY, ABOVE)
-    ]
-
-c1 = ConversionSegment(col2, Dimensions, processTIMEUNIT=True)
-c1 = c1.topandas()
-"""
-
-"""
-c1[mainTitle1] = c1[mainTitle1].str.replace('\n','').str.strip()
-c1[mainTitle2] = c1[mainTitle2].str.replace('\n','').str.strip()
-c1.head(60)
-"""
-
-"""
-refSS = 'Sample size'
-c2 = c1[[mainTitle1,mainTitle2,'OBS']][c1[mainTitle2] == refSS]
-c1 = c1[(c1[mainTitle2].str.strip() != refSS) & (c1[mainTitle2].str.strip() != 'All')]
-tbl = pd.merge(c1, c2, on=mainTitle1)
-tbl = tbl.rename(columns={'OBS_x':valueTitle,mainTitle2 + '_x':mainTitle2,'OBS_y':refSS})
-tbl = tbl.drop(columns=[mainTitle2 +'_y'])
-"""
-
-
-
-
 
 
 
