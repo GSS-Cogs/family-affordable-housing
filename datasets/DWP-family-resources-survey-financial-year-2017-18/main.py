@@ -220,7 +220,7 @@ except Exception as e:
 
 
 allTbls = [tbl1, tbl2_1, tbl2_2, tbl3, tbl4, tbl5, tbl6, tbl7, tbl8, tbl9, tbl10, tbl11, tbl12, tbl13, tbl14_1, tbl14_2]
-t.columns
+
 
 # +
 #### STRIP THE NUMBER OFF THE END OF THE STRING AS WELL AS \N AND COMMA
@@ -228,14 +228,14 @@ for t in allTbls:
     for x in range(10): 
         if (x > 0):
             for ttl in allMainTitles:
-                if ttl in t.columns:
+                if ttl in str(t.columns):
                     t[ttl] = t[ttl].str.replace('\n',' ')
                     t[ttl] = t[ttl].str.strip(str(x))
                     t[ttl] = t[ttl].str.strip(',')
     for x in range(10): 
         if (x > 0):
             for ttl in allMainTitles:
-                if ttl in t.columns:
+                if ttl in str(t.columns):
                     t[ttl] = t[ttl].str.replace('\n',' ')
                     t[ttl] = t[ttl].str.strip(str(x))
                     t[ttl] = t[ttl].str.strip(',')
@@ -492,5 +492,9 @@ for fn in fleNmes:
 
 
 # ---
+
+
+
+
 
 
