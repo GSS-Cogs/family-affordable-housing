@@ -13,6 +13,8 @@
 #     name: python3
 # ---
 
+from pathlib import Path
+
 from gssutils import *
 
 scraper = Scraper('https://www.communities-ni.gov.uk/publications/topic/8182?search=%22Northern+Ireland+Housing+Statistics%22&sort_by=field_published_date')
@@ -60,10 +62,10 @@ next_table['NI Marker'] = next_table.apply(lambda row: user_perc(row['NI Marker'
 
 next_table = next_table[['Period','NI Household Description','NI Household Energy Status','Unit','Value','Measure Type','NI Marker']]
 
+next_table = next_table.rename(columns={'NI Marker': 'Marker'})
 next_table["Value"][next_table["Value"] == ''] = 0
 next_table.head(60)
 
-from pathlib import Path
 out = Path('out')
 out.mkdir(exist_ok=True)
 next_table.drop_duplicates().to_csv(out / 'observations.csv', index = False)
