@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.3.3
+#       jupytext_version: 1.4.2
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -53,12 +53,15 @@ def user_perc(x):
         
         return 'not-defined'
     else:
-        return 'no-marker'
+        return ''
     
 next_table['NI Marker'] = next_table.apply(lambda row: user_perc(row['NI Marker']), axis = 1)
 # -
 
 next_table = next_table[['Period','NI Household Description','NI Household Energy Status','Unit','Value','Measure Type','NI Marker']]
+
+next_table["Value"][next_table["Value"] == ''] = 0
+next_table.head(60)
 
 from pathlib import Path
 out = Path('out')
